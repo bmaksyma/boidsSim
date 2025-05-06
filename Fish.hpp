@@ -1,16 +1,16 @@
 #pragma once
-#include <SFML/Graphics.hpp>
+// #include <SFML/Graphics.hpp>
 #include <vector>
 #include "Vector2Util.hpp"
 
 class Fish {
 public:
     Fish(float x, float y);
-    Fish(float x, float y, const sf::Color& customColor);
+    // Fish(float x, float y, const sf::Color& customColor);
     
     void update();
     void flock(const std::vector<Fish>& fishes);
-    void draw(sf::RenderWindow& window) const;
+    void draw() const;
     
 private:
     void applyForce(const sf::Vector2f& force);
@@ -27,5 +27,5 @@ private:
     sf::Vector2f velocity;
     sf::Vector2f acceleration;
     float size;
-    sf::Color color;
+    unsigned short int color;
 };
