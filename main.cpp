@@ -6,8 +6,8 @@
 #include "Vector2Util.hpp"
 #include "Fish.hpp"
 
-extern const int WIDTH = 1280;
-extern const int HEIGHT = 720;
+extern const int WIDTH = 1920;
+extern const int HEIGHT = 1080;
 extern const int FISH_COUNT = 100;
 extern const float MAX_SPEED = 10.0f;
 extern const float MAX_FORCE = 1.3f;
