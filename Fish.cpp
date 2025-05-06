@@ -12,6 +12,8 @@ extern const float FOOD_ATTRACTION;
 extern const float ALIGNMENT_WEIGHT;
 extern const float COHESION_WEIGHT;
 extern const float SEPARATION_WEIGHT;
+extern const float MARGIN_SIZE;
+extern const float TURN_FORCE;
 extern const float FISH_SIZE;
 
 extern std::mt19937 gen;
@@ -48,25 +50,23 @@ void Fish::update() {
 
 sf::Vector2f Fish::avoidBorders() const {
     sf::Vector2f steering(0, 0);
-    float margin = 40.0f;
-    float turnForce = 5.0f;
     
     // Left edge
-    if (position.x < margin) {
-        steering.x += turnForce * (1.0f - position.x/margin);
+    if (position.x < MARGIN_SIZE) {
+        steering.x += TURN_FORCE * (1.0f - position.x/MARGIN_SIZE);
     }
     // Right edge
-    else if (position.x > WIDTH - margin) {
-        steering.x -= turnForce * (1.0f - (WIDTH - position.x)/margin);
+    else if (position.x > WIDTH - MARGIN_SIZE) {
+        steering.x -= TURN_FORCE * (1.0f - (WIDTH - position.x)/MARGIN_SIZE);
     }
     
     // Top edge
-    if (position.y < margin) {
-        steering.y += turnForce * (1.0f - position.y/margin);
+    if (position.y < MARGIN_SIZE) {
+        steering.y += TURN_FORCE * (1.0f - position.y/MARGIN_SIZE);
     }
     // Bottom edge
-    else if (position.y > HEIGHT - margin) {
-        steering.y -= turnForce * (1.0f - (HEIGHT - position.y)/margin);
+    else if (position.y > HEIGHT - MARGIN_SIZE) {
+        steering.y -= TURN_FORCE * (1.0f - (HEIGHT - position.y)/MARGIN_SIZE);
     }
     
     // Limit the steering force

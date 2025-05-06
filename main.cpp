@@ -10,13 +10,15 @@ extern const int WIDTH = 1280;
 extern const int HEIGHT = 720;
 extern const int FISH_COUNT = 100;
 extern const float MAX_SPEED = 10.0f;
-extern const float MAX_FORCE = 1.0f;
+extern const float MAX_FORCE = 1.3f;
 extern const float PERCEPTION_RADIUS = 25.0f;
-extern const float SEPARATION_RADIUS = 15.0f;
+extern const float SEPARATION_RADIUS = 10.0f;
 extern const float FOOD_ATTRACTION = 0.8f;
 extern const float ALIGNMENT_WEIGHT = 1.0f;
 extern const float COHESION_WEIGHT = 1.0f;
 extern const float SEPARATION_WEIGHT = 1.5f;
+extern const float MARGIN_SIZE = 40.0f;
+extern const float TURN_FORCE = 5.0f;
 extern const float FISH_SIZE = 10.0f;
 
 std::mt19937 gen;
@@ -42,10 +44,7 @@ int main() {
     
     // sf::Vector2f* foodPosition = nullptr;
 
-    sf::Clock clock;
-    while (window.isOpen()) {
-        sf::Time deltaTime = clock.restart();
-        
+    while (window.isOpen()) {        
         sf::Event event;
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
