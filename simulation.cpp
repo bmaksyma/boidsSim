@@ -13,6 +13,8 @@
 #include <iostream>
 #include "Vector2Util.hpp"
 #include "Boid.hpp"
+#include "Prey.hpp"
+#include "Predator.hpp"
 #include "draw_utils.h"
 
 #include "mzapo_parlcd.h"
@@ -21,7 +23,6 @@
 
 extern const int WIDTH = 480;
 extern const int HEIGHT = 320;
-extern const int BOID_COUNT = 30;
 extern const float MAX_SPEED = 10.0f;
 extern const float MAX_FORCE = 1.3f;
 extern const float PERCEPTION_RADIUS = 25.0f;
@@ -32,7 +33,11 @@ extern const float COHESION_WEIGHT = 1.0f;
 extern const float SEPARATION_WEIGHT = 1.5f;
 extern const float MARGIN_SIZE = 40.0f;
 extern const float TURN_FORCE = 5.0f;
-extern const float BOID_SIZE = 10.0f;
+extern const float PREY_SIZE = 10.0f;
+extern const float PREDATOR_SIZE = 20.0f;
+extern const int PREYS_COUNT = 30;
+extern const int PREDATORS_COUNT = 5;
+
 
 unsigned short *fb = nullptr;
 unsigned short background_color = 0xffff;
@@ -53,10 +58,16 @@ int main(int argc, char *argv[]) {
   std::uniform_int_distribution<> posDis_x(0, WIDTH);
   std::uniform_int_distribution<> posDis_y(0, HEIGHT);
 
-  std::vector<Boid> boids;
-    boids.reserve(BOID_COUNT);
-    for (int i = 0; i < BOID_COUNT; i++) {
-        boids.emplace_back(posDis_x(gen), posDis_y(gen));
+  std::vector<Prey> preys;
+    preys.reserve(PREYS_COUNT);
+    for (int i = 0; i < PREYS_COUNT; i++) {
+        preys.emplace_back(posDis_x(gen), posDis_y(gen));
+    }
+
+  std::vector<Predator> predators;
+    predators.reserve(PREDATORS_COUNT);
+    for (int i = 0; i < PREDATORS_COUNT; i++) {
+        predators.emplace_back(posDis_x(gen), posDis_y(gen));
     }
 
   unsigned char *parlcd_mem_base, *mem_base;
@@ -89,10 +100,16 @@ int main(int argc, char *argv[]) {
         fb[i] = background_color;
     }
 
-    for (auto& boid : boids) {
-        boid.update();
-        boid.flock(boids);
-        boid.draw();
+    for (auto& prey : preys) {
+        prey.update();
+        prey.flock(preys);
+        prey.draw();
+    }
+
+    for (auto& predator : predators) {
+        predator.update();
+        predator.hunt(preys);
+        predator.draw();
     }
 
     // Update the display

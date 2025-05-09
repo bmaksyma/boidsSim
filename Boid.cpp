@@ -15,7 +15,8 @@ extern const float COHESION_WEIGHT;
 extern const float SEPARATION_WEIGHT;
 extern const float MARGIN_SIZE;
 extern const float TURN_FORCE;
-extern const float BOID_SIZE;
+extern const float PREY_SIZE;
+extern const int PREYS_COUNT;
 
 extern unsigned short *fb;
 
@@ -23,7 +24,7 @@ extern std::mt19937 gen;
 extern std::uniform_real_distribution<float> dis;
 extern std::uniform_real_distribution<float> speedDis;
 
-Boid::Boid(float x, float y) : position(x, y), size(BOID_SIZE), color(0x981e) {
+Boid::Boid(float x, float y, float size) : position(x, y), size(size), color(0x981e) {
     velocity = sf::Vector2f(dis(gen), dis(gen));
     velocity = Vector2Util::scaleTo(velocity, speedDis(gen));
     acceleration = sf::Vector2f(0, 0);
@@ -66,103 +67,6 @@ sf::Vector2f Boid::avoidBorders() const {
 
 void Boid::applyForce(const sf::Vector2f& force) {
     acceleration += force;
-}
-
-sf::Vector2f Boid::align(const std::vector<Boid>& boids) const {
-    sf::Vector2f steering(0, 0);
-    int total = 0;
-    
-    for (const auto& other : boids) {
-        float distance = Vector2Util::distance(position, other.position);
-        if (&other != this && distance < PERCEPTION_RADIUS) {
-            steering += other.velocity;
-            total++;
-        }
-    }
-    
-    if (total > 0) {
-        steering /= static_cast<float>(total);
-        steering = Vector2Util::normalize(steering);
-        steering *= MAX_SPEED;
-        
-        sf::Vector2f steer = steering - velocity;
-        if (Vector2Util::calc_length(steer) > MAX_FORCE) {
-            steer = Vector2Util::scaleTo(steer, MAX_FORCE);
-        }
-        
-        return steer;
-    }
-    
-    return sf::Vector2f(0, 0);
-}
-
-sf::Vector2f Boid::cohesion(const std::vector<Boid>& boids) const {
-    sf::Vector2f steering(0, 0);
-    int total = 0;
-    
-    for (const auto& other : boids) {
-        float distance = Vector2Util::distance(position, other.position);
-        if (&other != this && distance < PERCEPTION_RADIUS) {
-            steering += other.position;
-            total++;
-        }
-    }
-    
-    if (total > 0) {
-        steering /= static_cast<float>(total);
-        steering -= position;
-        steering = Vector2Util::normalize(steering);
-        steering *= MAX_SPEED;
-        
-        sf::Vector2f steer = steering - velocity;
-        if (Vector2Util::calc_length(steer) > MAX_FORCE) {
-            steer = Vector2Util::scaleTo(steer, MAX_FORCE);
-        }
-        
-        return steer;
-    }
-    
-    return sf::Vector2f(0, 0);
-}
-
-sf::Vector2f Boid::separation(const std::vector<Boid>& boids) const {
-    sf::Vector2f steering(0, 0);
-    int total = 0;
-    
-    for (const auto& other : boids) {
-        float distance = Vector2Util::distance(position, other.position);
-        if (&other != this && distance < SEPARATION_RADIUS) {
-            sf::Vector2f diff = position - other.position;
-            diff /= distance;
-            steering += diff;
-            total++;
-        }
-    }
-    
-    if (total > 0) {
-        steering /= static_cast<float>(total);
-        steering = Vector2Util::normalize(steering);
-        steering *= MAX_SPEED;
-        
-        sf::Vector2f steer = steering - velocity;
-        if (Vector2Util::calc_length(steer) > MAX_FORCE) {
-            steer = Vector2Util::scaleTo(steer, MAX_FORCE);
-        }
-        
-        return steer;
-    }
-    
-    return sf::Vector2f(0, 0);
-}
-
-void Boid::flock(const std::vector<Boid>& boids) {
-    sf::Vector2f alignment = this->align(boids) * ALIGNMENT_WEIGHT;
-    sf::Vector2f cohesion = this->cohesion(boids) * COHESION_WEIGHT;
-    sf::Vector2f separation = this->separation(boids) * SEPARATION_WEIGHT;
-    
-    applyForce(alignment);
-    applyForce(cohesion);
-    applyForce(separation);
 }
 
 void Boid::draw() const {
