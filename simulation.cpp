@@ -37,6 +37,8 @@ extern const float PREY_SIZE = 10.0f;
 extern const float PREDATOR_SIZE = 20.0f;
 extern const int PREYS_COUNT = 30;
 extern const int PREDATORS_COUNT = 5;
+extern const float KILL_DISTANCE = 5.0f;
+
 
 
 unsigned short *fb = nullptr;
@@ -107,10 +109,18 @@ int main(int argc, char *argv[]) {
     }
 
     for (auto& predator : predators) {
-        predator.update();
-        predator.hunt(preys);
-        predator.draw();
-    }
+      predator.update();
+      predator.hunt(preys);
+      
+      bool killed = predator.tryToKill(preys);
+      
+      if (killed) {
+        if (preys.size() < PREYS_COUNT) {
+          preys.emplace_back(posDis_x(gen), posDis_y(gen));
+        }
+      }
+      predator.draw();
+  }
 
     // Update the display
     parlcd_write_cmd(parlcd_mem_base, 0x2c);

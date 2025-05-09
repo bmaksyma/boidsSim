@@ -16,12 +16,17 @@ extern const float MARGIN_SIZE;
 extern const float TURN_FORCE;
 extern const float PREDATOR_SIZE;
 extern const int PREDATORS_COUNT;
+extern const float KILL_DISTANCE;
 
 Predator::Predator(float x, float y) : Boid(x, y, PREDATOR_SIZE) {
     color = 0xF800;
 }
 
 void Predator::hunt(const std::vector<Prey>& preys) {
+    if (preys.empty()) {
+        return;
+    }
+
     sf::Vector2f closestPrey;
     float closestDistance = std::numeric_limits<float>::max();
 
@@ -42,9 +47,19 @@ void Predator::hunt(const std::vector<Prey>& preys) {
         if (Vector2Util::calc_length(steer) > MAX_FORCE) {
             steer = Vector2Util::scaleTo(steer, MAX_FORCE);
         }
-
         applyForce(steer);
     }
+}
+
+bool Predator::tryToKill(std::vector<Prey>& preys) {
+    for (auto it = preys.begin(); it != preys.end(); ++it) {
+        float distance = Vector2Util::distance(position, it->position);
+        if (distance < KILL_DISTANCE) {
+            preys.erase(it);
+            return true;
+        }
+    }
+    return false;
 }
 
 void Predator::applyForce(const sf::Vector2f& force) {
