@@ -12,7 +12,7 @@
 #include <cmath>
 #include <iostream>
 #include "Vector2Util.hpp"
-#include "Fish.hpp"
+#include "Boid.hpp"
 #include "draw_utils.h"
 
 #include "mzapo_parlcd.h"
@@ -21,7 +21,7 @@
 
 extern const int WIDTH = 480;
 extern const int HEIGHT = 320;
-extern const int FISH_COUNT = 30;
+extern const int BOID_COUNT = 30;
 extern const float MAX_SPEED = 10.0f;
 extern const float MAX_FORCE = 1.3f;
 extern const float PERCEPTION_RADIUS = 25.0f;
@@ -32,7 +32,7 @@ extern const float COHESION_WEIGHT = 1.0f;
 extern const float SEPARATION_WEIGHT = 1.5f;
 extern const float MARGIN_SIZE = 40.0f;
 extern const float TURN_FORCE = 5.0f;
-extern const float FISH_SIZE = 10.0f;
+extern const float BOID_SIZE = 10.0f;
 
 unsigned short *fb = nullptr;
 unsigned short background_color = 0xffff;
@@ -53,10 +53,10 @@ int main(int argc, char *argv[]) {
   std::uniform_int_distribution<> posDis_x(0, WIDTH);
   std::uniform_int_distribution<> posDis_y(0, HEIGHT);
 
-  std::vector<Fish> fishes;
-    fishes.reserve(FISH_COUNT);
-    for (int i = 0; i < FISH_COUNT; i++) {
-        fishes.emplace_back(posDis_x(gen), posDis_y(gen));
+  std::vector<Boid> boids;
+    boids.reserve(BOID_COUNT);
+    for (int i = 0; i < BOID_COUNT; i++) {
+        boids.emplace_back(posDis_x(gen), posDis_y(gen));
     }
 
   unsigned char *parlcd_mem_base, *mem_base;
@@ -89,10 +89,10 @@ int main(int argc, char *argv[]) {
         fb[i] = background_color;
     }
 
-    for (auto& fish : fishes) {
-        fish.update();
-        fish.flock(fishes);
-        fish.draw();
+    for (auto& boid : boids) {
+        boid.update();
+        boid.flock(boids);
+        boid.draw();
     }
 
     // Update the display

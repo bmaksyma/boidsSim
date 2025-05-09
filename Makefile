@@ -9,10 +9,10 @@ LDFLAGS += -static
 LDLIBS += -lrt -lpthread
 #LDLIBS += -lm
 
-SOURCES = simulation.cpp mzapo_phys.c mzapo_parlcd.c serialize_lock.c Fish.cpp
+SOURCES = simulation.cpp mzapo_phys.c mzapo_parlcd.c serialize_lock.c Boid.cpp
 #SOURCES += font_prop14x16.c font_rom8x16.c
 TARGET_EXE = simulation
-TARGET_IP ?= 192.168.223.119
+TARGET_IP ?= 192.168.223.132
 ifeq ($(TARGET_IP),)
 ifneq ($(filter debug run,$(MAKECMDGOALS)),)
 $(warning The target IP address is not set)
@@ -25,8 +25,8 @@ TARGET_USER ?= root
 # for use from Eduroam network use TARGET_IP=localhost and enable next line
 #SSH_OPTIONS=-o "UserKnownHostsFile=/dev/null" -o "StrictHostKeyChecking=no" -o "Port=2222"
 #SSH_GDB_TUNNEL_REQUIRED=y
-SSH_OPTIONS=-i /home/----------/mzapo-root-key
-SSH_OPTIONS+=-o 'ProxyJump=----------@postel.felk.cvut.cz'
+SSH_OPTIONS=-i /home/biloumak/mzapo-root-key
+SSH_OPTIONS+=-o 'ProxyJump=biloumak@postel.felk.cvut.cz'
 
 OBJECTS += $(filter %.o,$(SOURCES:%.c=%.o))
 OBJECTS += $(filter %.o,$(SOURCES:%.cpp=%.o))
