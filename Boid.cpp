@@ -1,7 +1,8 @@
 #include "Boid.hpp"
 #include <random>
-#include "draw_utils.h"
 #include <cmath>
+#include <SFML/Graphics.hpp>
+#include "Vector2Util.hpp"
 
 extern const int WIDTH;
 extern const int HEIGHT;
@@ -69,60 +70,22 @@ void Boid::applyForce(const sf::Vector2f& force) {
     acceleration += force;
 }
 
-void Boid::draw() const {
-    float angle = std::atan2(velocity.y, velocity.x);
+void Boid::draw(sf::RenderWindow& window) const {
+    // Calculate the angle for rotation
+    float angle = std::atan2(velocity.y, velocity.x) * 180 / M_PI;
+    // Draw the fish body (triangle)
+    sf::ConvexShape triangle;
+    triangle.setPointCount(3);
+    float rad1 = angle * M_PI / 180;
+    float rad2 = (angle + 140) * M_PI / 180;
+    float rad3 = (angle - 140) * M_PI / 180;
+    triangle.setPoint(0, sf::Vector2f(position.x + size * std::cos(rad1), 
+                                     position.y + size * std::sin(rad1)));
+    triangle.setPoint(1, sf::Vector2f(position.x + size/2 * std::cos(rad2), 
+                                     position.y + size/2 * std::sin(rad2)));
+    triangle.setPoint(2, sf::Vector2f(position.x + size/2 * std::cos(rad3), 
+                                     position.y + size/2 * std::sin(rad3)));
 
-    float rad1 = angle;
-    float rad2 = angle + 140 * M_PI / 180;
-    float rad3 = angle - 140 * M_PI / 180;
-
-    int x1 = static_cast<int>(position.x + size * std::cos(rad1));
-    int y1 = static_cast<int>(position.y + size * std::sin(rad1));
-    int x2 = static_cast<int>(position.x + size / 2 * std::cos(rad2));
-    int y2 = static_cast<int>(position.y + size / 2 * std::sin(rad2));
-    int x3 = static_cast<int>(position.x + size / 2 * std::cos(rad3));
-    int y3 = static_cast<int>(position.y + size / 2 * std::sin(rad3));
-
-    auto sortVertices = [](int& x1, int& y1, int& x2, int& y2, int& x3, int& y3) {
-        if (y1 > y2) {
-            std::swap(x1, x2);
-            std::swap(y1, y2);
-        }
-        if (y1 > y3) {
-            std::swap(x1, x3);
-            std::swap(y1, y3);
-        }
-        if (y2 > y3) {
-            std::swap(x2, x3);
-            std::swap(y2, y3);
-        }
-    };
-
-    sortVertices(x1, y1, x2, y2, x3, y3);
-
-    auto drawHorizontalLine = [&](int x0, int x1, int y) {
-        if (y >= 0 && y < 320) {
-            if (x0 > x1) std::swap(x0, x1);
-            for (int x = std::max(0, x0); x <= std::min(479, x1); x++) {
-                draw_pixel(x, y, color);
-            }
-        }
-    };
-
-    auto interpolate = [](int x0, int y0, int x1, int y1, int y) -> int {
-        if (y1 == y0) return x0;
-        return x0 + (x1 - x0) * (y - y0) / (y1 - y0);
-    };
-
-    for (int y = y1; y <= y3; y++) {
-        if (y < y2) {
-            int xA = interpolate(x1, y1, x3, y3, y);
-            int xB = interpolate(x1, y1, x2, y2, y);
-            drawHorizontalLine(xA, xB, y);
-        } else {
-            int xA = interpolate(x1, y1, x3, y3, y);
-            int xB = interpolate(x2, y2, x3, y3, y);
-            drawHorizontalLine(xA, xB, y);
-        }
-    }
+    triangle.setFillColor(color);
+    window.draw(triangle);
 }

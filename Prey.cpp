@@ -1,5 +1,6 @@
 #include "Prey.hpp"
 
+
 extern const int WIDTH;
 extern const int HEIGHT;
 extern const float MAX_SPEED;
@@ -16,7 +17,7 @@ extern const float PREY_SIZE;
 extern const int PREYS_COUNT;
 
 Prey::Prey(float x, float y) : Boid(x, y, PREY_SIZE) {
-    color = 0x001F;
+    color = sf::Color(0x981e);
 }
 
 void Prey::applyForce(const sf::Vector2f& force) {

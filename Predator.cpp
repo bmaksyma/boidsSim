@@ -19,7 +19,7 @@ extern const int PREDATORS_COUNT;
 extern const float KILL_DISTANCE;
 
 Predator::Predator(float x, float y) : Boid(x, y, PREDATOR_SIZE) {
-    color = 0xF800;
+    color = sf::Color(255, 0, 0);
 }
 
 void Predator::hunt(const std::vector<Prey>& preys) {
