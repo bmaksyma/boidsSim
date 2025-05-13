@@ -9,7 +9,7 @@ LDFLAGS += -static
 LDLIBS += -lrt -lpthread
 #LDLIBS += -lm
 
-SOURCES = simulation.cpp mzapo_phys.c mzapo_parlcd.c serialize_lock.c Boid.cpp Window.cpp Button.cpp
+SOURCES = simulation.cpp mzapo_phys.c mzapo_parlcd.c serialize_lock.c Boid.cpp Window.cpp Button.cpp SceneManager.cpp Predator.cpp Prey.cpp
 #SOURCES += font_prop14x16.c font_rom8x16.c
 TARGET_EXE = simulation
 TARGET_IP ?= 192.168.223.132
@@ -93,4 +93,4 @@ debug: copy-executable $(TARGET_EXE)
 	echo >>connect.gdb "c"
 	ddd --debugger gdb-multiarch -x connect.gdb $(TARGET_EXE)
 
--include depend
+-include depend 

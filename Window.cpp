@@ -24,21 +24,28 @@ void Window::nextBtn() {
 }
 
 void Window::drawBtn(unsigned char* fb) {
+    
+    
     parlcd_write_cmd(fb, 0x2C);  // Start RAM write
-
     for (Button& btn : buttons) {
         for (int i = 0; i < btn.height; i++) {
             for (int j = 0; j < btn.width; j++) {
                 uint16_t color = btn.selected ? 0xFFFF : btn.color;
-                parlcd_write_data(fb, color);
+                int screen_x = btn.x + j;
+                int screen_y = btn.y + i;
+
+                // Only draw inside screen bounds
+                if (screen_x >= 0 && screen_x < WIDTH && screen_y >= 0 && screen_y < HEIGHT) {
+                    parlcd_write_data(fb, color);
+                }
             }
         }
     }
 }
 
-void Window:: drawWindow(unsigned char * fb, uint16_t color){
+void Window:: drawWindow(unsigned char * fb){
 
-    uint16_t bg_color = (color == 0) ? 0x0000 : color;
+    uint16_t bg_color = 0x0000;
 
     parlcd_write_cmd(fb, 0x2C);
     for (int i = 0; i < HEIGHT; ++i) {
@@ -46,7 +53,7 @@ void Window:: drawWindow(unsigned char * fb, uint16_t color){
             parlcd_write_data(fb, bg_color);
         }
     }
-    this.drawBtn(fb);
+    drawBtn(fb);
 
 }
 

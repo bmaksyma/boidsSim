@@ -16,6 +16,9 @@
 #include "Prey.hpp"
 #include "Predator.hpp"
 #include "draw_utils.h"
+#include "Window.h"
+#include "Button.h"
+#include "SceneManager.h"
 
 #include "mzapo_parlcd.h"
 #include "mzapo_phys.h"
@@ -92,11 +95,44 @@ int main(int argc, char *argv[]) {
   struct timespec loop_delay;
   loop_delay.tv_sec = 0;
   loop_delay.tv_nsec = 150 * 1000 * 1000;
+
+  Window mainWindow;
+  Window gameWindow;
+  Window settingsWindow;
+  
+  UIManager ui;
+
+  // Window mainMenu(0x001F);  // Blue background
+  // ui.render(parlcd_mem_base);
+ Window window;
+
+    // Add three buttons
+    window.buttons.push_back(Button(50, 50, 120, 40, 0xF800, "Start", []() {
+        std::cout << "Start pressed\n";
+    }));
+
+    window.buttons.push_back(Button(50, 110, 120, 40, 0x07E0, "Settings", []() {
+        std::cout << "Settings pressed\n";
+    }));
+
+    window.buttons.push_back(Button(50, 170, 120, 40, 0x001F, "Exit", []() {
+        std::cout << "Exit pressed\n";
+    }));
+
+    // Set first button as selected
+    window.buttons[0].selected = true;
+    window.selected_index = 0;
+
+    // Draw the window
+    window.drawWindow(parlcd_mem_base);
+   usleep(5000 * 1000);
+
   while (1) {
     int r = *(volatile uint32_t *)(mem_base + SPILED_REG_KNOBS_8BIT_o);
     if ((r & 0x7000000) != 0) {
         break;
     }
+
 
     for (int i = 0; i < 320 * 480; i++) {
         fb[i] = background_color;
