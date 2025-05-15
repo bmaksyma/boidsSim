@@ -11,6 +11,8 @@ public:
     sf::Vector2f acceleration;
     float size;
     sf::Color color;
+ 
+    sf::Vector2f getPosition() const { return position; }
 
     sf::Vector2f avoidBorders() const;
     void applyForce(const sf::Vector2f& force);
