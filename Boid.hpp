@@ -11,6 +11,7 @@ public:
     sf::Vector2f acceleration;
     float size;
     sf::Color color;
+    // sf::Color color;
  
     sf::Vector2f getPosition() const { return position; }
 

@@ -25,7 +25,7 @@ extern std::mt19937 gen;
 extern std::uniform_real_distribution<float> dis;
 extern std::uniform_real_distribution<float> speedDis;
 
-Boid::Boid(float x, float y, float size) : position(x, y), size(size), color(0x981e) {
+Boid::Boid(float x, float y, float size) : position(x, y), size(size) {
     velocity = sf::Vector2f(dis(gen), dis(gen));
     velocity = Vector2Util::scaleTo(velocity, speedDis(gen));
     acceleration = sf::Vector2f(0, 0);

@@ -8,8 +8,8 @@
 #include "Predator.hpp"
 #include "Prey.hpp"
 
-extern const int WIDTH = 1920;
-extern const int HEIGHT = 1080;
+extern const int WIDTH = 480;
+extern const int HEIGHT = 320;
 extern const float MAX_SPEED = 10.0f;
 extern const float MAX_FORCE = 1.3f;
 extern const float PERCEPTION_RADIUS = 25.0f;
@@ -22,7 +22,7 @@ extern const float MARGIN_SIZE = 40.0f;
 extern const float TURN_FORCE = 5.0f;
 extern const float PREY_SIZE = 10.0f;
 extern const float PREDATOR_SIZE = 20.0f;
-extern const int PREYS_COUNT = 5000;
+extern const int PREYS_COUNT = 100;
 extern const int PREDATORS_COUNT = 5;
 extern const float KILL_DISTANCE = 5.0f;
 
@@ -129,32 +129,19 @@ int main() {
             prey.draw(window);
         }
 
-        // for (int dx = -1; dx <= 1; dx++) {
-        //     for (int dy = -1; dy <= 1; dy++) {
-        //         int nx = cell.x + dx;
-        //         int ny = cell.y + dy;
-                
-        //         if (nx < 0 || nx >= GRID_WIDTH || ny < 0 || ny >= GRID_HEIGHT)
-        //             continue;
-                
-        //         for (int preyIdx : grid[nx][ny]) {
-        //             float distance = Vector2Util::distance(predator.getPosition(), preys[preyIdx].getPosition());
-        //             if (distance < PERCEPTION_RADIUS * 3) {  // Predators can see further
-        //                 nearbyPrey.push_back(&preys[preyIdx]);
-        //             }
-        //         }
-        //     }
-        // }
-        
-        // predator.huntNearbyPrey(nearbyPrey);
-        // bool killed = predator.tryToKillNearby(nearbyPrey, preys);
-        
-        // if (killed) {
-        //     if (preys.size() < PREYS_COUNT) {
-        //         preys.emplace_back(posDis_x(gen), posDis_y(gen));
-        //     }
-        // }
-        // predator.draw(window);
+        for (auto& predator : predators) {
+      predator.update();
+      predator.hunt(preys);
+      
+      bool killed = predator.tryToKill(preys);
+      
+      if (killed) {
+        if (preys.size() < PREYS_COUNT) {
+          preys.emplace_back(posDis_x(gen), posDis_y(gen));
+        }
+      }
+      predator.draw(window);
+    }
 
 
 
