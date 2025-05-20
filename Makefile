@@ -9,10 +9,10 @@ LDFLAGS += -static
 LDLIBS += -lrt -lpthread
 #LDLIBS += -lm
 
-SOURCES = simulation.cpp mzapo_phys.c mzapo_parlcd.c serialize_lock.c Boid.cpp Window.cpp Button.cpp SceneManager.cpp Predator.cpp Prey.cpp
-#SOURCES += font_prop14x16.c font_rom8x16.c
+SOURCES = mzapo_phys.c mzapo_parlcd.c serialize_lock.c Window.cpp Button.cpp SceneManager.cpp flushFramebuffer.cpp draw_utils.cpp UILogic.cpp font_manager.cpp text_draw.cpp
+SOURCES += font_prop14x16.c font_rom8x16.c
 TARGET_EXE = simulation
-TARGET_IP ?= 192.168.223.132
+TARGET_IP ?= 192.168.223.148
 ifeq ($(TARGET_IP),)
   ifneq ($(filter debug run,$(MAKECMDGOALS)),)
     $(warning The target IP address is not set)
