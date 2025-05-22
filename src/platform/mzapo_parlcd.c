@@ -20,8 +20,8 @@
 #include <stdint.h>
 #include <time.h>
 
-#include "mzapo_parlcd.h"
-#include "mzapo_regs.h"
+#include "platform/mzapo_parlcd.h"
+#include "platform/mzapo_regs.h"
 
 void parlcd_write_cr(unsigned char *parlcd_mem_base, uint16_t data)
 {
