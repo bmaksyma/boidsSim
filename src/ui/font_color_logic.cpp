@@ -6,7 +6,7 @@
 
 
 
-void handleColorChoice(int delta, int& selectedColorID, unit16_t& activeButtonColor,
+void handleColorChoice(int delta, int& selectedColorID, uint16_t& activeButtonColor,
     std::vector<uint16_t>& buttonColors,
     Window* activeWindow){
     if (delta != 0) {
@@ -25,3 +25,18 @@ void handleColorChoice(int delta, int& selectedColorID, unit16_t& activeButtonCo
     }
 }
 
+
+void handleFontChoice(int delta, int& selectedFontID, 
+    std::vector<font_descriptor_t*>& availableFonts,Window* activeWindow){
+             
+    if (delta != 0) {
+        // Knob rotation to go through fonts
+        if (delta > 0) {
+            selectedFontID = (selectedFontID + 1) % availableFonts.size();
+        } else 
+            selectedFontID = (selectedFontID - 1 + availableFonts.size()) % availableFonts.size();
+        
+        activeWindow->current_font = availableFonts[selectedFontID];
+        std::cout << "Selected Font index: " << selectedFontID << "\n";
+    }
+}

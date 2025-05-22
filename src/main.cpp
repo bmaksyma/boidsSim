@@ -16,7 +16,7 @@
 #include "platform/mzapo_phys.h"
 #include "platform/mzapo_regs.h"
 #include "ui/ui_setup.h"
-// #include "font_color_logic.h"
+#include "font_color_logic.h"
 const int WIDTH = 480;
 const int HEIGHT = 320;
 
@@ -116,23 +116,8 @@ int main() {
        
         if (choosingColor) {
             // handleColorChoice(delta, selectedColorID, activeButtonColor, buttonColors, activeWindow);
+            handleColorChoice( delta, selectedColorID, activeButtonColor,buttonColors,activeWindow);
 
-            // In color selection mode
-            if (delta != 0) {
-                // Knob rotation to go through colors  
-                if (delta > 0) {
-                    selectedColorID = (selectedColorID + 1) % buttonColors.size();
-                } else {
-                    selectedColorID = (selectedColorID - 1 + buttonColors.size()) % buttonColors.size();
-                }
-                std::cout << "Selected Color: " << colorNames[selectedColorID] << "\n";
-                // Immediately apply color on current active window
-                activeButtonColor = buttonColors[selectedColorID];
-                for (auto& btn : activeWindow->buttons) {
-                    btn.color = activeButtonColor;
-                }
-            }
-            // Press knob to confirm color and exit 
             if (green_knob_just_pressed) {
                 choosingColor = false;
                 std::cout << "Color confirmed and applied!\n";
@@ -141,18 +126,8 @@ int main() {
         }
         else if (choosingFont) {
             // In font
-            if (delta != 0) {
-                // Knob rotation to go through fonts
-                if (delta > 0) {
-                    fontID = (fontID + 1) % availableFonts.size();
-                } else 
-                    fontID = (fontID - 1 + availableFonts.size()) % availableFonts.size();
-                
-                activeWindow->current_font = availableFonts[fontID];
-                std::cout << "Selected Font index: " << fontID << "\n";
-            }
             
-            // Press knob to confirm font and exit
+            handleFontChoice(delta, fontID, availableFonts, activeWindow);
             if (green_knob_just_pressed) {
                 choosingFont = false;
                 std::cout << "Font confirmed and applied!\n";
