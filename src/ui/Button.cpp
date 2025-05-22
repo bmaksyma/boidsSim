@@ -3,7 +3,7 @@
 #include <cstdint>
 #include "Button.h"
 #include "font_types.h"
-#include "draw_utils.h"
+#include "utils/draw_utils.h"
 #include "mzapo_parlcd.h"
 // #include "font_manager.h"
 #include "text_draw.h"
@@ -16,12 +16,7 @@ void Button::activate() {
         action();
     }
 }
-// void Button::draw(unsigned short* fb)  {
-//     uint16_t draw_color = selected ? 0xFFE0 : color;
-//     for (int i = 0; i < width * height; ++i) {
-//         fb[i] = color;
-//     }
-// }
+
 void Button::draw(unsigned short* fb, font_descriptor_t* font) {
     if (!font) {
         std::cerr << "Error: font is nullptr in Button::draw\n";

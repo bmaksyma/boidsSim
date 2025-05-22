@@ -1,13 +1,13 @@
 #include <vector>
 #include <iostream>
-#include "Button.h"
+#include "ui/Button.h"
 #include "Window.h"
-#include "draw_utils.h"
-#include "mzapo_parlcd.h"
-#include "flushFrameBuffer.h"
-#include "font_types.h"
+#include "utils/draw_utils.h"
+#include "platform/mzapo_parlcd.h"
+#include "utils/flushFrameBuffer.h"
+#include "fonts/font_types.h"
 // #include "font_manager.h"
-#include "text_draw.h"
+#include "utils/text_draw.h"
 
 // Global font list (can be shared across files)
 // std::vector<font_descriptor_t*> available_fonts = {

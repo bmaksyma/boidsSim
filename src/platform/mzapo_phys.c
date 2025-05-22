@@ -21,7 +21,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-#include "mzapo_phys.h"
+#include "platform/mzapo_phys.h"
 
 const char *map_phys_memdev="/dev/mem";
 

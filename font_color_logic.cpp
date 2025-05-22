@@ -1,11 +1,12 @@
 #include "font_color_logic.h"
 #include <iostream>
 #include <vector>
+#include <cstdint>
 #include "Window.h"
 
 
 
-void handleColorChoice(int delta, int& selectedColorID, unit16_t activeButtonColor,
+void handleColorChoice(int delta, int& selectedColorID, unit16_t& activeButtonColor,
     std::vector<uint16_t>& buttonColors,
     Window* activeWindow){
     if (delta != 0) {

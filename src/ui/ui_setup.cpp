@@ -2,6 +2,7 @@
 #include "Window.h"
 #include <iostream>
 #include <unistd.h>
+#include <cstdint>
 
 // Color definitions
 const uint16_t COLOR_BLACK       = 0x0000;
@@ -28,7 +29,7 @@ const uint16_t COLOR_DARK_GRAY   = 0x4208;
 const int WIDTH = 480;
 const int HEIGHT = 320;
 
-void drawMainWindow(Window& mainWindow, Window& settingsWindow, Window*& activeWindow, uint16_t activeButtonColor){
+void drawMainWindow(Window& mainWindow, Window& settingsWindow, Window*& activeWindow, uint16_t activeButtonColor, bool& choosingColor, bool& choosingFont){
     int w = 100, h = 40, spacing = 10;
     int total_height = 3 * h + 2 * spacing;
     int start_y = (HEIGHT - total_height) / 2;

@@ -2,8 +2,8 @@
 #include <functional>
 #include <cstdint>
 #include <cstdint>
-#include "font_types.h"
-#include "font_manager.h"
+#include "fonts/font_types.h"
+#include "fonts/font_manager.h"
 
 #ifndef BUTTON_h
 #define BUTTON_h

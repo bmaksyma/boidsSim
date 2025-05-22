@@ -1,6 +1,6 @@
 #include <vector>
-#include "Button.h"
-#include "font_manager.h"
+#include "ui/Button.h"
+#include "fonts/font_manager.h"
 #ifndef WINDOW_H
 #define WINDOW_H
 

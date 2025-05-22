@@ -2,8 +2,8 @@
 #define DRAW_UTILS_H
 #include <string>
 #include <cstdint>
-#include "font_types.h"
-#include "font_manager.h"
+#include "fonts/font_types.h"
+#include "fonts/font_manager.h"
 
 extern unsigned short *fb;
 

@@ -1,7 +1,7 @@
 #ifndef TEXT_DRAW_H
 #define TEXT_DRAW_H
 
-#include "font_types.h"
+#include "fonts/font_types.h"
 
 // drawing single character at (x, y)
 void draw_char(unsigned short* fb, int x, int y, font_descriptor_t* fdes, char ch, unsigned short color);

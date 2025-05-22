@@ -1,6 +1,6 @@
 #include "draw_utils.h"
 #include "mzapo_parlcd.h"
-#include "font_types.h"   
+#include "fonts/font_types.h"   
 #include <iostream>
 
 #define WIDTH 480

@@ -6,18 +6,17 @@
 #include <cstdio>
 #include <time.h>
 
-#include "font_manager.h"
+#include "fonts/font_manager.h"
 
 #include "Window.h"
-#include "Button.h"
-#include "flushFrameBuffer.h"
-#include "draw_utils.h"
-#include "mzapo_parlcd.h"
-#include "mzapo_phys.h"
-#include "mzapo_regs.h"
-#include "ui_setup.h"
-
-// Screen dimensions
+#include "ui/Button.h"
+#include "utils/flushFrameBuffer.h"
+#include "utils/draw_utils.h"
+#include "platform/mzapo_parlcd.h"
+#include "platform/mzapo_phys.h"
+#include "platform/mzapo_regs.h"
+#include "ui/ui_setup.h"
+// #include "font_color_logic.h"
 const int WIDTH = 480;
 const int HEIGHT = 320;
 
@@ -86,8 +85,8 @@ int main() {
     mainWindow.background_color = COLOR_NAVY;
     settingsWindow.background_color = COLOR_NAVY;
 
-    drawMainWindow(mainWindow, settingsWindow, activeWindow, activeButtonColor);
-    drawSettingsWindow(mainWindow, settingsWindow, activeWindow, activeButtonColor);
+    drawMainWindow(mainWindow, settingsWindow, activeWindow, activeButtonColor, choosingColor, choosingFont);
+    drawSettingsWindow(mainWindow, settingsWindow, activeWindow, activeButtonColor, choosingColor, choosingFont);
     settingsWindow.buttons[0].selected = true;
     settingsWindow.selected_index = 0;
 
@@ -114,25 +113,26 @@ int main() {
         int delta = green_knob - last_green_knob;
         if (delta > 128) delta -= 256;
         if (delta < -128) delta += 256;
-        
-        // Handle different modes based on current state
+       
         if (choosingColor) {
+            // handleColorChoice(delta, selectedColorID, activeButtonColor, buttonColors, activeWindow);
+
             // In color selection mode
             if (delta != 0) {
-                // Rotate through colors based on knob rotation
+                // Knob rotation to go through colors  
                 if (delta > 0) {
                     selectedColorID = (selectedColorID + 1) % buttonColors.size();
                 } else {
                     selectedColorID = (selectedColorID - 1 + buttonColors.size()) % buttonColors.size();
                 }
                 std::cout << "Selected Color: " << colorNames[selectedColorID] << "\n";
-                // Immediately apply color to show preview on current active window
+                // Immediately apply color on current active window
                 activeButtonColor = buttonColors[selectedColorID];
                 for (auto& btn : activeWindow->buttons) {
                     btn.color = activeButtonColor;
                 }
             }
-            // Press knob to confirm color selection and exit color mode
+            // Press knob to confirm color and exit 
             if (green_knob_just_pressed) {
                 choosingColor = false;
                 std::cout << "Color confirmed and applied!\n";
@@ -140,20 +140,19 @@ int main() {
             }
         }
         else if (choosingFont) {
-            // In font selection mode
+            // In font
             if (delta != 0) {
-                // Rotate through fonts based on knob rotation
+                // Knob rotation to go through fonts
                 if (delta > 0) {
                     fontID = (fontID + 1) % availableFonts.size();
-                } else {
+                } else 
                     fontID = (fontID - 1 + availableFonts.size()) % availableFonts.size();
-                }
                 
                 activeWindow->current_font = availableFonts[fontID];
                 std::cout << "Selected Font index: " << fontID << "\n";
             }
             
-            // Press knob to confirm font selection and exit font mode
+            // Press knob to confirm font and exit
             if (green_knob_just_pressed) {
                 choosingFont = false;
                 std::cout << "Font confirmed and applied!\n";
@@ -161,18 +160,15 @@ int main() {
             }
         }
         else {
-            // Normal navigation mode
+            // Normal choosign mode
             if (delta != 0) {
                 if (delta > 0) activeWindow->nextBtn();
                 else if (delta < 0) activeWindow->previousBtn();
             }
-            
             if (green_knob_just_pressed) {
                 Button& selectedBtn = activeWindow->buttons[activeWindow->selected_index];
                 
-                if (selectedBtn.text == "Exit") {
-                    break;
-                }
+                if (selectedBtn.text == "Exit") {break;}
                 else if (selectedBtn.text == "Color") {
                     choosingColor = true;
                     std::cout << "Entering color selection mode - rotate knob to cycle colors, press to confirm\n";
@@ -182,15 +178,13 @@ int main() {
                     std::cout << "Entering font selection mode - rotate knob to cycle fonts, press to confirm\n";
                 }
                 else selectedBtn.activate();
-                
+
                 usleep(200 * 1000);
             }
         }
         // Update state for next iteration
         last_green_knob = green_knob;
         last_green_knob_pressed = green_knob_pressed;
-        
-        // Render the display
         
         for (int i = 0; i < WIDTH * HEIGHT; ++i)
             fb[i] = activeWindow->background_color;
@@ -200,8 +194,6 @@ int main() {
 
         flushFramebuffer(parlcd_mem_base, fb);
     }
-
-
     flushFramebuffer(parlcd_mem_base, fb);
     free(fb);
     return 0;
@@ -232,3 +224,6 @@ if (!handled) {
 }
 
 */
+
+
+

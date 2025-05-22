@@ -56,7 +56,10 @@
         "xmemory": "cpp",
         "xstring": "cpp",
         "xtr1common": "cpp",
-        "xutility": "cpp"
+        "xutility": "cpp",
+        "mzapo_parlcd.h": "c",
+        "mzapo_regs.h": "c",
+        "mzapo_phys.h": "c"
     },
     "codetogether.virtualCursorJoin": "ownVirtualCursor"
 }
