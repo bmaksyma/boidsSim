@@ -22,5 +22,6 @@ namespace Vector2Util {
     inline float distance(const sf::Vector2f& v1, const sf::Vector2f& v2) {
         sf::Vector2f diff = v1 - v2;
         return calc_length(diff);
+        // return diff.x * diff.x + diff.y * diff.y;
     }
 }

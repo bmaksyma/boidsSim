@@ -4,9 +4,9 @@
 #include "fonts/font_types.h"
 
 // drawing single character at (x, y)
-void draw_char(unsigned short* fb, int x, int y, font_descriptor_t* fdes, char ch, unsigned short color);
+void draw_char(unsigned short* fb, int x, int y, font_descriptor_t* fdes, char ch, unsigned short color, int scale);
 
 // drawing string starting at (x, y)
-void draw_text(unsigned short* fb, int x, int y, font_descriptor_t* fdes, const char* text, unsigned short color);
+void draw_text(unsigned short* fb, int x, int y, font_descriptor_t* fdes, const char* text, unsigned short color,int scale);
 
 #endif // TEXT_DRAWER_H

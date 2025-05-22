@@ -8,29 +8,30 @@ void draw_pixel(unsigned short* fb, int x, int y, unsigned short color) {
     }
 }
 
-void draw_char(unsigned short* fb, int x, int y, font_descriptor_t* fdes, char ch, unsigned short color) {
+void draw_char(unsigned short* fb, int x, int y, font_descriptor_t* fdes, char ch, unsigned short color, int scale) {
     if (!fdes || !fdes->bits) return;
     if ((ch < fdes->firstchar) || (ch - fdes->firstchar >= fdes->size)) return;
 
     int index = ch - fdes->firstchar;
     int char_width = fdes->width ? fdes->width[index] : fdes->maxwidth;
     int char_height = fdes->height;
-
     const font_bits_t* bits = fdes->bits;
 
-    // Calculate offset to this character's bitmap
-    int char_offset = 0;
-    for (int i = 0; i < index; i++) {
-        char_offset += char_height;  // Each char has one 16-bit word per row
-    }
+    
+    int char_offset = index * char_height;
 
     // For each row
     for (int row = 0; row < char_height; row++) {
         font_bits_t row_bits = bits[char_offset + row];
         for (int col = 0; col < char_width; col++) {
-            // Start from MSB (bit 15) down
             if (row_bits & (1 << (15 - col))) {
-                draw_pixel(fb, x + col, y + row, color);
+                // Prints a block of pixels
+                for (int dy = 0; dy < scale; dy++) {
+                    for (int dx = 0; dx < scale; dx++) {
+                        draw_pixel(fb, x + col * scale + dx, y + row * scale + dy, color);
+                    }
+                }
+
             }
         }
     }
@@ -38,13 +39,14 @@ void draw_char(unsigned short* fb, int x, int y, font_descriptor_t* fdes, char c
 
 
 
-void draw_text(unsigned short* fb, int x, int y, font_descriptor_t* fdes, const char* text, unsigned short color) {
+void draw_text(unsigned short* fb, int x, int y, font_descriptor_t* fdes, const char* text, unsigned short color, int scale) {
     while (*text) {
         char ch = *text;
         int index = ch - fdes->firstchar;
         if (index >= 0 && index < fdes->size) {
-            draw_char(fb, x, y, fdes, ch, color);
-            x += fdes->width ? fdes->width[index] : fdes->maxwidth;
+            draw_char(fb, x, y, fdes, ch, color, scale);
+            int char_width = fdes->width ? fdes->width[index] : fdes->maxwidth;
+            x += (char_width * scale) + scale;  //  spacing
         }
         text++;
     }

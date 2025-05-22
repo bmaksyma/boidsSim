@@ -75,7 +75,8 @@
 //   return sf::Vector2i(gridX, gridY);
 // }
 
-// int main(int argc, char *argv[]) {
+// // int main(int argc, char *argv[]) {
+// void runSim(){
 //   std::random_device rd;
 //   gen = std::mt19937(rd());
 //   std::uniform_int_distribution<> posDis_x(0, WIDTH);

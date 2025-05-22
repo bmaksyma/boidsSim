@@ -5,6 +5,7 @@ CXX = arm-linux-gnueabihf-g++
 CPPFLAGS = -I include \
            -I include/ui \
            -I include/platform \
+		   -I include/simulation \
            -I include/utils \
            -I include/fonts
 

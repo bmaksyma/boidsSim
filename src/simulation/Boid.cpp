@@ -1,6 +1,6 @@
-// #include "simulation/Boid.hpp"
+// #include "Boid.hpp"
 // #include <random>
-// #include "utils/draw_utils.h"
+// #include "draw_utils.h"
 // #include <cmath>
 
 // extern const int WIDTH;

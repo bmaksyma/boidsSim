@@ -30,7 +30,7 @@ const int WIDTH = 480;
 const int HEIGHT = 320;
 
 void drawMainWindow(Window& mainWindow, Window& settingsWindow, Window*& activeWindow, uint16_t activeButtonColor, bool& choosingColor, bool& choosingFont){
-    int w = 100, h = 40, spacing = 10;
+    int w = 200, h = 60, spacing = 5;
     int total_height = 3 * h + 2 * spacing;
     int start_y = (HEIGHT - total_height) / 2;
     int x = (WIDTH - w) / 2;
@@ -40,7 +40,7 @@ void drawMainWindow(Window& mainWindow, Window& settingsWindow, Window*& activeW
     mainWindow.addButton(Button(x, start_y, w, h, activeButtonColor, "Start", [](){
         std::cout << "Start clicked\n";
     }));
-    mainWindow.addButton(Button(x, start_y + h + spacing, w, h, activeButtonColor, "Settings", [&](){
+    mainWindow.addButton(Button(x, start_y + h + spacing, w, h, activeButtonColor, "Setup", [&](){
         std::cout << "Settings clicked\n";
         activeWindow = &settingsWindow;
     }));
@@ -50,7 +50,7 @@ void drawMainWindow(Window& mainWindow, Window& settingsWindow, Window*& activeW
 }
 
 void drawSettingsWindow(Window& mainWindow, Window& settingsWindow, Window*& activeWindow, uint16_t activeButtonColor, bool& choosingColor, bool& choosingFont){
-    int w = 100, h = 40, spacing = 10;
+    int w = 200, h = 60, spacing = 5;
     int total_height = 3 * h + 2 * spacing;
     int start_y = (HEIGHT - total_height) / 2;
     int x = (WIDTH - w) / 2;
@@ -64,6 +64,9 @@ void drawSettingsWindow(Window& mainWindow, Window& settingsWindow, Window*& act
         std::cout << "Font\n";
         choosingFont = true; 
 
+    }));
+    settingsWindow.addButton(Button(x, start_y + 2 * (h + spacing), w, h, activeButtonColor, "Size", [&]() {
+        std::cout << "Readjust\n";
     }));
     settingsWindow.addButton(Button(x, start_y + 2 * (h + spacing), w, h, activeButtonColor, "Back", [&]() {
         std::cout << "Returning to Main Menu\n";
