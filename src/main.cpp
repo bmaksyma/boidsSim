@@ -17,19 +17,36 @@
 #include "platform/mzapo_regs.h"
 #include "ui/ui_setup.h"
 #include "font_color_logic.h"
-const int WIDTH = 480;
-const int HEIGHT = 320;
+#include "simulation/Simulation.hpp"
 
-const uint16_t COLOR_RED         = 0xF800;
-const uint16_t COLOR_GREEN       = 0x07E0;
-const uint16_t COLOR_BLUE        = 0x001F;
-const uint16_t COLOR_MAGENTA     = 0xF81F;
-const uint16_t COLOR_ORANGE      = 0xFD20;
-const uint16_t COLOR_PINK        = 0xF81F;
-const uint16_t COLOR_PURPLE      = 0x8010;
-const uint16_t COLOR_NAVY        = 0x000F;
-const uint16_t COLOR_LIME        = 0x07E0;
-const uint16_t COLOR_LIGHT_BLUE  = 0xAEDC;
+extern const int WIDTH = 480;
+extern const int HEIGHT = 320;
+extern const float MAX_SPEED = 10.0f;
+extern const float MAX_FORCE = 1.3f;
+extern const float PERCEPTION_RADIUS = 25.0f;
+extern const float SEPARATION_RADIUS = 10.0f;
+extern const float FOOD_ATTRACTION = 0.8f;
+extern const float ALIGNMENT_WEIGHT = 1.0f;
+extern const float COHESION_WEIGHT = 1.0f;
+extern const float SEPARATION_WEIGHT = 1.5f;
+extern const float MARGIN_SIZE = 40.0f;
+extern const float TURN_FORCE = 5.0f;
+extern const float PREY_SIZE = 10.0f;
+extern const float PREDATOR_SIZE = 20.0f;
+extern const int PREYS_COUNT = 100;
+extern const int PREDATORS_COUNT = 5;
+extern const float KILL_DISTANCE = 5.0f;
+
+const uint16_t COLOR_RED = 0xF800;
+const uint16_t COLOR_GREEN = 0x07E0;
+const uint16_t COLOR_BLUE = 0x001F;
+const uint16_t COLOR_MAGENTA = 0xF81F;
+const uint16_t COLOR_ORANGE = 0xFD20;
+const uint16_t COLOR_PINK = 0xF81F;
+const uint16_t COLOR_PURPLE = 0x8010;
+const uint16_t COLOR_NAVY = 0x000F;
+const uint16_t COLOR_LIME = 0x07E0;
+const uint16_t COLOR_LIGHT_BLUE = 0xAEDC;
 
 std::vector<uint16_t> buttonColors = {
     COLOR_RED, COLOR_LIME, COLOR_LIGHT_BLUE,
@@ -37,7 +54,7 @@ std::vector<uint16_t> buttonColors = {
 };
 
 // Framebuffer
-unsigned short *fb = nullptr;
+extern unsigned short *fb = nullptr;
 
 // Draw a single pixel
 void draw_pixel(int x, int y, unsigned short color) {
@@ -79,7 +96,8 @@ int main() {
     uint16_t activeButtonColor = COLOR_GREEN;  // Default  button color
 
     bool choosingColor = false;   
-    bool choosingFont = false; 
+    bool choosingFont = false;
+    bool simRunning = false;
     int fontID = 0;
 
     mainWindow.background_color = COLOR_NAVY;
@@ -101,7 +119,7 @@ int main() {
         knob_data = *(volatile uint32_t *)(mem_base + SPILED_REG_KNOBS_8BIT_o);
 
         int green_knob = (knob_data >> 8) & 0xFF;
-        bool red_knob_pressed   = (knob_data & 0x04000000) != 0; // bit 26
+        bool red_knob_pressed = (knob_data & 0x04000000) != 0; // bit 26
         bool green_knob_pressed = (knob_data & 0x02000000) != 0; // bit 25
         bool green_knob_just_pressed = green_knob_pressed && !last_green_knob_pressed;
 
@@ -126,15 +144,20 @@ int main() {
         }
         else if (choosingFont) {
             // In font
-            
             handleFontChoice(delta, fontID, availableFonts, activeWindow);
             if (green_knob_just_pressed) {
                 choosingFont = false;
                 std::cout << "Font confirmed and applied!\n";
                 usleep(200 * 1000);
             }
-        }
-        else {
+        } else if (simRunning) {
+            // In simulation
+            if (green_knob_just_pressed) {
+                simRunning = false;
+                std::cout << "Simulation stopped\n";
+                usleep(200 * 1000);
+            }
+        } else {
             // Normal choosign mode
             if (delta != 0) {
                 if (delta > 0) activeWindow->nextBtn();
@@ -151,6 +174,14 @@ int main() {
                 else if (selectedBtn.text == "Font") {
                     choosingFont = true;
                     std::cout << "Entering font selection mode - rotate knob to cycle fonts, press to confirm\n";
+                }
+                else if (selectedBtn.text == "Start"){
+                    simRunning = true;
+                    std::cout << "Starting simulation\n";
+                    Simulation simulation;
+                    simulation.initialize(parlcd_mem_base, mem_base);
+                    simulation.run(parlcd_mem_base, mem_base);
+                    std::cout << "Simulation finished\n";
                 }
                 else selectedBtn.activate();
 
