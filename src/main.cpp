@@ -133,9 +133,7 @@ int main() {
         if (delta < -128) delta += 256;
        
         if (choosingColor) {
-            // handleColorChoice(delta, selectedColorID, activeButtonColor, buttonColors, activeWindow);
-            handleColorChoice( delta, selectedColorID, activeButtonColor,buttonColors,activeWindow);
-
+            handleColorChoice(delta, selectedColorID, activeButtonColor, buttonColors, activeWindow, &mainWindow, &settingsWindow);
             if (green_knob_just_pressed) {
                 choosingColor = false;
                 std::cout << "Color confirmed and applied!\n";
@@ -144,7 +142,8 @@ int main() {
         }
         else if (choosingFont) {
             // In font
-            handleFontChoice(delta, fontID, availableFonts, activeWindow);
+            
+            handleFontChoice(delta, fontID, availableFonts, activeWindow, &mainWindow, &settingsWindow);
             if (green_knob_just_pressed) {
                 choosingFont = false;
                 std::cout << "Font confirmed and applied!\n";
@@ -170,8 +169,7 @@ int main() {
                 else if (selectedBtn.text == "Color") {
                     choosingColor = true;
                     std::cout << "Entering color selection mode - rotate knob to cycle colors, press to confirm\n";
-                }
-                else if (selectedBtn.text == "Font") {
+                }else if (selectedBtn.text == "Font") {
                     choosingFont = true;
                     std::cout << "Entering font selection mode - rotate knob to cycle fonts, press to confirm\n";
                 }
@@ -184,7 +182,7 @@ int main() {
                     std::cout << "Simulation finished\n";
                 }
                 else selectedBtn.activate();
-
+                // selectedBtn.activate();
                 usleep(200 * 1000);
             }
         }
@@ -194,7 +192,7 @@ int main() {
         
         for (int i = 0; i < WIDTH * HEIGHT; ++i)
             fb[i] = activeWindow->background_color;
-
+        
         if (activeWindow && parlcd_mem_base) 
             activeWindow->drawWindow(parlcd_mem_base, fb);
 

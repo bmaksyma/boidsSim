@@ -8,7 +8,7 @@
 
 void handleColorChoice(int delta, int& selectedColorID, uint16_t& activeButtonColor,
     std::vector<uint16_t>& buttonColors,
-    Window* activeWindow){
+    Window* activeWindow,Window* mainWindow, Window* settingsWindow){
     if (delta != 0) {
         // Rotate through colors based on knob rotation
         if (delta > 0) {
@@ -19,15 +19,19 @@ void handleColorChoice(int delta, int& selectedColorID, uint16_t& activeButtonCo
         std::cout << "Selected Color: " << buttonColors[selectedColorID] << "\n";
         // Immediately apply color to show preview on current active window
         activeButtonColor = buttonColors[selectedColorID];
-        for (auto& btn : activeWindow->buttons) {
+        for (auto& btn : mainWindow->buttons) {
             btn.color = activeButtonColor;
         }
+        for (auto& btn : settingsWindow->buttons) {
+            btn.color = activeButtonColor;
+        }
+        
     }
 }
 
 
 void handleFontChoice(int delta, int& selectedFontID, 
-    std::vector<font_descriptor_t*>& availableFonts,Window* activeWindow){
+    std::vector<font_descriptor_t*>& availableFonts,Window* activeWindow,Window* mainWindow, Window* settingsWindow){
              
     if (delta != 0) {
         // Knob rotation to go through fonts
@@ -39,4 +43,7 @@ void handleFontChoice(int delta, int& selectedFontID,
         activeWindow->current_font = availableFonts[selectedFontID];
         std::cout << "Selected Font index: " << selectedFontID << "\n";
     }
+    mainWindow->current_font = availableFonts[selectedFontID];
+    settingsWindow->current_font = availableFonts[selectedFontID];
+        
 }

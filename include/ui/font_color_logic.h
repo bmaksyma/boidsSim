@@ -9,8 +9,8 @@
 
 void handleColorChoice(int delta, int& selectedColorID, uint16_t& activeButtonColor,
     std::vector<uint16_t>& buttonColors,
-    Window* activeWindow);
+    Window* activeWindow, Window* mainWindow, Window* settingsWindow);
 
 void handleFontChoice(int delta, int& selectedFontID, 
-    std::vector<font_descriptor_t*>& availableFonts,Window* activeWindow);
+    std::vector<font_descriptor_t*>& availableFonts,Window* activeWindow,Window* mainWindow, Window* settingsWindow);
 #endif  
