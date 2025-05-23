@@ -21,7 +21,7 @@ OBJECTS := $(SOURCES:.c=.o)
 OBJECTS := $(OBJECTS:.cpp=.o)
 
 TARGET_EXE = simulation
-TARGET_IP ?= 192.168.223.215
+TARGET_IP ?= 192.168.223.213
 TARGET_DIR ?= /tmp/$(shell whoami)
 TARGET_USER ?= root
 

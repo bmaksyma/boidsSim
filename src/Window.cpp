@@ -65,7 +65,6 @@ void Window::drawWindow(unsigned char* parlcd_mem_base, unsigned short* fb) {
         return;
     }
     
-
     // Fill screen with background color
     for (int i = 0; i < WIDTH * HEIGHT; ++i) {
         fb[i] = background_color;

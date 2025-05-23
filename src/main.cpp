@@ -111,14 +111,19 @@ int main() {
     mainWindow.current_font = availableFonts[0];
     settingsWindow.current_font = availableFonts[0];
 
+    const unsigned int FRAME_TIME_US = 16667; // 60 FPS
+
     uint32_t knob_data = *(volatile uint32_t *)(mem_base + SPILED_REG_KNOBS_8BIT_o);
-    int last_green_knob = (knob_data >> 8) & 0xFF;
+    int8_t last_green_knob = (knob_data >> 8) & 0xFF;
     bool last_green_knob_pressed = false;
 
     while (true) {
+        struct timespec start_time;
+        clock_gettime(CLOCK_MONOTONIC, &start_time);
+        
         knob_data = *(volatile uint32_t *)(mem_base + SPILED_REG_KNOBS_8BIT_o);
 
-        int green_knob = (knob_data >> 8) & 0xFF;
+        int8_t green_knob = (knob_data >> 8) & 0xFF;
         bool red_knob_pressed = (knob_data & 0x04000000) != 0; // bit 26
         bool green_knob_pressed = (knob_data & 0x02000000) != 0; // bit 25
         bool green_knob_just_pressed = green_knob_pressed && !last_green_knob_pressed;
@@ -128,9 +133,10 @@ int main() {
             break;
         }
         // knob rotation delta
-        int delta = green_knob - last_green_knob;
-        if (delta > 128) delta -= 256;
-        if (delta < -128) delta += 256;
+        int8_t delta = green_knob - last_green_knob;
+        // if (delta > 128) delta -= 256;
+        // if (delta < -128) delta += 256;
+        // delta = delta % 256;
        
         if (choosingColor) {
             handleColorChoice(delta, selectedColorID, activeButtonColor, buttonColors, activeWindow, &mainWindow, &settingsWindow);
@@ -141,26 +147,18 @@ int main() {
             }
         }
         else if (choosingFont) {
-            // In font
-            
+            // In font selection mode
             handleFontChoice(delta, fontID, availableFonts, activeWindow, &mainWindow, &settingsWindow);
             if (green_knob_just_pressed) {
                 choosingFont = false;
                 std::cout << "Font confirmed and applied!\n";
                 usleep(200 * 1000);
             }
-        } else if (simRunning) {
-            // In simulation
-            if (green_knob_just_pressed) {
-                simRunning = false;
-                std::cout << "Simulation stopped\n";
-                usleep(200 * 1000);
-            }
         } else {
             // Normal choosign mode
             if (delta != 0) {
-                if (delta > 0) activeWindow->nextBtn();
-                else if (delta < 0) activeWindow->previousBtn();
+                if (delta >= (int8_t)2) activeWindow->nextBtn(); // Aprox. 256/20: 256 because of 8 bit knob, 20 clicks in a full rotation
+                else if (delta <= (int8_t)(-2)) activeWindow->previousBtn();
             }
             if (green_knob_just_pressed) {
                 Button& selectedBtn = activeWindow->buttons[activeWindow->selected_index];
@@ -197,6 +195,15 @@ int main() {
             activeWindow->drawWindow(parlcd_mem_base, fb);
 
         flushFramebuffer(parlcd_mem_base, fb);
+
+        struct timespec end_time;
+        clock_gettime(CLOCK_MONOTONIC, &end_time);
+        
+        unsigned int elapsed_us = (end_time.tv_sec - start_time.tv_sec) * 1000000 + 
+                                 (end_time.tv_nsec - start_time.tv_nsec) / 1000;
+        if (elapsed_us < FRAME_TIME_US) {
+            usleep(FRAME_TIME_US - elapsed_us);
+        }
     }
     flushFramebuffer(parlcd_mem_base, fb);
     free(fb);
