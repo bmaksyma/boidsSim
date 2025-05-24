@@ -65,9 +65,6 @@ void drawSettingsWindow(Window& mainWindow, Window& settingsWindow, Window*& act
         choosingFont = true; 
 
     }));
-    // settingsWindow.addButton(Button(x, start_y + 2 * (h + spacing), w, h, activeButtonColor, "Size", [&]() {
-    //     std::cout << "Readjust\n";
-    // }));
     settingsWindow.addButton(Button(x, start_y + 2 * (h + spacing), w, h, activeButtonColor, "Back", [&]() {
         std::cout << "Returning to Main Menu\n";
         activeWindow = &mainWindow;

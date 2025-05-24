@@ -53,10 +53,8 @@ std::vector<uint16_t> buttonColors = {
     COLOR_ORANGE, COLOR_MAGENTA
 };
 
-// Framebuffer
 extern unsigned short *fb = nullptr;
 
-// Draw a single pixel
 void draw_pixel(int x, int y, unsigned short color) {
     if (color != 65535 && x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT) {
         fb[(x % WIDTH) + WIDTH * (y % HEIGHT)] = color;
@@ -64,14 +62,12 @@ void draw_pixel(int x, int y, unsigned short color) {
 }
 
 int main() {
-    // Allocate framebuffer
     fb = (unsigned short *)malloc(WIDTH * HEIGHT * sizeof(unsigned short));
     if (!fb) {
         std::cerr << "Failed to allocate framebuffer\n";
         return 1;
     }
 
-    // Initialize hardware
     unsigned char *parlcd_mem_base = (unsigned char *)map_phys_address(PARLCD_REG_BASE_PHYS, PARLCD_REG_SIZE, 0);
     if (!parlcd_mem_base) exit(1);
 
@@ -92,8 +88,8 @@ int main() {
         &font_winFreeSystem14x16
     };
 
-    int selectedColorID = 0;       // User-fixed index
-    uint16_t activeButtonColor = COLOR_GREEN;  // Default  button color
+    int selectedColorID = 0;
+    uint16_t activeButtonColor = COLOR_GREEN;
 
     bool choosingColor = false;   
     bool choosingFont = false;
@@ -111,7 +107,7 @@ int main() {
     mainWindow.current_font = availableFonts[0];
     settingsWindow.current_font = availableFonts[0];
 
-    const unsigned int FRAME_TIME_US = 16667; // 60 FPS
+    const unsigned int FRAME_TIME_US = 16667; // time to obtain 60 FPS
 
     uint32_t knob_data = *(volatile uint32_t *)(mem_base + SPILED_REG_KNOBS_8BIT_o);
     int8_t last_green_knob = (knob_data >> 8) & 0xFF;
@@ -132,12 +128,9 @@ int main() {
             std::cout << "Exiting: red knob pressed\n";
             break;
         }
-        // knob rotation delta
+        
         int8_t delta = green_knob - last_green_knob;
-        // if (delta > 128) delta -= 256;
-        // if (delta < -128) delta += 256;
-        // delta = delta % 256;
-       
+     
         if (choosingColor) {
             handleColorChoice(delta, selectedColorID, activeButtonColor, buttonColors, activeWindow, &mainWindow, &settingsWindow);
             if (green_knob_just_pressed) {
@@ -147,7 +140,7 @@ int main() {
             }
         }
         else if (choosingFont) {
-            // In font selection mode
+            // Font selection mode
             handleFontChoice(delta, fontID, availableFonts, activeWindow, &mainWindow, &settingsWindow);
             if (green_knob_just_pressed) {
                 choosingFont = false;
@@ -155,9 +148,9 @@ int main() {
                 usleep(200 * 1000);
             }
         } else {
-            // Normal choosign mode
+            // Normal choosing mode
             if (delta != 0) {
-                if (delta >= (int8_t)2) activeWindow->nextBtn(); // Aprox. 256/20: 256 because of 8 bit knob, 20 clicks in a full rotation
+                if (delta >= (int8_t)2) activeWindow->nextBtn();
                 else if (delta <= (int8_t)(-2)) activeWindow->previousBtn();
             }
             if (green_knob_just_pressed) {
@@ -180,11 +173,9 @@ int main() {
                     std::cout << "Simulation finished\n";
                 }
                 else selectedBtn.activate();
-                // selectedBtn.activate();
                 usleep(200 * 1000);
             }
         }
-        // Update state for next iteration
         last_green_knob = green_knob;
         last_green_knob_pressed = green_knob_pressed;
         
@@ -209,32 +200,6 @@ int main() {
     free(fb);
     return 0;
 }
-
-
-/*
-bool handled = false;
-
-if (choosingColor && green_knob_pressed) {
-    handled = true;
-    if (delta > 0) selectedColorID = (selectedColorID + 1) % buttonColors.size();
-    else if (delta < 0) selectedColorID = (selectedColorID - 1 + buttonColors.size()) % buttonColors.size();
-    std::cout << "Selected Color: " << colorNames[selectedColorID] << "\n";
-}
-
-if (choosingFont && green_knob_pressed) {
-    handled = true;
-    if (delta > 0) fontID = (fontID + 1) % availableFonts.size();
-    else if (delta < 0) fontID = (fontID - 1 + availableFonts.size()) % availableFonts.size();
-    activeWindow->current_font = availableFonts[fontID];
-    std::cout << "Selected Font index: " << fontID << "\n";
-}
-
-if (!handled) {
-    if (delta > 0) activeWindow->nextBtn();
-    else if (delta < 0) activeWindow->previousBtn();
-}
-
-*/
 
 
 

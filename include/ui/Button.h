@@ -22,7 +22,6 @@ public:
     void draw(unsigned short* fb, font_descriptor_t* font) ;
 
     void activate();
-    // void draw_rect(unsigned short* fb, int x, int y, int w, int h, unsigned short int color) ;
 };
 
 #endif

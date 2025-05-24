@@ -1,7 +1,5 @@
 #include "text_draw.h"  
 
-// Framebuffer must be defined externally
-
 void draw_pixel(unsigned short* fb, int x, int y, unsigned short color) {
     if (x >= 0 && x < 480 && y >= 0 && y < 320) {
         fb[x + y * 480] = color;
@@ -36,8 +34,6 @@ void draw_char(unsigned short* fb, int x, int y, font_descriptor_t* fdes, char c
         }
     }
 }
-
-
 
 void draw_text(unsigned short* fb, int x, int y, font_descriptor_t* fdes, const char* text, unsigned short color, int scale) {
     while (*text) {

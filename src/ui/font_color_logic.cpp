@@ -17,7 +17,7 @@ void handleColorChoice(int8_t delta, int& selectedColorID, uint16_t& activeButto
             selectedColorID = (selectedColorID - 1 + buttonColors.size()) % buttonColors.size();
         }
         std::cout << "Selected Color: " << buttonColors[selectedColorID] << "\n";
-        // Immediately apply color to show preview on current active window
+        // Apply color
         activeButtonColor = buttonColors[selectedColorID];
         for (auto& btn : mainWindow->buttons) {
             btn.color = activeButtonColor;

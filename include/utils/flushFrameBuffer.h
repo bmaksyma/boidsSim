@@ -1,4 +1,3 @@
-
 #ifndef FLUSH_FRAMEBUFFER_H
 #define FLUSH_FRAMEBUFFER_H
 
