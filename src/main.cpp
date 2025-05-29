@@ -21,24 +21,25 @@
 
 extern const int WIDTH = 480;
 extern const int HEIGHT = 320;
-extern const float MAX_SPEED = 10.0f;
-extern const float MAX_FORCE = 1.3f;
-extern const float PERCEPTION_RADIUS = 25.0f;
-extern const float SEPARATION_RADIUS = 10.0f;
-extern const float FOOD_ATTRACTION = 0.8f;
-extern const float ALIGNMENT_WEIGHT = 1.0f;
-extern const float COHESION_WEIGHT = 1.0f;
-extern const float SEPARATION_WEIGHT = 1.5f;
-extern const float MARGIN_SIZE = 40.0f;
-extern const float TURN_FORCE = 5.0f;
+extern const int PREYS_COUNT = 100;
+extern const int PREDATORS_COUNT = 3;
 extern const float PREY_SIZE = 10.0f;
 extern const float PREDATOR_SIZE = 20.0f;
-extern const int PREYS_COUNT = 100;
-extern const int PREDATORS_COUNT = 5;
 extern const float KILL_DISTANCE = 5.0f;
 extern font_descriptor_t* CUR_FONT = &font_rom8x16;
 extern uint16_t PREY_COLOR = 0x001F; 
 extern uint16_t PREDATOR_COLOR = 0xF800;
+
+extern float MAX_SPEED = 10.0f;
+extern float MAX_FORCE = 1.3f;
+extern float PERCEPTION_RADIUS = 25.0f;
+extern float SEPARATION_RADIUS = 10.0f;
+extern float FOOD_ATTRACTION = 1.0f;
+extern float ALIGNMENT_WEIGHT = 1.0f;
+extern float COHESION_WEIGHT = 1.0f;
+extern float SEPARATION_WEIGHT = 1.5f;
+extern float MARGIN_SIZE = 40.0f;
+extern float TURN_FORCE = 5.0f;
 
 const uint16_t COLOR_RED = 0xF800;
 const uint16_t COLOR_GREEN = 0x07E0;
@@ -151,8 +152,14 @@ int main() {
         } else {
             // Normal choosing mode
             if (delta != 0) {
-                if (delta >= (int8_t)2) activeWindow->nextBtn();
-                else if (delta <= (int8_t)(-2)) activeWindow->previousBtn();
+                if (delta > 2) {
+                    activeWindow->nextBtn();
+                    // last_green_knob += 4;
+                }
+                else if (delta < (-2)) {
+                    activeWindow->previousBtn();
+                    // last_green_knob -= 4;
+                }
             }
             if (green_knob_just_pressed) {
                 Button& selectedBtn = activeWindow->buttons[activeWindow->selected_index];
