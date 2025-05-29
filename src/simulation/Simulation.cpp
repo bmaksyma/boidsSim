@@ -37,6 +37,8 @@ extern float SEPARATION_WEIGHT;
 extern float MARGIN_SIZE;
 extern float TURN_FORCE;
 
+extern font_descriptor_t* CUR_FONT;
+
 extern unsigned short *fb;
 std::mt19937 gen;
 std::uniform_real_distribution<float> dis(-1.0f, 1.0f);
@@ -133,7 +135,7 @@ void Simulation::run(unsigned char* parlcd_mem_base, unsigned char* mem_base) {
             parlcd_write_data(parlcd_mem_base, fb[i]);
         }
     }
-    
+    *(volatile uint32_t*)(mem_base + SPILED_REG_LED_LINE_o) = 0x000000;
     cleanup(parlcd_mem_base);
 }
 
@@ -210,7 +212,7 @@ void Simulation::cleanup(unsigned char* parlcd_mem_base) {
     parlcd_write_cmd(parlcd_mem_base, 0x2c);
     for (int i = 0; i < WIDTH * HEIGHT; i++) {
         parlcd_write_data(parlcd_mem_base, 0);
-    }    
+    }  
 }
 
 void Simulation::clearGrid() {
@@ -295,7 +297,10 @@ void Simulation::handleBlueKnob(uint32_t knob_data) {
 }
 
 void Simulation::drawParamUI(unsigned char* mem_base) {
-    if (!paramAdjustMode) return;
+    if (!paramAdjustMode) {
+        *(volatile uint32_t*)(mem_base + SPILED_REG_LED_LINE_o) = 0x000000;
+        return;
+    }
     int box_width = 180;
     int box_height = 50;
     int box_x = WIDTH - box_width - 10;
@@ -337,6 +342,6 @@ void Simulation::drawParamUI(unsigned char* mem_base) {
             value_str = value_str.substr(0, decimal_pos + 3);
         }
         // value
-        draw_text(fb, box_x + 10, box_y + 25, &font_rom8x16, value_str.c_str(), 0x07E0, 1);
+        draw_text(fb, box_x + 10, box_y + 25, CUR_FONT, value_str.c_str(), 0x07E0, 1);
     }
 }
