@@ -1,6 +1,7 @@
 #include "simulation/Predator.hpp"
 #include <limits>
 #include "simulation/Vector2Util.hpp"
+#include <cstdint>
 
 extern const int WIDTH;
 extern const int HEIGHT;
@@ -17,9 +18,10 @@ extern const float TURN_FORCE;
 extern const float PREDATOR_SIZE;
 extern const int PREDATORS_COUNT;
 extern const float KILL_DISTANCE;
+extern uint16_t PREDATOR_COLOR;
 
 Predator::Predator(float x, float y) : Boid(x, y, PREDATOR_SIZE) {
-    color = 0xF800;
+    color = PREDATOR_COLOR;
 }
 
 void Predator::hunt(const std::vector<Prey>& preys) {

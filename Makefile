@@ -25,8 +25,8 @@ TARGET_IP ?= 192.168.223.115
 TARGET_DIR ?= /tmp/$(shell whoami)
 TARGET_USER ?= root
 
-SSH_OPTIONS = -i /home/biloumak/.ssh/mzapo-root-key
-SSH_OPTIONS += -o 'ProxyJump=biloumak@postel.felk.cvut.cz'
+SSH_OPTIONS = -i /home/mariia/.ssh/mzapo-root-key
+SSH_OPTIONS += -o 'ProxyJump=mazaimar@postel.felk.cvut.cz'
 
 ifeq ($(filter %.cpp,$(SOURCES)),)
   LINKER = $(CC)

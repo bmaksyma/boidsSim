@@ -36,21 +36,23 @@ extern const float PREDATOR_SIZE = 20.0f;
 extern const int PREYS_COUNT = 100;
 extern const int PREDATORS_COUNT = 5;
 extern const float KILL_DISTANCE = 5.0f;
-
+extern font_descriptor_t* CUR_FONT = &font_rom8x16;
+extern uint16_t PREY_COLOR = 0x001F; 
+extern uint16_t PREDATOR_COLOR = 0xF800;
 const uint16_t COLOR_RED = 0xF800;
 const uint16_t COLOR_GREEN = 0x07E0;
-const uint16_t COLOR_BLUE = 0x001F;
 const uint16_t COLOR_MAGENTA = 0xF81F;
 const uint16_t COLOR_ORANGE = 0xFD20;
-const uint16_t COLOR_PINK = 0xF81F;
-const uint16_t COLOR_PURPLE = 0x8010;
 const uint16_t COLOR_NAVY = 0x000F;
-const uint16_t COLOR_LIME = 0x07E0;
 const uint16_t COLOR_LIGHT_BLUE = 0xAEDC;
 
 std::vector<uint16_t> buttonColors = {
     COLOR_RED, COLOR_LIME, COLOR_LIGHT_BLUE,
     COLOR_ORANGE, COLOR_MAGENTA
+};
+std::vector<font_descriptor_t*> availableFonts = {
+    &font_rom8x16,
+    &font_winFreeSystem14x16
 };
 
 extern unsigned short *fb = nullptr;
@@ -79,13 +81,9 @@ int main() {
     // UI Setup
     Window mainWindow;
     Window settingsWindow;
-    Window* activeWindow = &mainWindow;// pointer to the currently active window
+    Window* activeWindow = &mainWindow;
     std::vector<std::string> colorNames = {
         "Red", "Green", "Blue", "Yellow", "Orange", "Purple"
-    };
-    std::vector<font_descriptor_t*> availableFonts = {
-        &font_rom8x16,
-        &font_winFreeSystem14x16
     };
 
     int selectedColorID = 0;
@@ -120,8 +118,8 @@ int main() {
         knob_data = *(volatile uint32_t *)(mem_base + SPILED_REG_KNOBS_8BIT_o);
 
         int8_t green_knob = (knob_data >> 8) & 0xFF;
-        bool red_knob_pressed = (knob_data & 0x04000000) != 0; // bit 26
-        bool green_knob_pressed = (knob_data & 0x02000000) != 0; // bit 25
+        bool red_knob_pressed = (knob_data & 0x04000000) != 0; 
+        bool green_knob_pressed = (knob_data & 0x02000000) != 0; 
         bool green_knob_just_pressed = green_knob_pressed && !last_green_knob_pressed;
 
         if (red_knob_pressed) {
@@ -135,6 +133,8 @@ int main() {
             handleColorChoice(delta, selectedColorID, activeButtonColor, buttonColors, activeWindow, &mainWindow, &settingsWindow);
             if (green_knob_just_pressed) {
                 choosingColor = false;
+                PREY_COLOR = buttonColors[selectedColorID];
+                PREDATOR_COLOR = buttonColors[selectedColorID -1];
                 std::cout << "Color confirmed and applied!\n";
                 usleep(200 * 1000);
             }
@@ -142,6 +142,7 @@ int main() {
         else if (choosingFont) {
             // Font selection mode
             handleFontChoice(delta, fontID, availableFonts, activeWindow, &mainWindow, &settingsWindow);
+            CUR_FONT = availableFonts[fontID];
             if (green_knob_just_pressed) {
                 choosingFont = false;
                 std::cout << "Font confirmed and applied!\n";

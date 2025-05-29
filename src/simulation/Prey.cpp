@@ -1,4 +1,5 @@
 #include "simulation/Prey.hpp"
+#include <cstdint>
 
 extern const int WIDTH;
 extern const int HEIGHT;
@@ -14,9 +15,10 @@ extern const float MARGIN_SIZE;
 extern const float TURN_FORCE;
 extern const float PREY_SIZE;
 extern const int PREYS_COUNT;
+extern uint16_t PREY_COLOR;
 
 Prey::Prey(float x, float y) : Boid(x, y, PREY_SIZE) {
-    color = 0x001F;
+    color = PREY_COLOR;
 }
 
 void Prey::applyForce(const sf::Vector2f& force) {
