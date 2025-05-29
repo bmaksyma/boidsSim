@@ -61,7 +61,7 @@ depend: $(SOURCES) $(wildcard include/**/*.h)
 	endif
 
 clean:
-	rm -f *.o $(SRC_DIR)/**/*.o *.a $(TARGET_EXE) connect.gdb depend
+	rm -f *.o $(SRC_DIR)/**/*.o $(SRC_DIR)/*.o *.a $(TARGET_EXE) connect.gdb depend 
 
 copy-executable: $(TARGET_EXE)
 	ssh $(SSH_OPTIONS) -t $(TARGET_USER)@$(TARGET_IP) killall gdbserver || true
