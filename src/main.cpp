@@ -39,11 +39,13 @@ extern const float KILL_DISTANCE = 5.0f;
 extern font_descriptor_t* CUR_FONT = &font_rom8x16;
 extern uint16_t PREY_COLOR = 0x001F; 
 extern uint16_t PREDATOR_COLOR = 0xF800;
+
 const uint16_t COLOR_RED = 0xF800;
 const uint16_t COLOR_GREEN = 0x07E0;
 const uint16_t COLOR_MAGENTA = 0xF81F;
 const uint16_t COLOR_ORANGE = 0xFD20;
 const uint16_t COLOR_NAVY = 0x000F;
+const uint16_t COLOR_LIME = 0x07E0;
 const uint16_t COLOR_LIGHT_BLUE = 0xAEDC;
 
 std::vector<uint16_t> buttonColors = {
@@ -126,9 +128,7 @@ int main() {
             std::cout << "Exiting: red knob pressed\n";
             break;
         }
-        
         int8_t delta = green_knob - last_green_knob;
-     
         if (choosingColor) {
             handleColorChoice(delta, selectedColorID, activeButtonColor, buttonColors, activeWindow, &mainWindow, &settingsWindow);
             if (green_knob_just_pressed) {
