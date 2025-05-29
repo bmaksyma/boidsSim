@@ -14,9 +14,9 @@ public:
     
     void run(unsigned char* parlcd_mem_base, unsigned char* mem_base);
     
-    void update();
+    void update(unsigned char* mem_base);
     
-    void render(unsigned char* parlcd_mem_base);
+    void render(unsigned char* parlcd_mem_base, unsigned char* mem_base);
     
     void cleanup(unsigned char* parlcd_mem_base);
     

@@ -14,7 +14,6 @@
 #include "mzapo_phys.h"
 #include "mzapo_regs.h"
 
-// Global constants from main.cpp - already defined, we just reference them here
 extern const int WIDTH;
 extern const int HEIGHT;
 extern const float MAX_SPEED;
@@ -86,13 +85,13 @@ void Simulation::run(unsigned char* parlcd_mem_base, unsigned char* mem_base) {
         for (int i = 0; i < HEIGHT * WIDTH; i++) {
             fb[i] = background_color;
         }
-        update();
-        render(parlcd_mem_base);
+        update(mem_base);
+        render(parlcd_mem_base, mem_base);
     }    
     cleanup(parlcd_mem_base);
 }
 
-void Simulation::update() {
+void Simulation::update(unsigned char* mem_base) {
     clearGrid();    
     for (int i = 0; i < preys.size(); i++) {
         sf::Vector2i cell = getGridCell(preys[i].getPosition());
@@ -139,12 +138,16 @@ void Simulation::update() {
         if (killed) {
             if (preys.size() < PREYS_COUNT) {
                 preys.emplace_back(posDis_x(gen), posDis_y(gen));
+                uint32_t blue_color = 0x0000FF;
+                *(volatile uint32_t*)(mem_base + SPILED_REG_LED_RGB2_o) = blue_color;
             }
+            uint32_t red_color = 0xFF0000;
+            *(volatile uint32_t*)(mem_base + SPILED_REG_LED_RGB1_o) = red_color;
         }
     }
 }
 
-void Simulation::render(unsigned char* parlcd_mem_base) {
+void Simulation::render(unsigned char* parlcd_mem_base, unsigned char* mem_base) {
     for (auto& prey : preys) {
         prey.draw();
     }
@@ -157,6 +160,8 @@ void Simulation::render(unsigned char* parlcd_mem_base) {
     for (int i = 0; i < WIDTH * HEIGHT; i++) {
         parlcd_write_data(parlcd_mem_base, fb[i]);
     }
+    *(volatile uint32_t*)(mem_base + SPILED_REG_LED_RGB1_o) = 0x000000;
+    *(volatile uint32_t*)(mem_base + SPILED_REG_LED_RGB2_o) = 0x000000;
 }
 
 void Simulation::cleanup(unsigned char* parlcd_mem_base) {
