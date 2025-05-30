@@ -4,6 +4,7 @@
 #include <cstdint>
 #include "Window.h"
 
+<<<<<<< HEAD
 /**
  * @brief Sets up the main menu UI 
  * 
@@ -25,3 +26,7 @@ void drawSettingsWindow(Window& mainWindow, Window& settingsWindow, Window*& act
                         uint16_t activeButtonColor, bool& choosingColor, bool& choosingFont);
 
 #endif
+=======
+void drawMainWindow(Window& mainWindow, Window& settingsWindow, Window*& activeWindow, uint16_t activeButtonColor, bool& choosingColor, bool& choosingFont, bool& choosingTheme);
+void drawSettingsWindow(Window& mainWindow, Window& settingsWindow, Window*& activeWindow, uint16_t activeButtonColor, bool& choosingColor, bool& choosingFont, bool& choosingTheme);
+>>>>>>> 80cfabae661db1298bfeb21cd3b2285444112c24

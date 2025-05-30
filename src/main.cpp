@@ -17,6 +17,7 @@
 #include "platform/mzapo_regs.h"
 #include "ui/ui_setup.h"
 #include "font_color_logic.h"
+#include "ui/theme_colors.h"
 #include "simulation/Simulation.hpp"
 
 extern const int WIDTH = 480;
@@ -41,6 +42,51 @@ extern float SEPARATION_WEIGHT = 1.5f;
 extern float MARGIN_SIZE = 40.0f;
 extern float TURN_FORCE = 5.0f;
 
+extern const uint16_t WHITE_THEME_COLOR1 = 0xC618;
+extern const uint16_t WHITE_THEME_COLOR2 = 0x5D1F;
+extern const uint16_t WHITE_THEME_COLOR3 = 0x4FE0;
+extern const uint16_t WHITE_THEME_COLOR4 = 0xFFE0;
+
+extern const uint16_t DARK_THEME_COLOR1 = 0x4208;
+extern const uint16_t DARK_THEME_COLOR2 = 0x001F;
+extern const uint16_t DARK_THEME_COLOR3 = 0x0320;
+extern const uint16_t DARK_THEME_COLOR4 = 0x8010;
+
+std::vector<uint16_t> whiteThemeColors = {
+    WHITE_THEME_COLOR1, WHITE_THEME_COLOR2, 
+    WHITE_THEME_COLOR3, WHITE_THEME_COLOR4
+};
+
+std::vector<uint16_t> darkThemeColors = {
+    DARK_THEME_COLOR1, DARK_THEME_COLOR2, 
+    DARK_THEME_COLOR3, DARK_THEME_COLOR4
+};
+
+std::vector<std::string> themeNames = {"White", "Dark"};
+int currentThemeIndex = 0;
+uint16_t currentBackgroundColor = 0xFFFF;
+
+void switchToTheme(int themeIndex) {
+    currentThemeIndex = themeIndex % themeNames.size();
+    if (currentThemeIndex == 0) {
+        currentBackgroundColor = 0xFFFF;
+        PREY_COLOR = 0x001F;
+        PREDATOR_COLOR = 0xF800;
+    } else {
+        currentBackgroundColor = 0x0000;
+        PREY_COLOR = 0x07E0;
+        PREDATOR_COLOR = 0xF81F;
+    }
+}
+
+std::vector<uint16_t>& getCurrentThemeColors() {
+    return (currentThemeIndex == 0) ? whiteThemeColors : darkThemeColors;
+}
+
+uint16_t getCurrentBackgroundColor() {
+    return currentBackgroundColor;
+}
+
 const uint16_t COLOR_RED = 0xF800;
 const uint16_t COLOR_GREEN = 0x07E0;
 const uint16_t COLOR_MAGENTA = 0xF81F;
@@ -49,10 +95,7 @@ const uint16_t COLOR_NAVY = 0x000F;
 const uint16_t COLOR_LIME = 0x07E0;
 const uint16_t COLOR_LIGHT_BLUE = 0xAEDC;
 
-std::vector<uint16_t> buttonColors = {
-    COLOR_RED, COLOR_LIME, COLOR_LIGHT_BLUE,
-    COLOR_ORANGE, COLOR_MAGENTA
-};
+std::vector<uint16_t> buttonColors = whiteThemeColors;
 std::vector<font_descriptor_t*> availableFonts = {
     &font_rom8x16,
     &font_winFreeSystem14x16
@@ -66,12 +109,12 @@ void draw_pixel(int x, int y, unsigned short color) {
     }
 }
 /**
- * @brief Main function to run the Boids simulation UI.
+ * @brief Main function to run the Boids simulation UI
  * 
  * - Initializes framebuffer and platform-specific memory
  * - Draws UI windows and handles user input via knobs
- * - Allows color/font selection
- * - Starts/stops the simulation
+ * - Allows color, font, and theme selection
+ * - Starts the simulation loop on command
  * 
  * @return 0 on success, 1 on framebuffer allocation failure
  */
@@ -100,18 +143,23 @@ int main() {
     };
 
     int selectedColorID = 0;
-    uint16_t activeButtonColor = COLOR_GREEN;
+    uint16_t activeButtonColor = getCurrentThemeColors()[0];
 
     bool choosingColor = false;   
     bool choosingFont = false;
+    bool choosingTheme = false;
     bool simRunning = false;
     int fontID = 0;
+    int themeID = 0;
 
-    mainWindow.background_color = COLOR_NAVY;
-    settingsWindow.background_color = COLOR_NAVY;
+    switchToTheme(0);
+    buttonColors = getCurrentThemeColors();
+    
+    mainWindow.background_color = getCurrentBackgroundColor();
+    settingsWindow.background_color = getCurrentBackgroundColor();
 
-    drawMainWindow(mainWindow, settingsWindow, activeWindow, activeButtonColor, choosingColor, choosingFont);
-    drawSettingsWindow(mainWindow, settingsWindow, activeWindow, activeButtonColor, choosingColor, choosingFont);
+    drawMainWindow(mainWindow, settingsWindow, activeWindow, activeButtonColor, choosingColor, choosingFont, choosingTheme);
+    drawSettingsWindow(mainWindow, settingsWindow, activeWindow, activeButtonColor, choosingColor, choosingFont, choosingTheme);
     settingsWindow.buttons[0].selected = true;
     settingsWindow.selected_index = 0;
 
@@ -140,18 +188,18 @@ int main() {
             break;
         }
         int8_t delta = green_knob - last_green_knob;
+        
         if (choosingColor) {
             handleColorChoice(delta, selectedColorID, activeButtonColor, buttonColors, activeWindow, &mainWindow, &settingsWindow);
             if (green_knob_just_pressed) {
                 choosingColor = false;
                 PREY_COLOR = buttonColors[selectedColorID];
-                PREDATOR_COLOR = buttonColors[selectedColorID -1];
+                PREDATOR_COLOR = buttonColors[(selectedColorID + 1) % buttonColors.size()];
                 std::cout << "Color confirmed and applied!\n";
                 usleep(200 * 1000);
             }
         }
         else if (choosingFont) {
-            // Font selection mode
             handleFontChoice(delta, fontID, availableFonts, activeWindow, &mainWindow, &settingsWindow);
             CUR_FONT = availableFonts[fontID];
             if (green_knob_just_pressed) {
@@ -159,28 +207,34 @@ int main() {
                 std::cout << "Font confirmed and applied!\n";
                 usleep(200 * 1000);
             }
+        }
+        else if (choosingTheme) {
+            handleThemeChoice(delta, themeID, buttonColors, activeWindow, &mainWindow, &settingsWindow);
+            if (green_knob_just_pressed) {
+                choosingTheme = false;
+                std::cout << "Theme confirmed and applied!\n";
+                usleep(200 * 1000);
+            }
         } else {
-            // Normal choosing mode
             if (delta != 0) {
                 if (delta > 2) {
                     activeWindow->nextBtn();
-                    // last_green_knob += 4;
                 }
                 else if (delta < (-2)) {
                     activeWindow->previousBtn();
-                    // last_green_knob -= 4;
                 }
             }
             if (green_knob_just_pressed) {
                 Button& selectedBtn = activeWindow->buttons[activeWindow->selected_index];
                 
                 if (selectedBtn.text == "Exit") {break;}
-                else if (selectedBtn.text == "Color") {
-                    choosingColor = true;
-                    std::cout << "Entering color selection mode - rotate knob to cycle colors, press to confirm\n";
-                }else if (selectedBtn.text == "Font") {
+                else if (selectedBtn.text == "Font") {
                     choosingFont = true;
                     std::cout << "Entering font selection mode - rotate knob to cycle fonts, press to confirm\n";
+                }
+                else if (selectedBtn.text == "Theme") {
+                    choosingTheme = true;
+                    std::cout << "Entering theme selection mode - rotate knob to cycle themes, press to confirm\n";
                 }
                 else if (selectedBtn.text == "Start"){
                     simRunning = true;
@@ -218,6 +272,3 @@ int main() {
     free(fb);
     return 0;
 }
-
-
-
