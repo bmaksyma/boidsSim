@@ -75,10 +75,12 @@ int main() {
 
     Window mainWindow;
     Window settingsWindow;
+    Window exitWindow;
     Window* activeWindow = &mainWindow;
 
     uint16_t activeButtonColor = getCurrentThemeColors()[0];
 
+    bool showingExit = false;
     bool choosingFont = false;
     bool choosingTheme = false;
     bool simRunning = false;
@@ -93,6 +95,8 @@ int main() {
 
     drawMainWindow(mainWindow, settingsWindow, activeWindow, activeButtonColor, choosingFont, choosingTheme);
     drawSettingsWindow(mainWindow, settingsWindow, activeWindow, activeButtonColor, choosingFont, choosingTheme);
+    drawExitWindow(exitWindow);
+
     settingsWindow.buttons[0].selected = true;
     settingsWindow.selected_index = 0;
 
@@ -116,10 +120,25 @@ int main() {
         bool green_knob_pressed = (knob_data & 0x02000000) != 0; 
         bool green_knob_just_pressed = green_knob_pressed && !last_green_knob_pressed;
         
-        if (red_knob_pressed) {
-
-            std::cout << "Exiting: red knob pressed\n";
+        if (showingExit) {
+            drawExitWindow(exitWindow);
+            
+            parlcd_write_cmd(parlcd_mem_base, 0x2c);
+            for (int i = 0; i < WIDTH * HEIGHT; i++) {
+                parlcd_write_data(parlcd_mem_base, fb[i]);
+            }
+            
+            usleep(2000000);
+            for (int i = 0; i < WIDTH * HEIGHT; ++i) {
+                fb[i] = 0x0000;
+            }
             break;
+        }
+
+        if (red_knob_pressed) {
+            showingExit = true;
+            std::cout << "Exiting: red knob pressed\n";
+            // break;
         }
         int8_t delta = green_knob - last_green_knob;
         
@@ -151,7 +170,10 @@ int main() {
             if (green_knob_just_pressed) {
                 Button& selectedBtn = activeWindow->buttons[activeWindow->selected_index];
                 
-                if (selectedBtn.text == "Exit") {break;}
+                if (selectedBtn.text == "Exit") {
+                    showingExit = true;
+                    // break;
+                }
                 else if (selectedBtn.text == "Font") {
                     choosingFont = true;
                     std::cout << "Entering font selection mode - rotate knob to cycle fonts, press to confirm\n";

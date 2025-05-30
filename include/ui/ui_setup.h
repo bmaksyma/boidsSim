@@ -6,4 +6,5 @@
 
 void drawMainWindow(Window& mainWindow, Window& settingsWindow, Window*& activeWindow, uint16_t activeButtonColor, bool& choosingFont, bool& choosingTheme);
 void drawSettingsWindow(Window& mainWindow, Window& settingsWindow, Window*& activeWindow, uint16_t activeButtonColor, bool& choosingFont, bool& choosingTheme);
+void drawExitWindow(Window& exitWindow);
 #endif
