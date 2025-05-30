@@ -104,6 +104,16 @@ void draw_pixel(int x, int y, unsigned short color) {
         fb[(x % WIDTH) + WIDTH * (y % HEIGHT)] = color;
     }
 }
+/**
+ * @brief Main function to run the Boids simulation UI
+ * 
+ * - Initializes framebuffer and platform-specific memory
+ * - Draws UI windows and handles user input via knobs
+ * - Allows color, font, and theme selection
+ * - Starts the simulation loop on command
+ * 
+ * @return 0 on success, 1 on framebuffer allocation failure
+ */
 
 int main() {
     fb = (unsigned short *)malloc(WIDTH * HEIGHT * sizeof(unsigned short));

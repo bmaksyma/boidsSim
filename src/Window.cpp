@@ -6,14 +6,7 @@
 #include "platform/mzapo_parlcd.h"
 #include "utils/flushFrameBuffer.h"
 #include "fonts/font_types.h"
-// #include "font_manager.h"
 #include "utils/text_draw.h"
-
-// Global font list (can be shared across files)
-// std::vector<font_descriptor_t*> available_fonts = {
-//     &font_rom8x16,
-//     &font_winFreeSystem14x16
-// };
 
 #define HEIGHT 320
 #define WIDTH 480
