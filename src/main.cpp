@@ -173,9 +173,9 @@ int main() {
         bool red_knob_pressed = (knob_data & 0x04000000) != 0; 
         bool green_knob_pressed = (knob_data & 0x02000000) != 0; 
         bool green_knob_just_pressed = green_knob_pressed && !last_green_knob_pressed;
-
+        
         if (red_knob_pressed) {
-            
+
             std::cout << "Exiting: red knob pressed\n";
             break;
         }

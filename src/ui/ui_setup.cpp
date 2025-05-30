@@ -9,7 +9,7 @@ const int WIDTH = 480;
 const int HEIGHT = 320;
 
 void drawMainWindow(Window& mainWindow, Window& settingsWindow, Window*& activeWindow, uint16_t activeButtonColor, bool& choosingFont, bool& choosingTheme){
-    int w = 200, h = 60, spacing = 8;
+    int w = 200, h = 50, spacing = 8;
     int total_height = 3 * h + 2 * spacing;
     int start_y = (HEIGHT - total_height) / 2;
     int x = (WIDTH - w) / 2;

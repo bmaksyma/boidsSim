@@ -26,29 +26,29 @@ void Button::draw(unsigned short* fb, font_descriptor_t* font) {
     
     int scale = 2;
     int corner_radius = 7;
-    
+    int strS = 4;
+    uint16_t bd_color = getCurrentBackgroundColor();
+    uint16_t text_color = (bd_color == 0xFFFF) ? 0x0000 : 0xFFFF;
     if (selected) {
-        int strS = 4;
-        int8_t red = (color >> 11) & 0x1F;
-        uint8_t green = (color >> 5) & 0x3F;
-        uint8_t blue = color & 0x1F;
-        uint8_t inv_red = 0x1F - red;
-        uint8_t inv_green = 0x3F - green;
-        uint8_t inv_blue = 0x1F - blue;
-        uint16_t new_color = (inv_red << 11) | (inv_green << 5) | inv_blue;
-        draw_rounded_rect(fb, x - strS, y - strS, width + 2*strS, height + 2*strS, corner_radius + strS, new_color);
+        draw_rounded_rect(fb, x - strS, y - strS, width + 2*strS, height + 2*strS, corner_radius + strS, text_color);
     }
     draw_rounded_rect(fb, x, y, width, height, corner_radius, color);
     
-    int text_width = text.length() * font->maxwidth;
     int text_height = font->height;
+    int text_width = 0;
+    for (size_t i = 0; i < text.length(); ++i) {
+        int idx = text[i] - font->firstchar;
+        int char_width = (font->width && idx >= 0 && idx < font->size) ? font->width[idx] : font->maxwidth;
+        text_width += char_width * scale;
+        text_width += scale; 
+    }
     
-    int text_x = x + (width - text_width) / 2 - font->maxwidth;
+    int text_x = x + (width - text_width) / 2;
     int text_y = y + (height - text_height) / 2;
     
-    uint16_t bgColor = getCurrentBackgroundColor();
-    uint16_t textColor = (bgColor == 0xFFFF) ? 0x0000 : 0xFFFF;
-    draw_text(fb, text_x, text_y, font, text.c_str(), textColor, scale);
+    // uint16_t bd_color = getCurrentBackgroundColor();
+    // uint16_t text_color = (bd_color == 0xFFFF) ? 0x0000 : 0xFFFF;
+    draw_text(fb, text_x, text_y, font, text.c_str(), text_color, scale);
 }
 
 
