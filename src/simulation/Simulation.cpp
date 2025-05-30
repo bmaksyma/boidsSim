@@ -309,25 +309,16 @@ void Simulation::drawParamUI(unsigned char* mem_base) {
     int y = 10;
     int strS = 2;
     int corner_radius = 7;
-    draw_rounded_rect(fb, x - strS, y - strS, width + 2*strS, height + 2*strS, corner_radius + strS, 0xFFFF);
-    draw_rounded_rect(fb, x, y, width, height, corner_radius, 0x0000);
-    // for (int y = y; y < y + height; y++) {
-    //     for (int x = x; x < x + width; x++) {
-    //         fb[y * WIDTH + x] = 0x0000;
-    //     }
-    // }
-    // for (int x = x; x < x + width; x++) {
-    //     fb[y * WIDTH + x] = 0xFFFF;
-    //     fb[(y + height - 1) * WIDTH + x] = 0xFFFF;
-    // }
-    // for (int y = y; y < y + height; y++) {
-    //     fb[y * WIDTH + x] = 0xFFFF;
-    //     fb[y * WIDTH + x + width - 1] = 0xFFFF;
-    // }
+    std::vector<uint16_t> themeColors = getCurrentThemeColors();
+    uint16_t bgColor = getCurrentBackgroundColor();
+    uint16_t textColor = (bgColor == 0xFFFF) ? 0x0000 : 0xFFFF;
+    uint16_t accentColor = themeColors[2];
+
+    draw_rounded_rect(fb, x - strS, y - strS, width + 2*strS, height + 2*strS, corner_radius + strS, textColor);
+    draw_rounded_rect(fb, x, y, width, height, corner_radius, bgColor);
+
     if (!adjustableParams.empty()) {
-        
         AdjustableParam& param = adjustableParams[currentParamIndex];
-        // extern font_descriptor_t font_rom8x16;
 
         float normalized = (*param.value - param.min) / (param.max - param.min);
         
@@ -341,13 +332,13 @@ void Simulation::drawParamUI(unsigned char* mem_base) {
         }
         *(volatile uint32_t*)(mem_base + SPILED_REG_LED_LINE_o) = led_pattern;
         // name
-        draw_text(fb, x + 10, y + 10, CUR_FONT, param.name.c_str(), 0xFFFF, 1);
+        draw_text(fb, x + 10, y + 10, CUR_FONT, param.name.c_str(), textColor, 1);
         std::string value_str = std::to_string(*param.value);
         size_t decimal_pos = value_str.find('.');
         if (decimal_pos != std::string::npos && decimal_pos + 3 < value_str.length()) {
             value_str = value_str.substr(0, decimal_pos + 3);
         }
         // value
-        draw_text(fb, x + 10, y + 25, CUR_FONT, value_str.c_str(), 0x07E0, 1);
+        draw_text(fb, x + 10, y + 25, CUR_FONT, value_str.c_str(), accentColor, 1);
     }
 }

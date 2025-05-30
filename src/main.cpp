@@ -45,15 +45,15 @@ extern float TURN_FORCE = 5.0f;
 
 extern font_descriptor_t* CUR_FONT = &font_rom8x16;
 
-extern const uint16_t WHITE_THEME_COLOR1 = 0xC618;
-extern const uint16_t WHITE_THEME_COLOR2 = 0x5D1F;
-extern const uint16_t WHITE_THEME_COLOR3 = 0x4FE0;
-extern const uint16_t WHITE_THEME_COLOR4 = 0xFFE0;
+extern const uint16_t WHITE_THEME_COLOR1 = 0xC618;// light gray
+extern const uint16_t WHITE_THEME_COLOR2 = 0x4FE0;// light blue
+extern const uint16_t WHITE_THEME_COLOR3 = 0x001F;// dark blue
+extern const uint16_t WHITE_THEME_COLOR4 = 0xFFE0;// light yellow
 
-extern const uint16_t DARK_THEME_COLOR1 = 0x4208;
-extern const uint16_t DARK_THEME_COLOR2 = 0x001F;
-extern const uint16_t DARK_THEME_COLOR3 = 0x0320;
-extern const uint16_t DARK_THEME_COLOR4 = 0x8010;
+extern const uint16_t DARK_THEME_COLOR1 = 0x4208;// dark gray
+extern const uint16_t DARK_THEME_COLOR2 = 0x001F;// dark blue
+extern const uint16_t DARK_THEME_COLOR3 = 0x07E0;// light green
+extern const uint16_t DARK_THEME_COLOR4 = 0x8010;// dark red
 
 std::vector<uint16_t> whiteThemeColors = {
     WHITE_THEME_COLOR1, WHITE_THEME_COLOR2, 
@@ -175,6 +175,7 @@ int main() {
         bool green_knob_just_pressed = green_knob_pressed && !last_green_knob_pressed;
 
         if (red_knob_pressed) {
+            
             std::cout << "Exiting: red knob pressed\n";
             break;
         }
