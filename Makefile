@@ -62,7 +62,6 @@ depend: $(SOURCES) $(wildcard include/**/*.h)
 
 clean:
 	rm -f *.o $(SRC_DIR)/**/*.o $(SRC_DIR)/*.o *.a $(TARGET_EXE) connect.gdb depend 
-
 copy-executable: $(TARGET_EXE)
 	ssh $(SSH_OPTIONS) -t $(TARGET_USER)@$(TARGET_IP) killall gdbserver || true
 	ssh $(SSH_OPTIONS) $(TARGET_USER)@$(TARGET_IP) mkdir -p $(TARGET_DIR)
@@ -85,5 +84,8 @@ debug: copy-executable $(TARGET_EXE)
 	echo >>connect.gdb "b main"
 	echo >>connect.gdb "c"
 	ddd --debugger gdb-multiarch -x connect.gdb $(TARGET_EXE)
-
+docs:
+	doxygen Doxyfile
+clean-docs:
+	rm -rf docs
 -include depend

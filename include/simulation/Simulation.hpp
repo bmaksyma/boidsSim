@@ -8,14 +8,17 @@
 #include "simulation/Prey.hpp"
 #include "simulation/Predator.hpp"
 
+/**
+ * @brief Runs the main boid simulation, including rendering 
+ */
 class Simulation {
 public:
     Simulation();
-    
+
     void initialize(unsigned char* parlcd_mem_base, unsigned char* mem_base);
     
     void run(unsigned char* parlcd_mem_base, unsigned char* mem_base);
-    
+
     void update(unsigned char* mem_base);
     
     void render(unsigned char* parlcd_mem_base, unsigned char* mem_base);
@@ -48,6 +51,7 @@ private:
         float max;
         float step;
     };
+
     std::vector<AdjustableParam> adjustableParams;
     void initAdjustableParams();
     void drawParamUI(unsigned char* mem_base);    
@@ -59,4 +63,4 @@ private:
     unsigned short background_color;
 };
 
-#endif // SIMULATION_HPP
+#endif 
