@@ -14,6 +14,7 @@
 #include "mzapo_phys.h"
 #include "mzapo_regs.h"
 
+#include "ui/theme_colors.h"
 #include "fonts/font_types.h"
 #include "fonts/font_manager.h"
 #include "utils/text_draw.h"
@@ -50,7 +51,7 @@ extern void draw_pixel(int x, int y, unsigned short int color);
 Simulation::Simulation() 
     : GRID_WIDTH(WIDTH / GRID_CELL_SIZE + 1),
       GRID_HEIGHT(HEIGHT / GRID_CELL_SIZE + 1),
-      background_color(0xffff) {
+      background_color(getCurrentBackgroundColor()) {
     
     std::random_device rd;
     gen = std::mt19937(rd());
@@ -122,7 +123,7 @@ void Simulation::run(unsigned char* parlcd_mem_base, unsigned char* mem_base) {
         if (green_pressed) {
             break;
         }
-        
+        background_color = getCurrentBackgroundColor();
         for (int i = 0; i < HEIGHT * WIDTH; i++) {
             fb[i] = background_color;
         }
