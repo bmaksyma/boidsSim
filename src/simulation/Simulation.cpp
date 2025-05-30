@@ -19,29 +19,9 @@
 #include "fonts/font_manager.h"
 #include "utils/text_draw.h"
 #include "utils/draw_utils.h"
+#include "globals.h"
 
-extern const int WIDTH;
-extern const int HEIGHT;
-extern const int PREYS_COUNT;
-extern const int PREDATORS_COUNT;
-extern const float PREY_SIZE;
-extern const float PREDATOR_SIZE;
-extern const float KILL_DISTANCE;
 
-extern float MAX_SPEED;
-extern float MAX_FORCE;
-extern float PERCEPTION_RADIUS;
-extern float SEPARATION_RADIUS;
-extern float FOOD_ATTRACTION;
-extern float ALIGNMENT_WEIGHT;
-extern float COHESION_WEIGHT;
-extern float SEPARATION_WEIGHT;
-extern float MARGIN_SIZE;
-extern float TURN_FORCE;
-
-extern font_descriptor_t* CUR_FONT;
-
-extern unsigned short *fb;
 std::mt19937 gen;
 std::uniform_real_distribution<float> dis(-1.0f, 1.0f);
 std::uniform_real_distribution<float> speedDis(1.0f, MAX_SPEED);

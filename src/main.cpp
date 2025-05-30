@@ -19,55 +19,7 @@
 #include "font_color_logic.h"
 #include "ui/theme_colors.h"
 #include "simulation/Simulation.hpp"
-
-extern const int WIDTH = 480;
-extern const int HEIGHT = 320;
-extern const int PREYS_COUNT = 100;
-extern const int PREDATORS_COUNT = 3;
-extern const float PREY_SIZE = 10.0f;
-extern const float PREDATOR_SIZE = 20.0f;
-extern const float KILL_DISTANCE = 5.0f;
-// extern uint16_t PREY_COLOR = 0x001F; 
-// extern uint16_t PREDATOR_COLOR = 0xF800;
-extern uint16_t PREY_COLOR = 0xFFFF; 
-extern uint16_t PREDATOR_COLOR = 0xFFFF;
-
-extern float MAX_SPEED = 10.0f;
-extern float MAX_FORCE = 1.3f;
-extern float PERCEPTION_RADIUS = 25.0f;
-extern float SEPARATION_RADIUS = 10.0f;
-extern float FOOD_ATTRACTION = 1.0f;
-extern float ALIGNMENT_WEIGHT = 1.0f;
-extern float COHESION_WEIGHT = 1.0f;
-extern float SEPARATION_WEIGHT = 1.5f;
-extern float MARGIN_SIZE = 40.0f;
-extern float TURN_FORCE = 5.0f;
-
-extern font_descriptor_t* CUR_FONT = &font_rom8x16;
-
-extern const uint16_t WHITE_THEME_COLOR1 = 0xC618;// light gray
-extern const uint16_t WHITE_THEME_COLOR2 = 0x4FE0;// light blue
-extern const uint16_t WHITE_THEME_COLOR3 = 0x001F;// dark blue
-extern const uint16_t WHITE_THEME_COLOR4 = 0xFFE0;// light yellow
-
-extern const uint16_t DARK_THEME_COLOR1 = 0x4208;// dark gray
-extern const uint16_t DARK_THEME_COLOR2 = 0x001F;// dark blue
-extern const uint16_t DARK_THEME_COLOR3 = 0x07E0;// light green
-extern const uint16_t DARK_THEME_COLOR4 = 0x8010;// dark red
-
-std::vector<uint16_t> whiteThemeColors = {
-    WHITE_THEME_COLOR1, WHITE_THEME_COLOR2, 
-    WHITE_THEME_COLOR3, WHITE_THEME_COLOR4
-};
-
-std::vector<uint16_t> darkThemeColors = {
-    DARK_THEME_COLOR1, DARK_THEME_COLOR2, 
-    DARK_THEME_COLOR3, DARK_THEME_COLOR4
-};
-
-std::vector<std::string> themeNames = {"White", "Dark"};
-int currentThemeIndex = 0;
-uint16_t currentBackgroundColor = 0xFFFF;
+#include "globals.h"
 
 void switchToTheme(int themeIndex) {
     currentThemeIndex = themeIndex % themeNames.size();
@@ -89,15 +41,6 @@ std::vector<uint16_t>& getCurrentThemeColors() {
 uint16_t getCurrentBackgroundColor() {
     return currentBackgroundColor;
 }
-
-std::vector<uint16_t> buttonColors = whiteThemeColors;
-
-std::vector<font_descriptor_t*> availableFonts = {
-    &font_rom8x16,
-    &font_winFreeSystem14x16
-};
-
-extern unsigned short *fb = nullptr;
 
 void draw_pixel(int x, int y, unsigned short color) {
     if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT) {
@@ -130,7 +73,6 @@ int main() {
 
     parlcd_hx8357_init(parlcd_mem_base);
 
-    // UI Setup
     Window mainWindow;
     Window settingsWindow;
     Window* activeWindow = &mainWindow;
