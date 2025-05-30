@@ -18,6 +18,7 @@
 #include "fonts/font_types.h"
 #include "fonts/font_manager.h"
 #include "utils/text_draw.h"
+#include "utils/draw_utils.h"
 
 extern const int WIDTH;
 extern const int HEIGHT;
@@ -302,27 +303,31 @@ void Simulation::drawParamUI(unsigned char* mem_base) {
         *(volatile uint32_t*)(mem_base + SPILED_REG_LED_LINE_o) = 0x000000;
         return;
     }
-    int box_width = 180;
-    int box_height = 50;
-    int box_x = WIDTH - box_width - 10;
-    int box_y = 10;
-    for (int y = box_y; y < box_y + box_height; y++) {
-        for (int x = box_x; x < box_x + box_width; x++) {
-            fb[y * WIDTH + x] = 0x0000;
-        }
-    }
-    for (int x = box_x; x < box_x + box_width; x++) {
-        fb[box_y * WIDTH + x] = 0xFFFF;
-        fb[(box_y + box_height - 1) * WIDTH + x] = 0xFFFF;
-    }
-    for (int y = box_y; y < box_y + box_height; y++) {
-        fb[y * WIDTH + box_x] = 0xFFFF;
-        fb[y * WIDTH + box_x + box_width - 1] = 0xFFFF;
-    }
+    int width = 180;
+    int height = 50;
+    int x = WIDTH - width - 10;
+    int y = 10;
+    int strS = 2;
+    int corner_radius = 7;
+    draw_rounded_rect(fb, x - strS, y - strS, width + 2*strS, height + 2*strS, corner_radius + strS, 0xFFFF);
+    draw_rounded_rect(fb, x, y, width, height, corner_radius, 0x0000);
+    // for (int y = y; y < y + height; y++) {
+    //     for (int x = x; x < x + width; x++) {
+    //         fb[y * WIDTH + x] = 0x0000;
+    //     }
+    // }
+    // for (int x = x; x < x + width; x++) {
+    //     fb[y * WIDTH + x] = 0xFFFF;
+    //     fb[(y + height - 1) * WIDTH + x] = 0xFFFF;
+    // }
+    // for (int y = y; y < y + height; y++) {
+    //     fb[y * WIDTH + x] = 0xFFFF;
+    //     fb[y * WIDTH + x + width - 1] = 0xFFFF;
+    // }
     if (!adjustableParams.empty()) {
         
         AdjustableParam& param = adjustableParams[currentParamIndex];
-        extern font_descriptor_t font_rom8x16;
+        // extern font_descriptor_t font_rom8x16;
 
         float normalized = (*param.value - param.min) / (param.max - param.min);
         
@@ -336,13 +341,13 @@ void Simulation::drawParamUI(unsigned char* mem_base) {
         }
         *(volatile uint32_t*)(mem_base + SPILED_REG_LED_LINE_o) = led_pattern;
         // name
-        draw_text(fb, box_x + 10, box_y + 10, &font_rom8x16, param.name.c_str(), 0xFFFF, 1);
+        draw_text(fb, x + 10, y + 10, CUR_FONT, param.name.c_str(), 0xFFFF, 1);
         std::string value_str = std::to_string(*param.value);
         size_t decimal_pos = value_str.find('.');
         if (decimal_pos != std::string::npos && decimal_pos + 3 < value_str.length()) {
             value_str = value_str.substr(0, decimal_pos + 3);
         }
         // value
-        draw_text(fb, box_x + 10, box_y + 25, CUR_FONT, value_str.c_str(), 0x07E0, 1);
+        draw_text(fb, x + 10, y + 25, CUR_FONT, value_str.c_str(), 0x07E0, 1);
     }
 }

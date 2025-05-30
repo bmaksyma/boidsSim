@@ -27,9 +27,10 @@ extern const int PREDATORS_COUNT = 3;
 extern const float PREY_SIZE = 10.0f;
 extern const float PREDATOR_SIZE = 20.0f;
 extern const float KILL_DISTANCE = 5.0f;
-extern font_descriptor_t* CUR_FONT = &font_rom8x16;
-extern uint16_t PREY_COLOR = 0x001F; 
-extern uint16_t PREDATOR_COLOR = 0xF800;
+// extern uint16_t PREY_COLOR = 0x001F; 
+// extern uint16_t PREDATOR_COLOR = 0xF800;
+extern uint16_t PREY_COLOR = 0xFFFF; 
+extern uint16_t PREDATOR_COLOR = 0xFFFF;
 
 extern float MAX_SPEED = 10.0f;
 extern float MAX_FORCE = 1.3f;
@@ -41,6 +42,8 @@ extern float COHESION_WEIGHT = 1.0f;
 extern float SEPARATION_WEIGHT = 1.5f;
 extern float MARGIN_SIZE = 40.0f;
 extern float TURN_FORCE = 5.0f;
+
+extern font_descriptor_t* CUR_FONT = &font_rom8x16;
 
 extern const uint16_t WHITE_THEME_COLOR1 = 0xC618;
 extern const uint16_t WHITE_THEME_COLOR2 = 0x5D1F;
@@ -87,15 +90,8 @@ uint16_t getCurrentBackgroundColor() {
     return currentBackgroundColor;
 }
 
-const uint16_t COLOR_RED = 0xF800;
-const uint16_t COLOR_GREEN = 0x07E0;
-const uint16_t COLOR_MAGENTA = 0xF81F;
-const uint16_t COLOR_ORANGE = 0xFD20;
-const uint16_t COLOR_NAVY = 0x000F;
-const uint16_t COLOR_LIME = 0x07E0;
-const uint16_t COLOR_LIGHT_BLUE = 0xAEDC;
-
 std::vector<uint16_t> buttonColors = whiteThemeColors;
+
 std::vector<font_descriptor_t*> availableFonts = {
     &font_rom8x16,
     &font_winFreeSystem14x16
@@ -104,7 +100,7 @@ std::vector<font_descriptor_t*> availableFonts = {
 extern unsigned short *fb = nullptr;
 
 void draw_pixel(int x, int y, unsigned short color) {
-    if (color != 65535 && x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT) {
+    if (x >= 0 && x < WIDTH && y >= 0 && y < HEIGHT) {
         fb[(x % WIDTH) + WIDTH * (y % HEIGHT)] = color;
     }
 }
@@ -128,14 +124,9 @@ int main() {
     Window mainWindow;
     Window settingsWindow;
     Window* activeWindow = &mainWindow;
-    std::vector<std::string> colorNames = {
-        "Red", "Green", "Blue", "Yellow", "Orange", "Purple"
-    };
 
-    int selectedColorID = 0;
     uint16_t activeButtonColor = getCurrentThemeColors()[0];
 
-    bool choosingColor = false;   
     bool choosingFont = false;
     bool choosingTheme = false;
     bool simRunning = false;
@@ -148,8 +139,8 @@ int main() {
     mainWindow.background_color = getCurrentBackgroundColor();
     settingsWindow.background_color = getCurrentBackgroundColor();
 
-    drawMainWindow(mainWindow, settingsWindow, activeWindow, activeButtonColor, choosingColor, choosingFont, choosingTheme);
-    drawSettingsWindow(mainWindow, settingsWindow, activeWindow, activeButtonColor, choosingColor, choosingFont, choosingTheme);
+    drawMainWindow(mainWindow, settingsWindow, activeWindow, activeButtonColor, choosingFont, choosingTheme);
+    drawSettingsWindow(mainWindow, settingsWindow, activeWindow, activeButtonColor, choosingFont, choosingTheme);
     settingsWindow.buttons[0].selected = true;
     settingsWindow.selected_index = 0;
 
@@ -179,17 +170,7 @@ int main() {
         }
         int8_t delta = green_knob - last_green_knob;
         
-        if (choosingColor) {
-            handleColorChoice(delta, selectedColorID, activeButtonColor, buttonColors, activeWindow, &mainWindow, &settingsWindow);
-            if (green_knob_just_pressed) {
-                choosingColor = false;
-                PREY_COLOR = buttonColors[selectedColorID];
-                PREDATOR_COLOR = buttonColors[(selectedColorID + 1) % buttonColors.size()];
-                std::cout << "Color confirmed and applied!\n";
-                usleep(200 * 1000);
-            }
-        }
-        else if (choosingFont) {
+        if (choosingFont) {
             handleFontChoice(delta, fontID, availableFonts, activeWindow, &mainWindow, &settingsWindow);
             CUR_FONT = availableFonts[fontID];
             if (green_knob_just_pressed) {
@@ -252,8 +233,7 @@ int main() {
         struct timespec end_time;
         clock_gettime(CLOCK_MONOTONIC, &end_time);
         
-        unsigned int elapsed_us = (end_time.tv_sec - start_time.tv_sec) * 1000000 + 
-                                 (end_time.tv_nsec - start_time.tv_nsec) / 1000;
+        unsigned int elapsed_us = (end_time.tv_sec - start_time.tv_sec) * 1000000 + (end_time.tv_nsec - start_time.tv_nsec) / 1000;
         if (elapsed_us < FRAME_TIME_US) {
             usleep(FRAME_TIME_US - elapsed_us);
         }
