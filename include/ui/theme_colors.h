@@ -5,13 +5,13 @@
 #include <vector>
 #include <string>
 
-// White Theme Colors 
+/* White Theme Colors */
 extern const uint16_t WHITE_THEME_COLOR1;
 extern const uint16_t WHITE_THEME_COLOR2;
 extern const uint16_t WHITE_THEME_COLOR3;
 extern const uint16_t WHITE_THEME_COLOR4;
 
-// Dark Theme Colors 
+/* Dark Theme Colors */
 extern const uint16_t DARK_THEME_COLOR1;
 extern const uint16_t DARK_THEME_COLOR2;
 extern const uint16_t DARK_THEME_COLOR3;

@@ -76,7 +76,7 @@ private:
      * @return sf::Vector2i Grid cell index
      */
     sf::Vector2i getGridCell(const sf::Vector2f& position);
-private:
+    
     /**
      * @brief Boid population and spatial management
      * 

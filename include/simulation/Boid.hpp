@@ -13,6 +13,15 @@
 class Boid {
 public:
     /**
+     * @brief Construct a new Boid object
+     * 
+     * @param x Initial x-position
+     * @param y Initial y-position
+     * @param size Size of the boid
+     */
+    Boid(float x, float y, float size);
+
+    /**
     * @brief Position and velocity of the boid in 2D space
     * 
     * The current position is represented as a vector with x and y coordinates
@@ -26,15 +35,6 @@ public:
     sf::Vector2f acceleration;  
     float size;                 
     int color;                  
-
-    /**
-     * @brief Construct a new Boid object
-     * 
-     * @param x Initial x-position
-     * @param y Initial y-position
-     * @param size Size of the boid
-     */
-    Boid(float x, float y, float size);
 
     /**
      * @brief Get the current position
