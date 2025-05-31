@@ -10,3 +10,4 @@ In Makefile change line 24, 28, 29 with your information:
     - IP of MZ_APO
     - ssh path
     - cvut username
+Youtube usage showcase: https://youtu.be/OVOsBiRVdwY
