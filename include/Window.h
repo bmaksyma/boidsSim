@@ -23,7 +23,7 @@ public:
      * 
      * @param bg Background color (default black)
      */
-    Window(uint16_t bg = 0x0000);
+    Window(uint16_t bg = 0x0000):background_color(bg) {};
 
     /**
      * @brief Move selection to the next button

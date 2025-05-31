@@ -48,5 +48,5 @@ public:
      * 
      * @return The border-avoidance force vector
      */
-    sf::Vector2f avoidBorders() const override;
+    sf::Vector2f avoidBorders() const;
 };

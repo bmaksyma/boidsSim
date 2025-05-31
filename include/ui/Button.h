@@ -45,7 +45,8 @@ public:
      * @param text Text label shown on the button
      * @param action Function to execute on activation
      */
-    Button(int x, int y, int w, int h, uint16_t color, const std::string& text, std::function<void()> action);
+    Button(int x, int y, int w, int h, uint16_t color, const std::string& text, std::function<void()> action)
+        : x(x), y(y), width(w), height(h), color(color), text(text), selected(false), action(action) {}
 
     /**
      * @brief Draws the button to the framebuffer using the specified font

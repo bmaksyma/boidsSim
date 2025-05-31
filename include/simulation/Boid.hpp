@@ -41,7 +41,7 @@ public:
      * 
      * @return sf::Vector2f Current position
      */
-    sf::Vector2f getPosition() const;
+    sf::Vector2f getPosition() const {return position;};
 
     /**
      * @brief Calculate steering force to avoid screen borders
