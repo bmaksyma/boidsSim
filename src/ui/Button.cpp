@@ -46,8 +46,6 @@ void Button::draw(unsigned short* fb, font_descriptor_t* font) {
     int text_x = x + (width - text_width) / 2;
     int text_y = y + (height - text_height) / 2;
     
-    // uint16_t bd_color = getCurrentBackgroundColor();
-    // uint16_t text_color = (bd_color == 0xFFFF) ? 0x0000 : 0xFFFF;
     draw_text(fb, text_x, text_y, font, text.c_str(), text_color, scale);
 }
 

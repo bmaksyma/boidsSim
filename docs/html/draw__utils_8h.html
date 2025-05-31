@@ -116,19 +116,19 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa6c49da6c55394a53cd5a37c4955dded" id="r_aa6c49da6c55394a53cd5a37c4955dded"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="draw__utils_8h.html#aa6c49da6c55394a53cd5a37c4955dded">draw_pixel</a> (int x, int y, unsigned short int color)</td></tr>
-<tr class="memdesc:aa6c49da6c55394a53cd5a37c4955dded"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw one pixel at [x, y] with a color.  <br /></td></tr>
+<tr class="memdesc:aa6c49da6c55394a53cd5a37c4955dded"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a single pixel on the screen.  <br /></td></tr>
 <tr class="separator:aa6c49da6c55394a53cd5a37c4955dded"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b8ad87a7dde9355b811f160c3a5d650" id="r_a2b8ad87a7dde9355b811f160c3a5d650"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="draw__utils_8h.html#a2b8ad87a7dde9355b811f160c3a5d650">draw_rect</a> (unsigned short *<a class="el" href="Globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>, int x, int y, int w, int h, unsigned short int color)</td></tr>
-<tr class="memdesc:a2b8ad87a7dde9355b811f160c3a5d650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a filled rectangle.  <br /></td></tr>
+<tr class="memitem:a2b8ad87a7dde9355b811f160c3a5d650" id="r_a2b8ad87a7dde9355b811f160c3a5d650"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="draw__utils_8h.html#a2b8ad87a7dde9355b811f160c3a5d650">draw_rect</a> (unsigned short *<a class="el" href="globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>, int x, int y, int w, int h, unsigned short int color)</td></tr>
+<tr class="memdesc:a2b8ad87a7dde9355b811f160c3a5d650"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a filled rectangle at the specified position and dimensions.  <br /></td></tr>
 <tr class="separator:a2b8ad87a7dde9355b811f160c3a5d650"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a968c32e4ca784b2a580372c591b1c75c" id="r_a968c32e4ca784b2a580372c591b1c75c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="draw__utils_8h.html#a968c32e4ca784b2a580372c591b1c75c">draw_rounded_rect</a> (unsigned short *<a class="el" href="Globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>, int x, int y, int w, int h, int radius, unsigned short int color)</td></tr>
+<tr class="memitem:a968c32e4ca784b2a580372c591b1c75c" id="r_a968c32e4ca784b2a580372c591b1c75c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="draw__utils_8h.html#a968c32e4ca784b2a580372c591b1c75c">draw_rounded_rect</a> (unsigned short *<a class="el" href="globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>, int x, int y, int w, int h, int radius, unsigned short int color)</td></tr>
 <tr class="memdesc:a968c32e4ca784b2a580372c591b1c75c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Draw a filled rectangle with rounded corners.  <br /></td></tr>
 <tr class="separator:a968c32e4ca784b2a580372c591b1c75c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
 <tr class="memitem:a29cf45bbde1c12a928fc01f19b547075" id="r_a29cf45bbde1c12a928fc01f19b547075"><td class="memItemLeft" align="right" valign="top">unsigned short *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="draw__utils_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a></td></tr>
-<tr class="memdesc:a29cf45bbde1c12a928fc01f19b547075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Framebuffer pointer used for drawing pixels and shapes.  <br /></td></tr>
+<tr class="memdesc:a29cf45bbde1c12a928fc01f19b547075"><td class="mdescLeft">&#160;</td><td class="mdescRight">Framebuffer pointer used to directly write pixel data for rendering.  <br /></td></tr>
 <tr class="separator:a29cf45bbde1c12a928fc01f19b547075"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -164,7 +164,15 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Draw one pixel at [x, y] with a color. </p>
+<p>Draw a single pixel on the screen. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">x</td><td>X-coordinate of the pixel </td></tr>
+    <tr><td class="paramname">y</td><td>Y-coordinate of the pixel </td></tr>
+    <tr><td class="paramname">color</td><td>16-bit RGB color value </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -218,7 +226,18 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Draw a filled rectangle. </p>
+<p>Draw a filled rectangle at the specified position and dimensions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fb</td><td>Pointer to the framebuffer </td></tr>
+    <tr><td class="paramname">x</td><td>Top-left X-coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>Top-left Y-coordinate </td></tr>
+    <tr><td class="paramname">w</td><td>Width of the rectangle </td></tr>
+    <tr><td class="paramname">h</td><td>Height of the rectangle </td></tr>
+    <tr><td class="paramname">color</td><td>16-bit RGB565 fill color </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="draw__utils_8cpp_source.html#l00009">9</a> of file <a class="el" href="draw__utils_8cpp_source.html">draw_utils.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">    9</span>                                                                                         {</div>
@@ -228,14 +247,14 @@ Variables</h2></td></tr>
 <div class="line"><span class="lineno">   13</span>            <span class="keywordtype">int</span> py = y + i;</div>
 <div class="line"><span class="lineno">   14</span>            <span class="keywordflow">if</span> (px &gt;= 0 &amp;&amp; px &lt; WIDTH &amp;&amp; py &gt;= 0 &amp;&amp; py &lt; <a class="code hl_define" href="draw__utils_8cpp.html#aed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a>) {</div>
 <div class="line"><span class="lineno">   15</span>                <span class="keywordtype">int</span> index = py * <a class="code hl_define" href="draw__utils_8cpp.html#a241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> + px;</div>
-<div class="line"><span class="lineno">   16</span>                ((<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>*)<a class="code hl_variable" href="Globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>)[index] = color;</div>
+<div class="line"><span class="lineno">   16</span>                ((<span class="keywordtype">unsigned</span> <span class="keywordtype">short</span>*)<a class="code hl_variable" href="globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>)[index] = color;</div>
 <div class="line"><span class="lineno">   17</span>            }</div>
 <div class="line"><span class="lineno">   18</span>        }</div>
 <div class="line"><span class="lineno">   19</span>    }</div>
 <div class="line"><span class="lineno">   20</span>}</div>
-<div class="ttc" id="aGlobals_8h_html_a29cf45bbde1c12a928fc01f19b547075"><div class="ttname"><a href="Globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a></div><div class="ttdeci">unsigned short * fb</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00055">globals.cpp:55</a></div></div>
 <div class="ttc" id="adraw__utils_8cpp_html_a241aeeb764887ae5e3de58b98f04b16d"><div class="ttname"><a href="draw__utils_8cpp.html#a241aeeb764887ae5e3de58b98f04b16d">WIDTH</a></div><div class="ttdeci">#define WIDTH</div><div class="ttdef"><b>Definition</b> <a href="draw__utils_8cpp_source.html#l00006">draw_utils.cpp:6</a></div></div>
 <div class="ttc" id="adraw__utils_8cpp_html_aed89bd71aee8be823e8a20ec4e093c1e"><div class="ttname"><a href="draw__utils_8cpp.html#aed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a></div><div class="ttdeci">#define HEIGHT</div><div class="ttdef"><b>Definition</b> <a href="draw__utils_8cpp_source.html#l00007">draw_utils.cpp:7</a></div></div>
+<div class="ttc" id="aglobals_8h_html_a29cf45bbde1c12a928fc01f19b547075"><div class="ttname"><a href="globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a></div><div class="ttdeci">unsigned short * fb</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00055">globals.cpp:55</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -296,6 +315,19 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Draw a filled rectangle with rounded corners. </p>
+<p>This function fills the rectangle and renders rounded corners using circles</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">fb</td><td>Pointer to the framebuffer </td></tr>
+    <tr><td class="paramname">x</td><td>Top-left X-coordinate </td></tr>
+    <tr><td class="paramname">y</td><td>Top-left Y-coordinate </td></tr>
+    <tr><td class="paramname">w</td><td>Width of the rectangle </td></tr>
+    <tr><td class="paramname">h</td><td>Height of the rectangle </td></tr>
+    <tr><td class="paramname">radius</td><td>Radius of the corner rounding </td></tr>
+    <tr><td class="paramname">color</td><td>16-bit RGB fill color </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="draw__utils_8cpp_source.html#l00022">22</a> of file <a class="el" href="draw__utils_8cpp_source.html">draw_utils.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   22</span>                                                                                                             {</div>
@@ -326,7 +358,7 @@ Variables</h2></td></tr>
 <div class="line"><span class="lineno">   47</span>        }</div>
 <div class="line"><span class="lineno">   48</span>    }</div>
 <div class="line"><span class="lineno">   49</span>}</div>
-<div class="ttc" id="adraw__utils_8h_html_aa6c49da6c55394a53cd5a37c4955dded"><div class="ttname"><a href="draw__utils_8h.html#aa6c49da6c55394a53cd5a37c4955dded">draw_pixel</a></div><div class="ttdeci">void draw_pixel(int x, int y, unsigned short int color)</div><div class="ttdoc">Draw one pixel at [x, y] with a color.</div></div>
+<div class="ttc" id="adraw__utils_8h_html_aa6c49da6c55394a53cd5a37c4955dded"><div class="ttname"><a href="draw__utils_8h.html#aa6c49da6c55394a53cd5a37c4955dded">draw_pixel</a></div><div class="ttdeci">void draw_pixel(int x, int y, unsigned short int color)</div><div class="ttdoc">Draw a single pixel on the screen.</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -351,7 +383,8 @@ Variables</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Framebuffer pointer used for drawing pixels and shapes. </p>
+<p>Framebuffer pointer used to directly write pixel data for rendering. </p>
+<p>Points to an initialized framebuffer for drawing </p>
 
 <p class="definition">Definition at line <a class="el" href="globals_8cpp_source.html#l00055">55</a> of file <a class="el" href="globals_8cpp_source.html">globals.cpp</a>.</p>
 

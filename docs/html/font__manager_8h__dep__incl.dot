@@ -32,16 +32,18 @@ digraph "include/fonts/font_manager.h"
   Node10 -> Node11 [id="edge16_Node000010_Node000011",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node11 [id="Node000011",label="src/simulation/Boid.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Boid_8cpp.html",tooltip=" "];
   Node10 -> Node12 [id="edge17_Node000010_Node000012",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node12 [id="Node000012",label="src/simulation/Simulation.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Simulation_8cpp.html",tooltip=" "];
+  Node12 [id="Node000012",label="src/simulation/Parameter\lManager.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$ParameterManager_8cpp.html",tooltip=" "];
   Node10 -> Node13 [id="edge18_Node000010_Node000013",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node13 [id="Node000013",label="src/ui/Button.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Button_8cpp.html",tooltip=" "];
+  Node13 [id="Node000013",label="src/simulation/Simulation.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Simulation_8cpp.html",tooltip=" "];
   Node10 -> Node14 [id="edge19_Node000010_Node000014",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node14 [id="Node000014",label="src/utils/draw_utils.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$draw__utils_8cpp.html",tooltip=" "];
-  Node10 -> Node9 [id="edge20_Node000010_Node000009",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node1 -> Node15 [id="edge21_Node000001_Node000015",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node15 [id="Node000015",label="src/fonts/font_manager.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$font__manager_8cpp.html",tooltip=" "];
+  Node14 [id="Node000014",label="src/ui/Button.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$Button_8cpp.html",tooltip=" "];
+  Node10 -> Node15 [id="edge20_Node000010_Node000015",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node15 [id="Node000015",label="src/utils/draw_utils.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$draw__utils_8cpp.html",tooltip=" "];
+  Node10 -> Node9 [id="edge21_Node000010_Node000009",dir="back",color="steelblue1",style="solid",tooltip=" "];
   Node1 -> Node16 [id="edge22_Node000001_Node000016",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node16 [id="Node000016",label="src/globals.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$globals_8cpp.html",tooltip=" "];
-  Node1 -> Node4 [id="edge23_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
-  Node1 -> Node12 [id="edge24_Node000001_Node000012",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node16 [id="Node000016",label="src/fonts/font_manager.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$font__manager_8cpp.html",tooltip=" "];
+  Node1 -> Node17 [id="edge23_Node000001_Node000017",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node17 [id="Node000017",label="src/globals.cpp",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$globals_8cpp.html",tooltip=" "];
+  Node1 -> Node4 [id="edge24_Node000001_Node000004",dir="back",color="steelblue1",style="solid",tooltip=" "];
+  Node1 -> Node13 [id="edge25_Node000001_Node000013",dir="back",color="steelblue1",style="solid",tooltip=" "];
 }

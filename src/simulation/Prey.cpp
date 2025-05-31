@@ -35,44 +35,6 @@ void Prey::flock(const std::vector<Prey*>& preys) {
     applyForce(separationForce);
 }
 
-// void Prey::flock(const std::vector<Prey*>& preys) {
-//     sf::Vector2f alignmentForce(0, 0);
-//     sf::Vector2f cohesionForce(0, 0);
-//     sf::Vector2f separationForce(0, 0);
-    
-//     int alignCount = 0;
-//     int cohesionCount = 0;
-//     int separationCount = 0;
-    
-//     for (Prey* other : preys) {
-//         float d = Vector2Util::distance(position, other->position);
-        
-//         // Alignment
-//         if (d < PERCEPTION_RADIUS) {
-//             alignmentForce += other->velocity;
-//             alignCount++;
-//         }
-        
-//         // Cohesion
-//         if (d < PERCEPTION_RADIUS) {
-//             cohesionForce += other->position;
-//             cohesionCount++;
-//         }
-        
-//         // Separation
-//         if (d < SEPARATION_RADIUS) {
-//             sf::Vector2f diff = position - other->position;
-//             diff = Vector2Util::normalize(diff);
-//             diff /= d;  // Closer objects have more influence
-//             separationForce += diff;
-//             separationCount++;
-//         }
-//     }
-    
-//     applyForce(alignmentForce);
-//     applyForce(cohesionForce);
-//     applyForce(separationForce);
-// }
 
 sf::Vector2f Prey::align(const std::vector<Prey*>& preys) const {
     sf::Vector2f steering(0, 0);

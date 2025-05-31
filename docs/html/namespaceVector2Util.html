@@ -95,19 +95,28 @@ $(document).ready(function(){initNavTree('namespaceVector2Util.html',''); initRe
   <div class="headertitle"><div class="title">Vector2Util Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Utility functions for working with 2D vectors.  
+<a href="namespaceVector2Util.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:af133fb39e87a579447d5637548b340e3" id="r_af133fb39e87a579447d5637548b340e3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceVector2Util.html#af133fb39e87a579447d5637548b340e3">calc_length</a> (const sf::Vector2f &amp;v)</td></tr>
+<tr class="memdesc:af133fb39e87a579447d5637548b340e3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the magnitude length of a vector.  <br /></td></tr>
 <tr class="separator:af133fb39e87a579447d5637548b340e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68f6c1f8ce8f70efa32d26c72c49e78f" id="r_a68f6c1f8ce8f70efa32d26c72c49e78f"><td class="memItemLeft" align="right" valign="top">sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceVector2Util.html#a68f6c1f8ce8f70efa32d26c72c49e78f">normalize</a> (const sf::Vector2f &amp;v)</td></tr>
+<tr class="memdesc:a68f6c1f8ce8f70efa32d26c72c49e78f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes a vector to unit length.  <br /></td></tr>
 <tr class="separator:a68f6c1f8ce8f70efa32d26c72c49e78f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09f85c16d4f3931f33b081d2bb7047fd" id="r_a09f85c16d4f3931f33b081d2bb7047fd"><td class="memItemLeft" align="right" valign="top">sf::Vector2f&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceVector2Util.html#a09f85c16d4f3931f33b081d2bb7047fd">scaleTo</a> (const sf::Vector2f &amp;v, float newLength)</td></tr>
+<tr class="memdesc:a09f85c16d4f3931f33b081d2bb7047fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales a vector to a specific length.  <br /></td></tr>
 <tr class="separator:a09f85c16d4f3931f33b081d2bb7047fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad63703239fc51e2327712c6749bd8fc5" id="r_ad63703239fc51e2327712c6749bd8fc5"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceVector2Util.html#ad63703239fc51e2327712c6749bd8fc5">distance</a> (const sf::Vector2f &amp;v1, const sf::Vector2f &amp;v2)</td></tr>
+<tr class="memdesc:ad63703239fc51e2327712c6749bd8fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the distance between two vectors.  <br /></td></tr>
 <tr class="separator:ad63703239fc51e2327712c6749bd8fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Utility functions for working with 2D vectors. </p>
+</div><h2 class="groupheader">Function Documentation</h2>
 <a id="af133fb39e87a579447d5637548b340e3" name="af133fb39e87a579447d5637548b340e3"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af133fb39e87a579447d5637548b340e3">&#9670;&#160;</a></span>calc_length()</h2>
 
@@ -132,10 +141,19 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Vector2Util_8hpp_source.html#l00006">6</a> of file <a class="el" href="Vector2Util_8hpp_source.html">Vector2Util.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    6</span>                                                  {</div>
-<div class="line"><span class="lineno">    7</span>        <span class="keywordflow">return</span> std::sqrt(v.x * v.x + v.y * v.y);</div>
-<div class="line"><span class="lineno">    8</span>    }</div>
+<p>Calculates the magnitude length of a vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The length of the vector </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Vector2Util_8hpp_source.html#l00016">16</a> of file <a class="el" href="Vector2Util_8hpp_source.html">Vector2Util.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   16</span>                                                  {</div>
+<div class="line"><span class="lineno">   17</span>        <span class="keywordflow">return</span> std::sqrt(v.x * v.x + v.y * v.y);</div>
+<div class="line"><span class="lineno">   18</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -173,13 +191,22 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Vector2Util_8hpp_source.html#l00022">22</a> of file <a class="el" href="Vector2Util_8hpp_source.html">Vector2Util.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   22</span>                                                                      {</div>
-<div class="line"><span class="lineno">   23</span>        sf::Vector2f diff = v1 - v2;</div>
-<div class="line"><span class="lineno">   24</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceVector2Util.html#af133fb39e87a579447d5637548b340e3">calc_length</a>(diff);</div>
-<div class="line"><span class="lineno">   25</span>        <span class="comment">// return diff.x * diff.x + diff.y * diff.y;</span></div>
-<div class="line"><span class="lineno">   26</span>    }</div>
-<div class="ttc" id="anamespaceVector2Util_html_af133fb39e87a579447d5637548b340e3"><div class="ttname"><a href="namespaceVector2Util.html#af133fb39e87a579447d5637548b340e3">Vector2Util::calc_length</a></div><div class="ttdeci">float calc_length(const sf::Vector2f &amp;v)</div><div class="ttdef"><b>Definition</b> <a href="Vector2Util_8hpp_source.html#l00006">Vector2Util.hpp:6</a></div></div>
+<p>Calculates the distance between two vectors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v1</td><td>First vector </td></tr>
+    <tr><td class="paramname">v2</td><td>Second vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Distance between the two points </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Vector2Util_8hpp_source.html#l00052">52</a> of file <a class="el" href="Vector2Util_8hpp_source.html">Vector2Util.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>                                                                      {</div>
+<div class="line"><span class="lineno">   53</span>        sf::Vector2f diff = v1 - v2;</div>
+<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespaceVector2Util.html#af133fb39e87a579447d5637548b340e3">calc_length</a>(diff);</div>
+<div class="line"><span class="lineno">   55</span>    }</div>
+<div class="ttc" id="anamespaceVector2Util_html_af133fb39e87a579447d5637548b340e3"><div class="ttname"><a href="namespaceVector2Util.html#af133fb39e87a579447d5637548b340e3">Vector2Util::calc_length</a></div><div class="ttdeci">float calc_length(const sf::Vector2f &amp;v)</div><div class="ttdoc">Calculates the magnitude length of a vector.</div><div class="ttdef"><b>Definition</b> <a href="Vector2Util_8hpp_source.html#l00016">Vector2Util.hpp:16</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -207,13 +234,22 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Vector2Util_8hpp_source.html#l00010">10</a> of file <a class="el" href="Vector2Util_8hpp_source.html">Vector2Util.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   10</span>                                                     {</div>
-<div class="line"><span class="lineno">   11</span>        <span class="keywordtype">float</span> len = <a class="code hl_function" href="namespaceVector2Util.html#af133fb39e87a579447d5637548b340e3">calc_length</a>(v);</div>
-<div class="line"><span class="lineno">   12</span>        <span class="keywordflow">if</span> (len != 0)</div>
-<div class="line"><span class="lineno">   13</span>            <span class="keywordflow">return</span> sf::Vector2f(v.x / len, v.y / len);</div>
-<div class="line"><span class="lineno">   14</span>        <span class="keywordflow">return</span> v;</div>
-<div class="line"><span class="lineno">   15</span>    }</div>
+<p>Normalizes a vector to unit length. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Input vector </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Normalized vector, if length is 1, or original vector if length is 0 </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Vector2Util_8hpp_source.html#l00026">26</a> of file <a class="el" href="Vector2Util_8hpp_source.html">Vector2Util.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   26</span>                                                     {</div>
+<div class="line"><span class="lineno">   27</span>        <span class="keywordtype">float</span> len = <a class="code hl_function" href="namespaceVector2Util.html#af133fb39e87a579447d5637548b340e3">calc_length</a>(v);</div>
+<div class="line"><span class="lineno">   28</span>        <span class="keywordflow">if</span> (len != 0)</div>
+<div class="line"><span class="lineno">   29</span>            <span class="keywordflow">return</span> sf::Vector2f(v.x / len, v.y / len);</div>
+<div class="line"><span class="lineno">   30</span>        <span class="keywordflow">return</span> v;</div>
+<div class="line"><span class="lineno">   31</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -251,12 +287,22 @@ Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Vector2Util_8hpp_source.html#l00017">17</a> of file <a class="el" href="Vector2Util_8hpp_source.html">Vector2Util.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   17</span>                                                                    {</div>
-<div class="line"><span class="lineno">   18</span>        sf::Vector2f normalized = <a class="code hl_function" href="namespaceVector2Util.html#a68f6c1f8ce8f70efa32d26c72c49e78f">normalize</a>(v);</div>
-<div class="line"><span class="lineno">   19</span>        <span class="keywordflow">return</span> normalized * newLength;</div>
-<div class="line"><span class="lineno">   20</span>    }</div>
-<div class="ttc" id="anamespaceVector2Util_html_a68f6c1f8ce8f70efa32d26c72c49e78f"><div class="ttname"><a href="namespaceVector2Util.html#a68f6c1f8ce8f70efa32d26c72c49e78f">Vector2Util::normalize</a></div><div class="ttdeci">sf::Vector2f normalize(const sf::Vector2f &amp;v)</div><div class="ttdef"><b>Definition</b> <a href="Vector2Util_8hpp_source.html#l00010">Vector2Util.hpp:10</a></div></div>
+<p>Scales a vector to a specific length. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>Input vector </td></tr>
+    <tr><td class="paramname">newLength</td><td>Desired new length </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Vector scaled to the new length </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="Vector2Util_8hpp_source.html#l00040">40</a> of file <a class="el" href="Vector2Util_8hpp_source.html">Vector2Util.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   40</span>                                                                    {</div>
+<div class="line"><span class="lineno">   41</span>        sf::Vector2f normalized = <a class="code hl_function" href="namespaceVector2Util.html#a68f6c1f8ce8f70efa32d26c72c49e78f">normalize</a>(v);</div>
+<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">return</span> normalized * newLength;</div>
+<div class="line"><span class="lineno">   43</span>    }</div>
+<div class="ttc" id="anamespaceVector2Util_html_a68f6c1f8ce8f70efa32d26c72c49e78f"><div class="ttname"><a href="namespaceVector2Util.html#a68f6c1f8ce8f70efa32d26c72c49e78f">Vector2Util::normalize</a></div><div class="ttdeci">sf::Vector2f normalize(const sf::Vector2f &amp;v)</div><div class="ttdoc">Normalizes a vector to unit length.</div><div class="ttdef"><b>Definition</b> <a href="Vector2Util_8hpp_source.html#l00026">Vector2Util.hpp:26</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>

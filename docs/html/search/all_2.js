@@ -10,6 +10,6 @@ var searchData=
   ['button_7',['button',['../classButton.html',1,'Button'],['../classButton.html#a91bd632057e8d52c9715a8b86282d61f',1,'Button::Button()']]],
   ['button_2ecpp_8',['Button.cpp',['../Button_8cpp.html',1,'']]],
   ['button_2eh_9',['Button.h',['../Button_8h.html',1,'']]],
-  ['buttoncolors_10',['buttoncolors',['../Globals_8h.html#a5aebe167894fa14c01f65d81cb40dc6d',1,'buttonColors:&#160;globals.cpp'],['../globals_8cpp.html#a5aebe167894fa14c01f65d81cb40dc6d',1,'buttonColors:&#160;globals.cpp']]],
+  ['buttoncolors_10',['buttoncolors',['../globals_8h.html#a5aebe167894fa14c01f65d81cb40dc6d',1,'buttonColors:&#160;globals.cpp'],['../globals_8cpp.html#a5aebe167894fa14c01f65d81cb40dc6d',1,'buttonColors:&#160;globals.cpp']]],
   ['buttons_11',['buttons',['../classWindow.html#ad60124ddad16a3c22a6789f8d27fac7f',1,'Window']]]
 ];

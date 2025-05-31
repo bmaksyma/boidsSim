@@ -91,7 +91,6 @@ $(document).ready(function(){initNavTree('classSimulation.html',''); initResizab
 
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
@@ -101,88 +100,79 @@ $(document).ready(function(){initNavTree('classSimulation.html',''); initResizab
 </div><!--header-->
 <div class="contents">
 
-<p>Runs the main boid simulation, including rendering.  
+<p>Runs and manages the main boids simulation including updating, drawing and handling interactions between preys and predators.  
  <a href="classSimulation.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Collaboration diagram for Simulation:</div>
+<div class="dyncontent">
+<div class="center"><img src="classSimulation__coll__graph.png" border="0" usemap="#aSimulation_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structSimulation_1_1AdjustableParam.html">AdjustableParam</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a5b224cc5b36bcc8eb29689aff223de41" id="r_a5b224cc5b36bcc8eb29689aff223de41"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a5b224cc5b36bcc8eb29689aff223de41">Simulation</a> ()</td></tr>
+<tr class="memdesc:a5b224cc5b36bcc8eb29689aff223de41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a new <a class="el" href="classSimulation.html" title="Runs and manages the main boids simulation including updating, drawing and handling interactions betw...">Simulation</a> object.  <br /></td></tr>
 <tr class="separator:a5b224cc5b36bcc8eb29689aff223de41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af10432cb1f54d548ac93354fa31cc72f" id="r_af10432cb1f54d548ac93354fa31cc72f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#af10432cb1f54d548ac93354fa31cc72f">initialize</a> (unsigned char *parlcd_mem_base, unsigned char *mem_base)</td></tr>
+<tr class="memdesc:af10432cb1f54d548ac93354fa31cc72f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes preys, predators, grid, and parameter manager.  <br /></td></tr>
 <tr class="separator:af10432cb1f54d548ac93354fa31cc72f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a289612b0b897c6ca6eb8d74813a34fa8" id="r_a289612b0b897c6ca6eb8d74813a34fa8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a289612b0b897c6ca6eb8d74813a34fa8">run</a> (unsigned char *parlcd_mem_base, unsigned char *mem_base)</td></tr>
+<tr class="memdesc:a289612b0b897c6ca6eb8d74813a34fa8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the main simulation loop, handling rendering and updates.  <br /></td></tr>
 <tr class="separator:a289612b0b897c6ca6eb8d74813a34fa8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adcc140aa96eabc937631f23eae965372" id="r_adcc140aa96eabc937631f23eae965372"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#adcc140aa96eabc937631f23eae965372">update</a> (unsigned char *mem_base)</td></tr>
+<tr class="memdesc:adcc140aa96eabc937631f23eae965372"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates positions, forces, and interactions between boids.  <br /></td></tr>
 <tr class="separator:adcc140aa96eabc937631f23eae965372"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adbce719183ed8c97447530109725cf34" id="r_adbce719183ed8c97447530109725cf34"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#adbce719183ed8c97447530109725cf34">render</a> (unsigned char *parlcd_mem_base, unsigned char *mem_base)</td></tr>
+<tr class="memdesc:adbce719183ed8c97447530109725cf34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Renders the simulation to the framebuffer and LCD.  <br /></td></tr>
 <tr class="separator:adbce719183ed8c97447530109725cf34"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1316dbedc4dc963328b9301f0a74095c" id="r_a1316dbedc4dc963328b9301f0a74095c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a1316dbedc4dc963328b9301f0a74095c">cleanup</a> (unsigned char *parlcd_mem_base)</td></tr>
+<tr class="memdesc:a1316dbedc4dc963328b9301f0a74095c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the screen and framebuffer after simulation ends.  <br /></td></tr>
 <tr class="separator:a1316dbedc4dc963328b9301f0a74095c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e4360f073ef19b14ac6e9f899391595" id="r_a5e4360f073ef19b14ac6e9f899391595"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a5e4360f073ef19b14ac6e9f899391595">toggleParamAdjustMode</a> ()</td></tr>
-<tr class="separator:a5e4360f073ef19b14ac6e9f899391595"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a800f0ded1e0a7a4a6d4c4b9aebb793c0" id="r_a800f0ded1e0a7a4a6d4c4b9aebb793c0"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a800f0ded1e0a7a4a6d4c4b9aebb793c0">isInParamAdjustMode</a> () const</td></tr>
-<tr class="separator:a800f0ded1e0a7a4a6d4c4b9aebb793c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
 <tr class="memitem:a29a14007ebc5727db56567aaf828343b" id="r_a29a14007ebc5727db56567aaf828343b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a29a14007ebc5727db56567aaf828343b">clearGrid</a> ()</td></tr>
+<tr class="memdesc:a29a14007ebc5727db56567aaf828343b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the spatial grid used for spatial partitioning.  <br /></td></tr>
 <tr class="separator:a29a14007ebc5727db56567aaf828343b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeeda0178bd5fff0dc8f4b952ae7df68c" id="r_aeeda0178bd5fff0dc8f4b952ae7df68c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#aeeda0178bd5fff0dc8f4b952ae7df68c">setupGrid</a> ()</td></tr>
+<tr class="memdesc:aeeda0178bd5fff0dc8f4b952ae7df68c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the spatial grid based on simulation resolution.  <br /></td></tr>
 <tr class="separator:aeeda0178bd5fff0dc8f4b952ae7df68c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a30008b658ae46bec7619b015f38e8d34" id="r_a30008b658ae46bec7619b015f38e8d34"><td class="memItemLeft" align="right" valign="top">sf::Vector2i&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a30008b658ae46bec7619b015f38e8d34">getGridCell</a> (const sf::Vector2f &amp;position)</td></tr>
+<tr class="memdesc:a30008b658ae46bec7619b015f38e8d34"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the grid cell index for a given position.  <br /></td></tr>
 <tr class="separator:a30008b658ae46bec7619b015f38e8d34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2414fa2c42965840489e7a58fe4365ea" id="r_a2414fa2c42965840489e7a58fe4365ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a2414fa2c42965840489e7a58fe4365ea">initAdjustableParams</a> ()</td></tr>
-<tr class="separator:a2414fa2c42965840489e7a58fe4365ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a696cf44133251c41e4bb8fe5e7640dd8" id="r_a696cf44133251c41e4bb8fe5e7640dd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a696cf44133251c41e4bb8fe5e7640dd8">drawParamUI</a> (unsigned char *mem_base)</td></tr>
-<tr class="separator:a696cf44133251c41e4bb8fe5e7640dd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e554dd42de251ef022f10bef90ff515" id="r_a6e554dd42de251ef022f10bef90ff515"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a6e554dd42de251ef022f10bef90ff515">handleBlueKnob</a> (uint32_t knob_data)</td></tr>
-<tr class="separator:a6e554dd42de251ef022f10bef90ff515"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
 <tr class="memitem:a46e57bf35959fd2c765b0d4519ee4467" id="r_a46e57bf35959fd2c765b0d4519ee4467"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classPrey.html">Prey</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a46e57bf35959fd2c765b0d4519ee4467">preys</a></td></tr>
+<tr class="memdesc:a46e57bf35959fd2c765b0d4519ee4467"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classBoid.html" title="Represents a single Boid in a flocking simulation.">Boid</a> population and spatial management.  <br /></td></tr>
 <tr class="separator:a46e57bf35959fd2c765b0d4519ee4467"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a73bb2159630696d32baa30d405e82d8d" id="r_a73bb2159630696d32baa30d405e82d8d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classPredator.html">Predator</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a73bb2159630696d32baa30d405e82d8d">predators</a></td></tr>
 <tr class="separator:a73bb2159630696d32baa30d405e82d8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68a1c4a23f0ff6b4d8c6ef80d55f0782" id="r_a68a1c4a23f0ff6b4d8c6ef80d55f0782"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; std::vector&lt; int &gt; &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a68a1c4a23f0ff6b4d8c6ef80d55f0782">grid</a></td></tr>
 <tr class="separator:a68a1c4a23f0ff6b4d8c6ef80d55f0782"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f17f20be069558a3629cdb67dfce78b" id="r_a9f17f20be069558a3629cdb67dfce78b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a9f17f20be069558a3629cdb67dfce78b">paramAdjustMode</a> = false</td></tr>
-<tr class="separator:a9f17f20be069558a3629cdb67dfce78b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5da110b8f03598854529376953ada2b7" id="r_a5da110b8f03598854529376953ada2b7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a5da110b8f03598854529376953ada2b7">currentParamIndex</a> = 0</td></tr>
-<tr class="separator:a5da110b8f03598854529376953ada2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af69f611f6df1e37831f1fe78a93839e5" id="r_af69f611f6df1e37831f1fe78a93839e5"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#af69f611f6df1e37831f1fe78a93839e5">lastBlueKnob</a> = 0</td></tr>
-<tr class="separator:af69f611f6df1e37831f1fe78a93839e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca0ec9cfcdf3a0d3d1cae8c8408a9f87" id="r_aca0ec9cfcdf3a0d3d1cae8c8408a9f87"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#aca0ec9cfcdf3a0d3d1cae8c8408a9f87">showingSelectedParam</a> = false</td></tr>
-<tr class="separator:aca0ec9cfcdf3a0d3d1cae8c8408a9f87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf9507b716d37d90af8ecd6cc486d5d3" id="r_abf9507b716d37d90af8ecd6cc486d5d3"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#abf9507b716d37d90af8ecd6cc486d5d3">paramSelectionTime</a> = 0</td></tr>
-<tr class="separator:abf9507b716d37d90af8ecd6cc486d5d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa12302e6c854463d761bde09f8987819" id="r_aa12302e6c854463d761bde09f8987819"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="structSimulation_1_1AdjustableParam.html">AdjustableParam</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a></td></tr>
-<tr class="separator:aa12302e6c854463d761bde09f8987819"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19db5e0c3f7a9a2e7dced7c7dbd6e0b5" id="r_a19db5e0c3f7a9a2e7dced7c7dbd6e0b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classParameterManager.html">ParameterManager</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a19db5e0c3f7a9a2e7dced7c7dbd6e0b5">paramManager</a></td></tr>
+<tr class="memdesc:a19db5e0c3f7a9a2e7dced7c7dbd6e0b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles user-adjustable parameters like weights and distances.  <br /></td></tr>
+<tr class="separator:a19db5e0c3f7a9a2e7dced7c7dbd6e0b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a68224e4f16d0d90ea901900b7042f422" id="r_a68224e4f16d0d90ea901900b7042f422"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a68224e4f16d0d90ea901900b7042f422">GRID_WIDTH</a></td></tr>
 <tr class="separator:a68224e4f16d0d90ea901900b7042f422"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a83b471d395160e24bb5ae724d0311e4a" id="r_a83b471d395160e24bb5ae724d0311e4a"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a83b471d395160e24bb5ae724d0311e4a">GRID_HEIGHT</a></td></tr>
 <tr class="separator:a83b471d395160e24bb5ae724d0311e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a89c7553eba359213ff6c527174240b14" id="r_a89c7553eba359213ff6c527174240b14"><td class="memItemLeft" align="right" valign="top">unsigned short&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a89c7553eba359213ff6c527174240b14">background_color</a></td></tr>
+<tr class="memdesc:a89c7553eba359213ff6c527174240b14"><td class="mdescLeft">&#160;</td><td class="mdescRight">Color used to clear the screen before rendering each frame.  <br /></td></tr>
 <tr class="separator:a89c7553eba359213ff6c527174240b14"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
 Static Private Attributes</h2></td></tr>
-<tr class="memitem:a9e76af2db4c5bd84397540f9dc755c0e" id="r_a9e76af2db4c5bd84397540f9dc755c0e"><td class="memItemLeft" align="right" valign="top">static const uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#a9e76af2db4c5bd84397540f9dc755c0e">PARAM_DISPLAY_TIME</a> = 2000000</td></tr>
-<tr class="separator:a9e76af2db4c5bd84397540f9dc755c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5cefd50832d40792c72f51d09c4d6b1" id="r_ad5cefd50832d40792c72f51d09c4d6b1"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classSimulation.html#ad5cefd50832d40792c72f51d09c4d6b1">GRID_CELL_SIZE</a> = 50</td></tr>
+<tr class="memdesc:ad5cefd50832d40792c72f51d09c4d6b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Spatial resolution constants.  <br /></td></tr>
 <tr class="separator:ad5cefd50832d40792c72f51d09c4d6b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Runs the main boid simulation, including rendering. </p>
+<div class="textblock"><p>Runs and manages the main boids simulation including updating, drawing and handling interactions between preys and predators. </p>
 
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00014">14</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00016">16</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a5b224cc5b36bcc8eb29689aff223de41" name="a5b224cc5b36bcc8eb29689aff223de41"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5b224cc5b36bcc8eb29689aff223de41">&#9670;&#160;</a></span>Simulation()</h2>
@@ -199,6 +189,8 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Construct a new <a class="el" href="classSimulation.html" title="Runs and manages the main boids simulation including updating, drawing and handling interactions betw...">Simulation</a> object. </p>
+
 <p class="definition">Definition at line <a class="el" href="Simulation_8cpp_source.html#l00032">32</a> of file <a class="el" href="Simulation_8cpp_source.html">Simulation.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   33</span>    : <a class="code hl_variable" href="classSimulation.html#a68224e4f16d0d90ea901900b7042f422">GRID_WIDTH</a>(<a class="code hl_define" href="draw__utils_8cpp.html#a241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> / <a class="code hl_variable" href="classSimulation.html#ad5cefd50832d40792c72f51d09c4d6b1">GRID_CELL_SIZE</a> + 1),</div>
 <div class="line"><span class="lineno">   34</span>      <a class="code hl_variable" href="classSimulation.html#a83b471d395160e24bb5ae724d0311e4a">GRID_HEIGHT</a>(<a class="code hl_define" href="draw__utils_8cpp.html#aed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> / <a class="code hl_variable" href="classSimulation.html#ad5cefd50832d40792c72f51d09c4d6b1">GRID_CELL_SIZE</a> + 1),</div>
@@ -208,10 +200,10 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   38</span>    <a class="code hl_variable" href="Boid_8cpp.html#ab577cbc7a7051e1bcf60c2c1797a0feb">gen</a> = std::mt19937(rd());</div>
 <div class="line"><span class="lineno">   39</span>}</div>
 <div class="ttc" id="aBoid_8cpp_html_ab577cbc7a7051e1bcf60c2c1797a0feb"><div class="ttname"><a href="Boid_8cpp.html#ab577cbc7a7051e1bcf60c2c1797a0feb">gen</a></div><div class="ttdeci">std::mt19937 gen</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00025">Simulation.cpp:25</a></div></div>
-<div class="ttc" id="aclassSimulation_html_a68224e4f16d0d90ea901900b7042f422"><div class="ttname"><a href="classSimulation.html#a68224e4f16d0d90ea901900b7042f422">Simulation::GRID_WIDTH</a></div><div class="ttdeci">const int GRID_WIDTH</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00061">Simulation.hpp:61</a></div></div>
-<div class="ttc" id="aclassSimulation_html_a83b471d395160e24bb5ae724d0311e4a"><div class="ttname"><a href="classSimulation.html#a83b471d395160e24bb5ae724d0311e4a">Simulation::GRID_HEIGHT</a></div><div class="ttdeci">const int GRID_HEIGHT</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00062">Simulation.hpp:62</a></div></div>
-<div class="ttc" id="aclassSimulation_html_a89c7553eba359213ff6c527174240b14"><div class="ttname"><a href="classSimulation.html#a89c7553eba359213ff6c527174240b14">Simulation::background_color</a></div><div class="ttdeci">unsigned short background_color</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00063">Simulation.hpp:63</a></div></div>
-<div class="ttc" id="aclassSimulation_html_ad5cefd50832d40792c72f51d09c4d6b1"><div class="ttname"><a href="classSimulation.html#ad5cefd50832d40792c72f51d09c4d6b1">Simulation::GRID_CELL_SIZE</a></div><div class="ttdeci">static const int GRID_CELL_SIZE</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00060">Simulation.hpp:60</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a68224e4f16d0d90ea901900b7042f422"><div class="ttname"><a href="classSimulation.html#a68224e4f16d0d90ea901900b7042f422">Simulation::GRID_WIDTH</a></div><div class="ttdeci">const int GRID_WIDTH</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00104">Simulation.hpp:104</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a83b471d395160e24bb5ae724d0311e4a"><div class="ttname"><a href="classSimulation.html#a83b471d395160e24bb5ae724d0311e4a">Simulation::GRID_HEIGHT</a></div><div class="ttdeci">const int GRID_HEIGHT</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00105">Simulation.hpp:105</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a89c7553eba359213ff6c527174240b14"><div class="ttname"><a href="classSimulation.html#a89c7553eba359213ff6c527174240b14">Simulation::background_color</a></div><div class="ttdeci">unsigned short background_color</div><div class="ttdoc">Color used to clear the screen before rendering each frame.</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00110">Simulation.hpp:110</a></div></div>
+<div class="ttc" id="aclassSimulation_html_ad5cefd50832d40792c72f51d09c4d6b1"><div class="ttname"><a href="classSimulation.html#ad5cefd50832d40792c72f51d09c4d6b1">Simulation::GRID_CELL_SIZE</a></div><div class="ttdeci">static const int GRID_CELL_SIZE</div><div class="ttdoc">Spatial resolution constants.</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00103">Simulation.hpp:103</a></div></div>
 <div class="ttc" id="adraw__utils_8cpp_html_a241aeeb764887ae5e3de58b98f04b16d"><div class="ttname"><a href="draw__utils_8cpp.html#a241aeeb764887ae5e3de58b98f04b16d">WIDTH</a></div><div class="ttdeci">#define WIDTH</div><div class="ttdef"><b>Definition</b> <a href="draw__utils_8cpp_source.html#l00006">draw_utils.cpp:6</a></div></div>
 <div class="ttc" id="adraw__utils_8cpp_html_aed89bd71aee8be823e8a20ec4e093c1e"><div class="ttname"><a href="draw__utils_8cpp.html#aed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a></div><div class="ttdeci">#define HEIGHT</div><div class="ttdef"><b>Definition</b> <a href="draw__utils_8cpp_source.html#l00007">draw_utils.cpp:7</a></div></div>
 <div class="ttc" id="atheme__colors_8h_html_af0c7aba4fb3d1b1dd5e98bb46f778a3a"><div class="ttname"><a href="theme__colors_8h.html#af0c7aba4fb3d1b1dd5e98bb46f778a3a">getCurrentBackgroundColor</a></div><div class="ttdeci">uint16_t getCurrentBackgroundColor()</div><div class="ttdef"><b>Definition</b> <a href="main_8cpp_source.html#l00041">main.cpp:41</a></div></div>
@@ -234,6 +226,14 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Clears the screen and framebuffer after simulation ends. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parlcd_mem_base</td><td>Pointer to memory-mapped parlcd registers </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="Simulation_8cpp_source.html#l00193">193</a> of file <a class="el" href="Simulation_8cpp_source.html">Simulation.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  193</span>                                                       {</div>
@@ -270,6 +270,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Clears the spatial grid used for spatial partitioning. </p>
+
 <p class="definition">Definition at line <a class="el" href="Simulation_8cpp_source.html#l00200">200</a> of file <a class="el" href="Simulation_8cpp_source.html">Simulation.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  200</span>                           {</div>
 <div class="line"><span class="lineno">  201</span>    <a class="code hl_variable" href="classSimulation.html#a68a1c4a23f0ff6b4d8c6ef80d55f0782">grid</a>.clear();</div>
@@ -278,89 +280,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  204</span>        <a class="code hl_variable" href="classSimulation.html#a68a1c4a23f0ff6b4d8c6ef80d55f0782">grid</a>[i].resize(<a class="code hl_variable" href="classSimulation.html#a83b471d395160e24bb5ae724d0311e4a">GRID_HEIGHT</a>);</div>
 <div class="line"><span class="lineno">  205</span>    }</div>
 <div class="line"><span class="lineno">  206</span>}</div>
-<div class="ttc" id="aclassSimulation_html_a68a1c4a23f0ff6b4d8c6ef80d55f0782"><div class="ttname"><a href="classSimulation.html#a68a1c4a23f0ff6b4d8c6ef80d55f0782">Simulation::grid</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; std::vector&lt; int &gt; &gt; &gt; grid</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00039">Simulation.hpp:39</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a696cf44133251c41e4bb8fe5e7640dd8" name="a696cf44133251c41e4bb8fe5e7640dd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a696cf44133251c41e4bb8fe5e7640dd8">&#9670;&#160;</a></span>drawParamUI()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Simulation::drawParamUI </td>
-          <td>(</td>
-          <td class="paramtype">unsigned char *&#160;</td>
-          <td class="paramname"><em>mem_base</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Simulation_8cpp_source.html#l00281">281</a> of file <a class="el" href="Simulation_8cpp_source.html">Simulation.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  281</span>                                                    {</div>
-<div class="line"><span class="lineno">  282</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classSimulation.html#a9f17f20be069558a3629cdb67dfce78b">paramAdjustMode</a>) {</div>
-<div class="line"><span class="lineno">  283</span>        *(<span class="keyword">volatile</span> uint32_t*)(mem_base + <a class="code hl_define" href="mzapo__regs_8h.html#aa421b3b6aad9fdc70be0f2f75ef0383e">SPILED_REG_LED_LINE_o</a>) = 0x000000;</div>
-<div class="line"><span class="lineno">  284</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  285</span>    }</div>
-<div class="line"><span class="lineno">  286</span>    <span class="keywordtype">int</span> width = 180;</div>
-<div class="line"><span class="lineno">  287</span>    <span class="keywordtype">int</span> height = 50;</div>
-<div class="line"><span class="lineno">  288</span>    <span class="keywordtype">int</span> x = <a class="code hl_define" href="draw__utils_8cpp.html#a241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> - width - 10;</div>
-<div class="line"><span class="lineno">  289</span>    <span class="keywordtype">int</span> y = 10;</div>
-<div class="line"><span class="lineno">  290</span>    <span class="keywordtype">int</span> strS = 2;</div>
-<div class="line"><span class="lineno">  291</span>    <span class="keywordtype">int</span> corner_radius = 7;</div>
-<div class="line"><span class="lineno">  292</span>    std::vector&lt;uint16_t&gt; themeColors = <a class="code hl_function" href="theme__colors_8h.html#a9a07bb11ac20ba46939a2b2360035030">getCurrentThemeColors</a>();</div>
-<div class="line"><span class="lineno">  293</span>    uint16_t bgColor = <a class="code hl_function" href="theme__colors_8h.html#af0c7aba4fb3d1b1dd5e98bb46f778a3a">getCurrentBackgroundColor</a>();</div>
-<div class="line"><span class="lineno">  294</span>    uint16_t textColor = (bgColor == 0xFFFF) ? 0x0000 : 0xFFFF;</div>
-<div class="line"><span class="lineno">  295</span>    uint16_t accentColor = themeColors[2];</div>
-<div class="line"><span class="lineno">  296</span> </div>
-<div class="line"><span class="lineno">  297</span>    <a class="code hl_function" href="draw__utils_8h.html#a968c32e4ca784b2a580372c591b1c75c">draw_rounded_rect</a>(<a class="code hl_variable" href="Globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>, x - strS, y - strS, width + 2*strS, height + 2*strS, corner_radius + strS, textColor);</div>
-<div class="line"><span class="lineno">  298</span>    <a class="code hl_function" href="draw__utils_8h.html#a968c32e4ca784b2a580372c591b1c75c">draw_rounded_rect</a>(<a class="code hl_variable" href="Globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>, x, y, width, height, corner_radius, bgColor);</div>
-<div class="line"><span class="lineno">  299</span> </div>
-<div class="line"><span class="lineno">  300</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a>.empty()) {</div>
-<div class="line"><span class="lineno">  301</span>        AdjustableParam&amp; param = <a class="code hl_variable" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a>[<a class="code hl_variable" href="classSimulation.html#a5da110b8f03598854529376953ada2b7">currentParamIndex</a>];</div>
-<div class="line"><span class="lineno">  302</span> </div>
-<div class="line"><span class="lineno">  303</span>        <span class="keywordtype">float</span> normalized = (*param.value - param.min) / (param.max - param.min);</div>
-<div class="line"><span class="lineno">  304</span>        </div>
-<div class="line"><span class="lineno">  305</span>        <span class="keywordtype">int</span> num_leds = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(normalized * 32);</div>
-<div class="line"><span class="lineno">  306</span>        <span class="keywordflow">if</span> (num_leds &gt; 32) num_leds = 32;</div>
-<div class="line"><span class="lineno">  307</span>        <span class="keywordflow">if</span> (num_leds &lt; 0) num_leds = 0;</div>
-<div class="line"><span class="lineno">  308</span>        </div>
-<div class="line"><span class="lineno">  309</span>        uint32_t led_pattern = 0;</div>
-<div class="line"><span class="lineno">  310</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; num_leds; i++) {</div>
-<div class="line"><span class="lineno">  311</span>            led_pattern |= (1 &lt;&lt; i);</div>
-<div class="line"><span class="lineno">  312</span>        }</div>
-<div class="line"><span class="lineno">  313</span>        *(<span class="keyword">volatile</span> uint32_t*)(mem_base + <a class="code hl_define" href="mzapo__regs_8h.html#aa421b3b6aad9fdc70be0f2f75ef0383e">SPILED_REG_LED_LINE_o</a>) = led_pattern;</div>
-<div class="line"><span class="lineno">  314</span>        <span class="comment">// name</span></div>
-<div class="line"><span class="lineno">  315</span>        <a class="code hl_function" href="text__draw_8h.html#a5d7321f6bcb46c40c63c23d00beaa3e2">draw_text</a>(<a class="code hl_variable" href="Globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>, x + 10, y + 10, <a class="code hl_variable" href="Globals_8h.html#a1c7183c13355ba119a9785f08bf3cfb6">CUR_FONT</a>, param.<a class="code hl_variable" href="structfont__descriptor__t.html#a7a5f7569c87f8995fe45b207897a0327">name</a>.c_str(), textColor, 1);</div>
-<div class="line"><span class="lineno">  316</span>        std::string value_str = std::to_string(*param.value);</div>
-<div class="line"><span class="lineno">  317</span>        <span class="keywordtype">size_t</span> decimal_pos = value_str.find(<span class="charliteral">&#39;.&#39;</span>);</div>
-<div class="line"><span class="lineno">  318</span>        <span class="keywordflow">if</span> (decimal_pos != std::string::npos &amp;&amp; decimal_pos + 3 &lt; value_str.length()) {</div>
-<div class="line"><span class="lineno">  319</span>            value_str = value_str.substr(0, decimal_pos + 3);</div>
-<div class="line"><span class="lineno">  320</span>        }</div>
-<div class="line"><span class="lineno">  321</span>        <span class="comment">// value</span></div>
-<div class="line"><span class="lineno">  322</span>        <a class="code hl_function" href="text__draw_8h.html#a5d7321f6bcb46c40c63c23d00beaa3e2">draw_text</a>(<a class="code hl_variable" href="Globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>, x + 10, y + 25, <a class="code hl_variable" href="Globals_8h.html#a1c7183c13355ba119a9785f08bf3cfb6">CUR_FONT</a>, value_str.c_str(), accentColor, 1);</div>
-<div class="line"><span class="lineno">  323</span>    }</div>
-<div class="line"><span class="lineno">  324</span>}</div>
-<div class="ttc" id="aGlobals_8h_html_a1c7183c13355ba119a9785f08bf3cfb6"><div class="ttname"><a href="Globals_8h.html#a1c7183c13355ba119a9785f08bf3cfb6">CUR_FONT</a></div><div class="ttdeci">font_descriptor_t * CUR_FONT</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00025">globals.cpp:25</a></div></div>
-<div class="ttc" id="aGlobals_8h_html_a29cf45bbde1c12a928fc01f19b547075"><div class="ttname"><a href="Globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a></div><div class="ttdeci">unsigned short * fb</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00055">globals.cpp:55</a></div></div>
-<div class="ttc" id="aclassSimulation_html_a5da110b8f03598854529376953ada2b7"><div class="ttname"><a href="classSimulation.html#a5da110b8f03598854529376953ada2b7">Simulation::currentParamIndex</a></div><div class="ttdeci">int currentParamIndex</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00042">Simulation.hpp:42</a></div></div>
-<div class="ttc" id="aclassSimulation_html_a9f17f20be069558a3629cdb67dfce78b"><div class="ttname"><a href="classSimulation.html#a9f17f20be069558a3629cdb67dfce78b">Simulation::paramAdjustMode</a></div><div class="ttdeci">bool paramAdjustMode</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00041">Simulation.hpp:41</a></div></div>
-<div class="ttc" id="aclassSimulation_html_aa12302e6c854463d761bde09f8987819"><div class="ttname"><a href="classSimulation.html#aa12302e6c854463d761bde09f8987819">Simulation::adjustableParams</a></div><div class="ttdeci">std::vector&lt; AdjustableParam &gt; adjustableParams</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00055">Simulation.hpp:55</a></div></div>
-<div class="ttc" id="adraw__utils_8h_html_a968c32e4ca784b2a580372c591b1c75c"><div class="ttname"><a href="draw__utils_8h.html#a968c32e4ca784b2a580372c591b1c75c">draw_rounded_rect</a></div><div class="ttdeci">void draw_rounded_rect(unsigned short *fb, int x, int y, int w, int h, int radius, unsigned short int color)</div><div class="ttdoc">Draw a filled rectangle with rounded corners.</div><div class="ttdef"><b>Definition</b> <a href="draw__utils_8cpp_source.html#l00022">draw_utils.cpp:22</a></div></div>
-<div class="ttc" id="amzapo__regs_8h_html_aa421b3b6aad9fdc70be0f2f75ef0383e"><div class="ttname"><a href="mzapo__regs_8h.html#aa421b3b6aad9fdc70be0f2f75ef0383e">SPILED_REG_LED_LINE_o</a></div><div class="ttdeci">#define SPILED_REG_LED_LINE_o</div><div class="ttdef"><b>Definition</b> <a href="mzapo__regs_8h_source.html#l00035">mzapo_regs.h:35</a></div></div>
-<div class="ttc" id="astructfont__descriptor__t_html_a7a5f7569c87f8995fe45b207897a0327"><div class="ttname"><a href="structfont__descriptor__t.html#a7a5f7569c87f8995fe45b207897a0327">font_descriptor_t::name</a></div><div class="ttdeci">char * name</div><div class="ttdef"><b>Definition</b> <a href="font__types_8h_source.html#l00031">font_types.h:31</a></div></div>
-<div class="ttc" id="atext__draw_8h_html_a5d7321f6bcb46c40c63c23d00beaa3e2"><div class="ttname"><a href="text__draw_8h.html#a5d7321f6bcb46c40c63c23d00beaa3e2">draw_text</a></div><div class="ttdeci">void draw_text(unsigned short *fb, int x, int y, font_descriptor_t *fdes, const char *text, unsigned short color, int scale)</div><div class="ttdoc">Draws a text string starting at a position.</div><div class="ttdef"><b>Definition</b> <a href="text__draw_8cpp_source.html#l00038">text_draw.cpp:38</a></div></div>
-<div class="ttc" id="atheme__colors_8h_html_a9a07bb11ac20ba46939a2b2360035030"><div class="ttname"><a href="theme__colors_8h.html#a9a07bb11ac20ba46939a2b2360035030">getCurrentThemeColors</a></div><div class="ttdeci">std::vector&lt; uint16_t &gt; &amp; getCurrentThemeColors()</div><div class="ttdef"><b>Definition</b> <a href="main_8cpp_source.html#l00037">main.cpp:37</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a68a1c4a23f0ff6b4d8c6ef80d55f0782"><div class="ttname"><a href="classSimulation.html#a68a1c4a23f0ff6b4d8c6ef80d55f0782">Simulation::grid</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; std::vector&lt; int &gt; &gt; &gt; grid</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00090">Simulation.hpp:90</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -388,6 +308,15 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns the grid cell index for a given position. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">position</td><td>2D position in space </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>sf::Vector2i Grid cell index </dd></dl>
+
 <p class="definition">Definition at line <a class="el" href="Simulation_8cpp_source.html#l00215">215</a> of file <a class="el" href="Simulation_8cpp_source.html">Simulation.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  215</span>                                                             {</div>
 <div class="line"><span class="lineno">  216</span>    <span class="keywordtype">int</span> gridX = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(position.x) / <a class="code hl_variable" href="classSimulation.html#ad5cefd50832d40792c72f51d09c4d6b1">GRID_CELL_SIZE</a>;</div>
@@ -397,123 +326,6 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  220</span>    </div>
 <div class="line"><span class="lineno">  221</span>    <span class="keywordflow">return</span> sf::Vector2i(gridX, gridY);</div>
 <div class="line"><span class="lineno">  222</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a6e554dd42de251ef022f10bef90ff515" name="a6e554dd42de251ef022f10bef90ff515"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e554dd42de251ef022f10bef90ff515">&#9670;&#160;</a></span>handleBlueKnob()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Simulation::handleBlueKnob </td>
-          <td>(</td>
-          <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>knob_data</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Simulation_8cpp_source.html#l00232">232</a> of file <a class="el" href="Simulation_8cpp_source.html">Simulation.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  232</span>                                                  {</div>
-<div class="line"><span class="lineno">  233</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="classSimulation.html#a9f17f20be069558a3629cdb67dfce78b">paramAdjustMode</a>) <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  234</span>    </div>
-<div class="line"><span class="lineno">  235</span>    int8_t blue_knob = knob_data &amp; 0xFF;</div>
-<div class="line"><span class="lineno">  236</span>    int8_t delta = blue_knob - <a class="code hl_variable" href="classSimulation.html#af69f611f6df1e37831f1fe78a93839e5">lastBlueKnob</a>;</div>
-<div class="line"><span class="lineno">  237</span>    <a class="code hl_variable" href="classSimulation.html#af69f611f6df1e37831f1fe78a93839e5">lastBlueKnob</a> = blue_knob;</div>
-<div class="line"><span class="lineno">  238</span>    </div>
-<div class="line"><span class="lineno">  239</span>    <span class="keywordtype">bool</span> blue_button_pressed = (knob_data &amp; 0x01000000) != 0;</div>
-<div class="line"><span class="lineno">  240</span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> last_blue_button_pressed = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">  241</span>    <span class="keywordtype">bool</span> blue_button_just_pressed = blue_button_pressed &amp;&amp; !last_blue_button_pressed;</div>
-<div class="line"><span class="lineno">  242</span> </div>
-<div class="line"><span class="lineno">  243</span>    <span class="keyword">struct </span>timespec ts;</div>
-<div class="line"><span class="lineno">  244</span>    clock_gettime(CLOCK_MONOTONIC, &amp;ts);</div>
-<div class="line"><span class="lineno">  245</span>    uint64_t current_time = ts.tv_sec * 1000000 + ts.tv_nsec / 1000;</div>
-<div class="line"><span class="lineno">  246</span> </div>
-<div class="line"><span class="lineno">  247</span>    <span class="keywordflow">if</span> (blue_button_just_pressed) {</div>
-<div class="line"><span class="lineno">  248</span>        <a class="code hl_variable" href="classSimulation.html#aca0ec9cfcdf3a0d3d1cae8c8408a9f87">showingSelectedParam</a> = !<a class="code hl_variable" href="classSimulation.html#aca0ec9cfcdf3a0d3d1cae8c8408a9f87">showingSelectedParam</a>;</div>
-<div class="line"><span class="lineno">  249</span>    }</div>
-<div class="line"><span class="lineno">  250</span>    </div>
-<div class="line"><span class="lineno">  251</span>    <span class="keywordflow">if</span> (delta != 0) {</div>
-<div class="line"><span class="lineno">  252</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="classSimulation.html#aca0ec9cfcdf3a0d3d1cae8c8408a9f87">showingSelectedParam</a>) {</div>
-<div class="line"><span class="lineno">  253</span>            <span class="keywordflow">if</span> (delta &gt; 2) {</div>
-<div class="line"><span class="lineno">  254</span>                <a class="code hl_variable" href="classSimulation.html#a5da110b8f03598854529376953ada2b7">currentParamIndex</a> = (<a class="code hl_variable" href="classSimulation.html#a5da110b8f03598854529376953ada2b7">currentParamIndex</a> + 1) % <a class="code hl_variable" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a>.size();</div>
-<div class="line"><span class="lineno">  255</span>                <a class="code hl_variable" href="classSimulation.html#abf9507b716d37d90af8ecd6cc486d5d3">paramSelectionTime</a> = current_time;</div>
-<div class="line"><span class="lineno">  256</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Selected parameter: &quot;</span> &lt;&lt; <a class="code hl_variable" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a>[<a class="code hl_variable" href="classSimulation.html#a5da110b8f03598854529376953ada2b7">currentParamIndex</a>].name </div>
-<div class="line"><span class="lineno">  257</span>                          &lt;&lt; <span class="stringliteral">&quot; = &quot;</span> &lt;&lt; *<a class="code hl_variable" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a>[<a class="code hl_variable" href="classSimulation.html#a5da110b8f03598854529376953ada2b7">currentParamIndex</a>].value &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  258</span>                <span class="comment">// last_blue_button_pressed += 4;</span></div>
-<div class="line"><span class="lineno">  259</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (delta &lt; -2) {</div>
-<div class="line"><span class="lineno">  260</span>                <a class="code hl_variable" href="classSimulation.html#a5da110b8f03598854529376953ada2b7">currentParamIndex</a> = (<a class="code hl_variable" href="classSimulation.html#a5da110b8f03598854529376953ada2b7">currentParamIndex</a> - 1 + <a class="code hl_variable" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a>.size()) % <a class="code hl_variable" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a>.size();</div>
-<div class="line"><span class="lineno">  261</span>                <a class="code hl_variable" href="classSimulation.html#abf9507b716d37d90af8ecd6cc486d5d3">paramSelectionTime</a> = current_time;</div>
-<div class="line"><span class="lineno">  262</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Selected parameter: &quot;</span> &lt;&lt; <a class="code hl_variable" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a>[<a class="code hl_variable" href="classSimulation.html#a5da110b8f03598854529376953ada2b7">currentParamIndex</a>].name </div>
-<div class="line"><span class="lineno">  263</span>                          &lt;&lt; <span class="stringliteral">&quot; = &quot;</span> &lt;&lt; *<a class="code hl_variable" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a>[<a class="code hl_variable" href="classSimulation.html#a5da110b8f03598854529376953ada2b7">currentParamIndex</a>].value &lt;&lt; std::endl;</div>
-<div class="line"><span class="lineno">  264</span>                <span class="comment">// last_blue_button_pressed -= 4;</span></div>
-<div class="line"><span class="lineno">  265</span>            }</div>
-<div class="line"><span class="lineno">  266</span>        } <span class="keywordflow">else</span> {</div>
-<div class="line"><span class="lineno">  267</span>            AdjustableParam&amp; param = <a class="code hl_variable" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a>[<a class="code hl_variable" href="classSimulation.html#a5da110b8f03598854529376953ada2b7">currentParamIndex</a>];</div>
-<div class="line"><span class="lineno">  268</span>            </div>
-<div class="line"><span class="lineno">  269</span>            <span class="keywordflow">if</span> (delta &gt; 2) {</div>
-<div class="line"><span class="lineno">  270</span>                *param.value += param.step;</div>
-<div class="line"><span class="lineno">  271</span>                <span class="keywordflow">if</span> (*param.value &gt; param.max) *param.value = param.max;</div>
-<div class="line"><span class="lineno">  272</span>            } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (delta &lt; -2) {</div>
-<div class="line"><span class="lineno">  273</span>                *param.value -= param.step;</div>
-<div class="line"><span class="lineno">  274</span>                <span class="keywordflow">if</span> (*param.value &lt; param.min) *param.value = param.min;</div>
-<div class="line"><span class="lineno">  275</span>            }</div>
-<div class="line"><span class="lineno">  276</span>        }</div>
-<div class="line"><span class="lineno">  277</span>    }</div>
-<div class="line"><span class="lineno">  278</span>    last_blue_button_pressed = blue_button_pressed;</div>
-<div class="line"><span class="lineno">  279</span>}</div>
-<div class="ttc" id="aclassSimulation_html_abf9507b716d37d90af8ecd6cc486d5d3"><div class="ttname"><a href="classSimulation.html#abf9507b716d37d90af8ecd6cc486d5d3">Simulation::paramSelectionTime</a></div><div class="ttdeci">uint64_t paramSelectionTime</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00045">Simulation.hpp:45</a></div></div>
-<div class="ttc" id="aclassSimulation_html_aca0ec9cfcdf3a0d3d1cae8c8408a9f87"><div class="ttname"><a href="classSimulation.html#aca0ec9cfcdf3a0d3d1cae8c8408a9f87">Simulation::showingSelectedParam</a></div><div class="ttdeci">bool showingSelectedParam</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00044">Simulation.hpp:44</a></div></div>
-<div class="ttc" id="aclassSimulation_html_af69f611f6df1e37831f1fe78a93839e5"><div class="ttname"><a href="classSimulation.html#af69f611f6df1e37831f1fe78a93839e5">Simulation::lastBlueKnob</a></div><div class="ttdeci">int8_t lastBlueKnob</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00043">Simulation.hpp:43</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a2414fa2c42965840489e7a58fe4365ea" name="a2414fa2c42965840489e7a58fe4365ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2414fa2c42965840489e7a58fe4365ea">&#9670;&#160;</a></span>initAdjustableParams()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Simulation::initAdjustableParams </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Simulation_8cpp_source.html#l00224">224</a> of file <a class="el" href="Simulation_8cpp_source.html">Simulation.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  224</span>                                      {</div>
-<div class="line"><span class="lineno">  225</span>    <a class="code hl_variable" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a>.clear();</div>
-<div class="line"><span class="lineno">  226</span>    <a class="code hl_variable" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a>.push_back({<span class="stringliteral">&quot;MARGIN_SIZE&quot;</span>, &amp;<a class="code hl_variable" href="Globals_8h.html#a3caf46bc7097274e2e61b5e8f5319d7b">MARGIN_SIZE</a>, 10.0f, 100.0f, 5.0f});</div>
-<div class="line"><span class="lineno">  227</span>    <a class="code hl_variable" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a>.push_back({<span class="stringliteral">&quot;COHESION_WEIGHT&quot;</span>, &amp;<a class="code hl_variable" href="Globals_8h.html#aae8ae0a9976a596a42bea3cef4b31472">COHESION_WEIGHT</a>, 0.0f, 2.0f, 0.1f});</div>
-<div class="line"><span class="lineno">  228</span>    <a class="code hl_variable" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a>.push_back({<span class="stringliteral">&quot;ALIGNMENT_WEIGHT&quot;</span>, &amp;<a class="code hl_variable" href="Globals_8h.html#adbd5813049743ed8bcf94141d5f183a5">ALIGNMENT_WEIGHT</a>, 0.0f, 2.0f, 0.1f});</div>
-<div class="line"><span class="lineno">  229</span>    <a class="code hl_variable" href="classSimulation.html#aa12302e6c854463d761bde09f8987819">adjustableParams</a>.push_back({<span class="stringliteral">&quot;SEPARATION_WEIGHT&quot;</span>, &amp;<a class="code hl_variable" href="Globals_8h.html#a999b320bba48cd1aec3ac9446f9191f3">SEPARATION_WEIGHT</a>, 0.0f, 2.0f, 0.1f});</div>
-<div class="line"><span class="lineno">  230</span>}</div>
-<div class="ttc" id="aGlobals_8h_html_a3caf46bc7097274e2e61b5e8f5319d7b"><div class="ttname"><a href="Globals_8h.html#a3caf46bc7097274e2e61b5e8f5319d7b">MARGIN_SIZE</a></div><div class="ttdeci">float MARGIN_SIZE</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00020">globals.cpp:20</a></div></div>
-<div class="ttc" id="aGlobals_8h_html_a999b320bba48cd1aec3ac9446f9191f3"><div class="ttname"><a href="Globals_8h.html#a999b320bba48cd1aec3ac9446f9191f3">SEPARATION_WEIGHT</a></div><div class="ttdeci">float SEPARATION_WEIGHT</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00019">globals.cpp:19</a></div></div>
-<div class="ttc" id="aGlobals_8h_html_aae8ae0a9976a596a42bea3cef4b31472"><div class="ttname"><a href="Globals_8h.html#aae8ae0a9976a596a42bea3cef4b31472">COHESION_WEIGHT</a></div><div class="ttdeci">float COHESION_WEIGHT</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00018">globals.cpp:18</a></div></div>
-<div class="ttc" id="aGlobals_8h_html_adbd5813049743ed8bcf94141d5f183a5"><div class="ttname"><a href="Globals_8h.html#adbd5813049743ed8bcf94141d5f183a5">ALIGNMENT_WEIGHT</a></div><div class="ttdeci">float ALIGNMENT_WEIGHT</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00017">globals.cpp:17</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -543,62 +355,45 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Initializes preys, predators, grid, and parameter manager. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parlcd_mem_base</td><td>Pointer to parallel LCD memory </td></tr>
+    <tr><td class="paramname">mem_base</td><td>Pointer to base memory </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="definition">Definition at line <a class="el" href="Simulation_8cpp_source.html#l00041">41</a> of file <a class="el" href="Simulation_8cpp_source.html">Simulation.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   41</span>                                                                                   {</div>
 <div class="line"><span class="lineno">   42</span>    std::uniform_int_distribution&lt;&gt; posDis_x(0, <a class="code hl_define" href="draw__utils_8cpp.html#a241aeeb764887ae5e3de58b98f04b16d">WIDTH</a>);</div>
 <div class="line"><span class="lineno">   43</span>    std::uniform_int_distribution&lt;&gt; posDis_y(0, <a class="code hl_define" href="draw__utils_8cpp.html#aed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a>);</div>
 <div class="line"><span class="lineno">   44</span>    </div>
 <div class="line"><span class="lineno">   45</span>    <a class="code hl_variable" href="classSimulation.html#a46e57bf35959fd2c765b0d4519ee4467">preys</a>.clear();</div>
-<div class="line"><span class="lineno">   46</span>    <a class="code hl_variable" href="classSimulation.html#a46e57bf35959fd2c765b0d4519ee4467">preys</a>.reserve(<a class="code hl_variable" href="Globals_8h.html#a7efaddb2711d86cae6686907c7818830">PREYS_COUNT</a>);</div>
-<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="Globals_8h.html#a7efaddb2711d86cae6686907c7818830">PREYS_COUNT</a>; i++) {</div>
+<div class="line"><span class="lineno">   46</span>    <a class="code hl_variable" href="classSimulation.html#a46e57bf35959fd2c765b0d4519ee4467">preys</a>.reserve(<a class="code hl_variable" href="globals_8h.html#a7efaddb2711d86cae6686907c7818830">PREYS_COUNT</a>);</div>
+<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="globals_8h.html#a7efaddb2711d86cae6686907c7818830">PREYS_COUNT</a>; i++) {</div>
 <div class="line"><span class="lineno">   48</span>        <a class="code hl_variable" href="classSimulation.html#a46e57bf35959fd2c765b0d4519ee4467">preys</a>.emplace_back(posDis_x(<a class="code hl_variable" href="Boid_8cpp.html#ab577cbc7a7051e1bcf60c2c1797a0feb">gen</a>), posDis_y(<a class="code hl_variable" href="Boid_8cpp.html#ab577cbc7a7051e1bcf60c2c1797a0feb">gen</a>));</div>
 <div class="line"><span class="lineno">   49</span>    }</div>
 <div class="line"><span class="lineno">   50</span>    </div>
 <div class="line"><span class="lineno">   51</span>    <a class="code hl_variable" href="classSimulation.html#a73bb2159630696d32baa30d405e82d8d">predators</a>.clear();</div>
-<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="classSimulation.html#a73bb2159630696d32baa30d405e82d8d">predators</a>.reserve(<a class="code hl_variable" href="Globals_8h.html#ac947b9e17acf409fcfefd4c45275f4b2">PREDATORS_COUNT</a>);</div>
-<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="Globals_8h.html#ac947b9e17acf409fcfefd4c45275f4b2">PREDATORS_COUNT</a>; i++) {</div>
+<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="classSimulation.html#a73bb2159630696d32baa30d405e82d8d">predators</a>.reserve(<a class="code hl_variable" href="globals_8h.html#ac947b9e17acf409fcfefd4c45275f4b2">PREDATORS_COUNT</a>);</div>
+<div class="line"><span class="lineno">   53</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_variable" href="globals_8h.html#ac947b9e17acf409fcfefd4c45275f4b2">PREDATORS_COUNT</a>; i++) {</div>
 <div class="line"><span class="lineno">   54</span>        <a class="code hl_variable" href="classSimulation.html#a73bb2159630696d32baa30d405e82d8d">predators</a>.emplace_back(posDis_x(<a class="code hl_variable" href="Boid_8cpp.html#ab577cbc7a7051e1bcf60c2c1797a0feb">gen</a>), posDis_y(<a class="code hl_variable" href="Boid_8cpp.html#ab577cbc7a7051e1bcf60c2c1797a0feb">gen</a>));</div>
 <div class="line"><span class="lineno">   55</span>    }</div>
 <div class="line"><span class="lineno">   56</span>    <a class="code hl_function" href="classSimulation.html#aeeda0178bd5fff0dc8f4b952ae7df68c">setupGrid</a>();</div>
 <div class="line"><span class="lineno">   57</span> </div>
-<div class="line"><span class="lineno">   58</span>    <a class="code hl_function" href="classSimulation.html#a2414fa2c42965840489e7a58fe4365ea">initAdjustableParams</a>();</div>
-<div class="line"><span class="lineno">   59</span>    <a class="code hl_variable" href="classSimulation.html#af69f611f6df1e37831f1fe78a93839e5">lastBlueKnob</a> = *(<span class="keyword">volatile</span> uint32_t*)(mem_base + <a class="code hl_define" href="mzapo__regs_8h.html#a9659b6d0a4356a769b9e8f025ab4f361">SPILED_REG_KNOBS_8BIT_o</a>) &amp; 0xFF;</div>
+<div class="line"><span class="lineno">   58</span>    <a class="code hl_variable" href="classSimulation.html#a19db5e0c3f7a9a2e7dced7c7dbd6e0b5">paramManager</a>.<a class="code hl_function" href="classParameterManager.html#a4dbed0f88cc69e87cbd8fdc07e4f3fab">initAdjustableParams</a>();</div>
+<div class="line"><span class="lineno">   59</span>    <a class="code hl_variable" href="classSimulation.html#a19db5e0c3f7a9a2e7dced7c7dbd6e0b5">paramManager</a>.<a class="code hl_function" href="classParameterManager.html#a0b283569d92b27c1044336c628c71f8f">setLastBlueKnob</a>(*(<span class="keyword">volatile</span> uint32_t*)(mem_base + <a class="code hl_define" href="mzapo__regs_8h.html#a9659b6d0a4356a769b9e8f025ab4f361">SPILED_REG_KNOBS_8BIT_o</a>) &amp; 0xFF);</div>
 <div class="line"><span class="lineno">   60</span>}</div>
-<div class="ttc" id="aGlobals_8h_html_a7efaddb2711d86cae6686907c7818830"><div class="ttname"><a href="Globals_8h.html#a7efaddb2711d86cae6686907c7818830">PREYS_COUNT</a></div><div class="ttdeci">const int PREYS_COUNT</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00006">globals.cpp:6</a></div></div>
-<div class="ttc" id="aGlobals_8h_html_ac947b9e17acf409fcfefd4c45275f4b2"><div class="ttname"><a href="Globals_8h.html#ac947b9e17acf409fcfefd4c45275f4b2">PREDATORS_COUNT</a></div><div class="ttdeci">const int PREDATORS_COUNT</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00007">globals.cpp:7</a></div></div>
-<div class="ttc" id="aclassSimulation_html_a2414fa2c42965840489e7a58fe4365ea"><div class="ttname"><a href="classSimulation.html#a2414fa2c42965840489e7a58fe4365ea">Simulation::initAdjustableParams</a></div><div class="ttdeci">void initAdjustableParams()</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00224">Simulation.cpp:224</a></div></div>
-<div class="ttc" id="aclassSimulation_html_a46e57bf35959fd2c765b0d4519ee4467"><div class="ttname"><a href="classSimulation.html#a46e57bf35959fd2c765b0d4519ee4467">Simulation::preys</a></div><div class="ttdeci">std::vector&lt; Prey &gt; preys</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00037">Simulation.hpp:37</a></div></div>
-<div class="ttc" id="aclassSimulation_html_a73bb2159630696d32baa30d405e82d8d"><div class="ttname"><a href="classSimulation.html#a73bb2159630696d32baa30d405e82d8d">Simulation::predators</a></div><div class="ttdeci">std::vector&lt; Predator &gt; predators</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00038">Simulation.hpp:38</a></div></div>
-<div class="ttc" id="aclassSimulation_html_aeeda0178bd5fff0dc8f4b952ae7df68c"><div class="ttname"><a href="classSimulation.html#aeeda0178bd5fff0dc8f4b952ae7df68c">Simulation::setupGrid</a></div><div class="ttdeci">void setupGrid()</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00208">Simulation.cpp:208</a></div></div>
+<div class="ttc" id="aclassParameterManager_html_a0b283569d92b27c1044336c628c71f8f"><div class="ttname"><a href="classParameterManager.html#a0b283569d92b27c1044336c628c71f8f">ParameterManager::setLastBlueKnob</a></div><div class="ttdeci">void setLastBlueKnob(int8_t value)</div><div class="ttdoc">Sets the last blue knob value.</div><div class="ttdef"><b>Definition</b> <a href="ParameterManager_8hpp_source.html#l00101">ParameterManager.hpp:101</a></div></div>
+<div class="ttc" id="aclassParameterManager_html_a4dbed0f88cc69e87cbd8fdc07e4f3fab"><div class="ttname"><a href="classParameterManager.html#a4dbed0f88cc69e87cbd8fdc07e4f3fab">ParameterManager::initAdjustableParams</a></div><div class="ttdeci">void initAdjustableParams()</div><div class="ttdoc">Initializes the list of adjustable parameters.</div><div class="ttdef"><b>Definition</b> <a href="ParameterManager_8cpp_source.html#l00022">ParameterManager.cpp:22</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a19db5e0c3f7a9a2e7dced7c7dbd6e0b5"><div class="ttname"><a href="classSimulation.html#a19db5e0c3f7a9a2e7dced7c7dbd6e0b5">Simulation::paramManager</a></div><div class="ttdeci">ParameterManager paramManager</div><div class="ttdoc">Handles user-adjustable parameters like weights and distances.</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00095">Simulation.hpp:95</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a46e57bf35959fd2c765b0d4519ee4467"><div class="ttname"><a href="classSimulation.html#a46e57bf35959fd2c765b0d4519ee4467">Simulation::preys</a></div><div class="ttdeci">std::vector&lt; Prey &gt; preys</div><div class="ttdoc">Boid population and spatial management.</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00088">Simulation.hpp:88</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a73bb2159630696d32baa30d405e82d8d"><div class="ttname"><a href="classSimulation.html#a73bb2159630696d32baa30d405e82d8d">Simulation::predators</a></div><div class="ttdeci">std::vector&lt; Predator &gt; predators</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00089">Simulation.hpp:89</a></div></div>
+<div class="ttc" id="aclassSimulation_html_aeeda0178bd5fff0dc8f4b952ae7df68c"><div class="ttname"><a href="classSimulation.html#aeeda0178bd5fff0dc8f4b952ae7df68c">Simulation::setupGrid</a></div><div class="ttdeci">void setupGrid()</div><div class="ttdoc">Initializes the spatial grid based on simulation resolution.</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00208">Simulation.cpp:208</a></div></div>
+<div class="ttc" id="aglobals_8h_html_a7efaddb2711d86cae6686907c7818830"><div class="ttname"><a href="globals_8h.html#a7efaddb2711d86cae6686907c7818830">PREYS_COUNT</a></div><div class="ttdeci">const int PREYS_COUNT</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00006">globals.cpp:6</a></div></div>
+<div class="ttc" id="aglobals_8h_html_ac947b9e17acf409fcfefd4c45275f4b2"><div class="ttname"><a href="globals_8h.html#ac947b9e17acf409fcfefd4c45275f4b2">PREDATORS_COUNT</a></div><div class="ttdeci">const int PREDATORS_COUNT</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00007">globals.cpp:7</a></div></div>
 <div class="ttc" id="amzapo__regs_8h_html_a9659b6d0a4356a769b9e8f025ab4f361"><div class="ttname"><a href="mzapo__regs_8h.html#a9659b6d0a4356a769b9e8f025ab4f361">SPILED_REG_KNOBS_8BIT_o</a></div><div class="ttdeci">#define SPILED_REG_KNOBS_8BIT_o</div><div class="ttdef"><b>Definition</b> <a href="mzapo__regs_8h_source.html#l00041">mzapo_regs.h:41</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a800f0ded1e0a7a4a6d4c4b9aebb793c0" name="a800f0ded1e0a7a4a6d4c4b9aebb793c0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a800f0ded1e0a7a4a6d4c4b9aebb793c0">&#9670;&#160;</a></span>isInParamAdjustMode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Simulation::isInParamAdjustMode </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00030">30</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   30</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="classSimulation.html#a9f17f20be069558a3629cdb67dfce78b">paramAdjustMode</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -627,6 +422,15 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Renders the simulation to the framebuffer and LCD. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parlcd_mem_base</td><td>Pointer to memory-mapped parlcd registers </td></tr>
+    <tr><td class="paramname">mem_base</td><td>Pointer to base memory </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="Simulation_8cpp_source.html#l00180">180</a> of file <a class="el" href="Simulation_8cpp_source.html">Simulation.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  180</span>                                                                               {</div>
@@ -672,6 +476,15 @@ Static Private Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Runs the main simulation loop, handling rendering and updates. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parlcd_mem_base</td><td>Pointer to parallel LCD memory </td></tr>
+    <tr><td class="paramname">mem_base</td><td>Pointer to base memory </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="definition">Definition at line <a class="el" href="Simulation_8cpp_source.html#l00062">62</a> of file <a class="el" href="Simulation_8cpp_source.html">Simulation.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   62</span>                                                                            {</div>
 <div class="line"><span class="lineno">   63</span>    <span class="keywordtype">int</span> initial_knob = *(<span class="keyword">volatile</span> uint32_t *)(mem_base + <a class="code hl_define" href="mzapo__regs_8h.html#a9659b6d0a4356a769b9e8f025ab4f361">SPILED_REG_KNOBS_8BIT_o</a>);</div>
@@ -705,41 +518,44 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   91</span>            uint64_t current_time = ts.tv_sec * 1000000 + ts.tv_nsec / 1000;</div>
 <div class="line"><span class="lineno">   92</span>            </div>
 <div class="line"><span class="lineno">   93</span>            <span class="keywordflow">if</span> (current_time - last_blue_press_time &lt; DOUBLE_PRESS_TIME) {</div>
-<div class="line"><span class="lineno">   94</span>                <a class="code hl_function" href="classSimulation.html#a5e4360f073ef19b14ac6e9f899391595">toggleParamAdjustMode</a>();</div>
-<div class="line"><span class="lineno">   95</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Parameter adjustment mode: &quot;</span> &lt;&lt; (<a class="code hl_variable" href="classSimulation.html#a9f17f20be069558a3629cdb67dfce78b">paramAdjustMode</a> ? <span class="stringliteral">&quot;ON&quot;</span> : <span class="stringliteral">&quot;OFF&quot;</span>) &lt;&lt; std::endl;</div>
+<div class="line"><span class="lineno">   94</span>                <a class="code hl_variable" href="classSimulation.html#a19db5e0c3f7a9a2e7dced7c7dbd6e0b5">paramManager</a>.<a class="code hl_function" href="classParameterManager.html#a94aca578877a1bb93f6b9efbe63ea2d5">toggleParamAdjustMode</a>();</div>
+<div class="line"><span class="lineno">   95</span>                std::cout &lt;&lt; <span class="stringliteral">&quot;Parameter adjustment mode: &quot;</span> &lt;&lt; (<a class="code hl_variable" href="classSimulation.html#a19db5e0c3f7a9a2e7dced7c7dbd6e0b5">paramManager</a>.<a class="code hl_function" href="classParameterManager.html#a3daae398eaf66f3563830d9abadf2eb6">isParamAdjustMode</a>() ? <span class="stringliteral">&quot;ON&quot;</span> : <span class="stringliteral">&quot;OFF&quot;</span>) &lt;&lt; std::endl;</div>
 <div class="line"><span class="lineno">   96</span>            }</div>
 <div class="line"><span class="lineno">   97</span>            </div>
 <div class="line"><span class="lineno">   98</span>            last_blue_press_time = current_time;</div>
 <div class="line"><span class="lineno">   99</span>        }</div>
 <div class="line"><span class="lineno">  100</span>        last_blue_pressed = blue_pressed;</div>
 <div class="line"><span class="lineno">  101</span>        </div>
-<div class="line"><span class="lineno">  102</span>        <a class="code hl_function" href="classSimulation.html#a6e554dd42de251ef022f10bef90ff515">handleBlueKnob</a>(knob_data);</div>
+<div class="line"><span class="lineno">  102</span>        <a class="code hl_variable" href="classSimulation.html#a19db5e0c3f7a9a2e7dced7c7dbd6e0b5">paramManager</a>.<a class="code hl_function" href="classParameterManager.html#a802147599d240ed41468bc36021ed5ef">handleBlueKnob</a>(knob_data);</div>
 <div class="line"><span class="lineno">  103</span>        </div>
 <div class="line"><span class="lineno">  104</span>        <span class="keywordflow">if</span> (green_pressed) {</div>
 <div class="line"><span class="lineno">  105</span>            <span class="keywordflow">break</span>;</div>
 <div class="line"><span class="lineno">  106</span>        }</div>
 <div class="line"><span class="lineno">  107</span>        <a class="code hl_variable" href="classSimulation.html#a89c7553eba359213ff6c527174240b14">background_color</a> = <a class="code hl_function" href="theme__colors_8h.html#af0c7aba4fb3d1b1dd5e98bb46f778a3a">getCurrentBackgroundColor</a>();</div>
 <div class="line"><span class="lineno">  108</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="draw__utils_8cpp.html#aed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a> * <a class="code hl_define" href="draw__utils_8cpp.html#a241aeeb764887ae5e3de58b98f04b16d">WIDTH</a>; i++) {</div>
-<div class="line"><span class="lineno">  109</span>            <a class="code hl_variable" href="Globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>[i] = <a class="code hl_variable" href="classSimulation.html#a89c7553eba359213ff6c527174240b14">background_color</a>;</div>
+<div class="line"><span class="lineno">  109</span>            <a class="code hl_variable" href="globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>[i] = <a class="code hl_variable" href="classSimulation.html#a89c7553eba359213ff6c527174240b14">background_color</a>;</div>
 <div class="line"><span class="lineno">  110</span>        }</div>
 <div class="line"><span class="lineno">  111</span>        </div>
 <div class="line"><span class="lineno">  112</span>        <a class="code hl_function" href="classSimulation.html#adcc140aa96eabc937631f23eae965372">update</a>(mem_base);</div>
 <div class="line"><span class="lineno">  113</span>        <a class="code hl_function" href="classSimulation.html#adbce719183ed8c97447530109725cf34">render</a>(parlcd_mem_base, mem_base);</div>
-<div class="line"><span class="lineno">  114</span>        <a class="code hl_function" href="classSimulation.html#a696cf44133251c41e4bb8fe5e7640dd8">drawParamUI</a>(mem_base);        </div>
+<div class="line"><span class="lineno">  114</span>        <a class="code hl_variable" href="classSimulation.html#a19db5e0c3f7a9a2e7dced7c7dbd6e0b5">paramManager</a>.<a class="code hl_function" href="classParameterManager.html#af2b71599c846b7073118373a0ae4bdd7">drawParamUI</a>(mem_base);        </div>
 <div class="line"><span class="lineno">  115</span>        <a class="code hl_function" href="mzapo__parlcd_8h.html#ab30b1b616caf5991cd8e1a6a52ba23e7">parlcd_write_cmd</a>(parlcd_mem_base, 0x2c);</div>
 <div class="line"><span class="lineno">  116</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="draw__utils_8cpp.html#a241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> * <a class="code hl_define" href="draw__utils_8cpp.html#aed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a>; i++) {</div>
-<div class="line"><span class="lineno">  117</span>            <a class="code hl_function" href="mzapo__parlcd_8h.html#ab9125a7610ba0302c004802fb908590d">parlcd_write_data</a>(parlcd_mem_base, <a class="code hl_variable" href="Globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>[i]);</div>
+<div class="line"><span class="lineno">  117</span>            <a class="code hl_function" href="mzapo__parlcd_8h.html#ab9125a7610ba0302c004802fb908590d">parlcd_write_data</a>(parlcd_mem_base, <a class="code hl_variable" href="globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>[i]);</div>
 <div class="line"><span class="lineno">  118</span>        }</div>
 <div class="line"><span class="lineno">  119</span>    }</div>
 <div class="line"><span class="lineno">  120</span>    *(<span class="keyword">volatile</span> uint32_t*)(mem_base + <a class="code hl_define" href="mzapo__regs_8h.html#aa421b3b6aad9fdc70be0f2f75ef0383e">SPILED_REG_LED_LINE_o</a>) = 0x000000;</div>
 <div class="line"><span class="lineno">  121</span>    <a class="code hl_function" href="classSimulation.html#a1316dbedc4dc963328b9301f0a74095c">cleanup</a>(parlcd_mem_base);</div>
 <div class="line"><span class="lineno">  122</span>}</div>
-<div class="ttc" id="aclassSimulation_html_a1316dbedc4dc963328b9301f0a74095c"><div class="ttname"><a href="classSimulation.html#a1316dbedc4dc963328b9301f0a74095c">Simulation::cleanup</a></div><div class="ttdeci">void cleanup(unsigned char *parlcd_mem_base)</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00193">Simulation.cpp:193</a></div></div>
-<div class="ttc" id="aclassSimulation_html_a5e4360f073ef19b14ac6e9f899391595"><div class="ttname"><a href="classSimulation.html#a5e4360f073ef19b14ac6e9f899391595">Simulation::toggleParamAdjustMode</a></div><div class="ttdeci">void toggleParamAdjustMode()</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8hpp_source.html#l00028">Simulation.hpp:28</a></div></div>
-<div class="ttc" id="aclassSimulation_html_a696cf44133251c41e4bb8fe5e7640dd8"><div class="ttname"><a href="classSimulation.html#a696cf44133251c41e4bb8fe5e7640dd8">Simulation::drawParamUI</a></div><div class="ttdeci">void drawParamUI(unsigned char *mem_base)</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00281">Simulation.cpp:281</a></div></div>
-<div class="ttc" id="aclassSimulation_html_a6e554dd42de251ef022f10bef90ff515"><div class="ttname"><a href="classSimulation.html#a6e554dd42de251ef022f10bef90ff515">Simulation::handleBlueKnob</a></div><div class="ttdeci">void handleBlueKnob(uint32_t knob_data)</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00232">Simulation.cpp:232</a></div></div>
-<div class="ttc" id="aclassSimulation_html_adbce719183ed8c97447530109725cf34"><div class="ttname"><a href="classSimulation.html#adbce719183ed8c97447530109725cf34">Simulation::render</a></div><div class="ttdeci">void render(unsigned char *parlcd_mem_base, unsigned char *mem_base)</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00180">Simulation.cpp:180</a></div></div>
-<div class="ttc" id="aclassSimulation_html_adcc140aa96eabc937631f23eae965372"><div class="ttname"><a href="classSimulation.html#adcc140aa96eabc937631f23eae965372">Simulation::update</a></div><div class="ttdeci">void update(unsigned char *mem_base)</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00124">Simulation.cpp:124</a></div></div>
+<div class="ttc" id="aclassParameterManager_html_a3daae398eaf66f3563830d9abadf2eb6"><div class="ttname"><a href="classParameterManager.html#a3daae398eaf66f3563830d9abadf2eb6">ParameterManager::isParamAdjustMode</a></div><div class="ttdeci">bool isParamAdjustMode() const</div><div class="ttdef"><b>Definition</b> <a href="ParameterManager_8hpp_source.html#l00081">ParameterManager.hpp:81</a></div></div>
+<div class="ttc" id="aclassParameterManager_html_a802147599d240ed41468bc36021ed5ef"><div class="ttname"><a href="classParameterManager.html#a802147599d240ed41468bc36021ed5ef">ParameterManager::handleBlueKnob</a></div><div class="ttdeci">void handleBlueKnob(uint32_t knob_data)</div><div class="ttdoc">Handles input from the blue knob to adjust parameters.</div><div class="ttdef"><b>Definition</b> <a href="ParameterManager_8cpp_source.html#l00037">ParameterManager.cpp:37</a></div></div>
+<div class="ttc" id="aclassParameterManager_html_a94aca578877a1bb93f6b9efbe63ea2d5"><div class="ttname"><a href="classParameterManager.html#a94aca578877a1bb93f6b9efbe63ea2d5">ParameterManager::toggleParamAdjustMode</a></div><div class="ttdeci">void toggleParamAdjustMode()</div><div class="ttdoc">Toggles parameter adjustment mode on or off.</div><div class="ttdef"><b>Definition</b> <a href="ParameterManager_8cpp_source.html#l00030">ParameterManager.cpp:30</a></div></div>
+<div class="ttc" id="aclassParameterManager_html_af2b71599c846b7073118373a0ae4bdd7"><div class="ttname"><a href="classParameterManager.html#af2b71599c846b7073118373a0ae4bdd7">ParameterManager::drawParamUI</a></div><div class="ttdeci">void drawParamUI(unsigned char *mem_base)</div><div class="ttdoc">Draws the parameter UI and updates LEDs to reflect the current value.</div><div class="ttdef"><b>Definition</b> <a href="ParameterManager_8cpp_source.html#l00084">ParameterManager.cpp:84</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a1316dbedc4dc963328b9301f0a74095c"><div class="ttname"><a href="classSimulation.html#a1316dbedc4dc963328b9301f0a74095c">Simulation::cleanup</a></div><div class="ttdeci">void cleanup(unsigned char *parlcd_mem_base)</div><div class="ttdoc">Clears the screen and framebuffer after simulation ends.</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00193">Simulation.cpp:193</a></div></div>
+<div class="ttc" id="aclassSimulation_html_adbce719183ed8c97447530109725cf34"><div class="ttname"><a href="classSimulation.html#adbce719183ed8c97447530109725cf34">Simulation::render</a></div><div class="ttdeci">void render(unsigned char *parlcd_mem_base, unsigned char *mem_base)</div><div class="ttdoc">Renders the simulation to the framebuffer and LCD.</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00180">Simulation.cpp:180</a></div></div>
+<div class="ttc" id="aclassSimulation_html_adcc140aa96eabc937631f23eae965372"><div class="ttname"><a href="classSimulation.html#adcc140aa96eabc937631f23eae965372">Simulation::update</a></div><div class="ttdeci">void update(unsigned char *mem_base)</div><div class="ttdoc">Updates positions, forces, and interactions between boids.</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00124">Simulation.cpp:124</a></div></div>
+<div class="ttc" id="aglobals_8h_html_a29cf45bbde1c12a928fc01f19b547075"><div class="ttname"><a href="globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a></div><div class="ttdeci">unsigned short * fb</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00055">globals.cpp:55</a></div></div>
+<div class="ttc" id="amzapo__regs_8h_html_aa421b3b6aad9fdc70be0f2f75ef0383e"><div class="ttname"><a href="mzapo__regs_8h.html#aa421b3b6aad9fdc70be0f2f75ef0383e">SPILED_REG_LED_LINE_o</a></div><div class="ttdeci">#define SPILED_REG_LED_LINE_o</div><div class="ttdef"><b>Definition</b> <a href="mzapo__regs_8h_source.html#l00035">mzapo_regs.h:35</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -766,6 +582,8 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Initializes the spatial grid based on simulation resolution. </p>
+
 <p class="definition">Definition at line <a class="el" href="Simulation_8cpp_source.html#l00208">208</a> of file <a class="el" href="Simulation_8cpp_source.html">Simulation.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  208</span>                           {</div>
 <div class="line"><span class="lineno">  209</span>    <a class="code hl_variable" href="classSimulation.html#a68a1c4a23f0ff6b4d8c6ef80d55f0782">grid</a>.resize(<a class="code hl_variable" href="classSimulation.html#a68224e4f16d0d90ea901900b7042f422">GRID_WIDTH</a>);</div>
@@ -773,34 +591,6 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  211</span>        <a class="code hl_variable" href="classSimulation.html#a68a1c4a23f0ff6b4d8c6ef80d55f0782">grid</a>[i].resize(<a class="code hl_variable" href="classSimulation.html#a83b471d395160e24bb5ae724d0311e4a">GRID_HEIGHT</a>);</div>
 <div class="line"><span class="lineno">  212</span>    }</div>
 <div class="line"><span class="lineno">  213</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a5e4360f073ef19b14ac6e9f899391595" name="a5e4360f073ef19b14ac6e9f899391595"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5e4360f073ef19b14ac6e9f899391595">&#9670;&#160;</a></span>toggleParamAdjustMode()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void Simulation::toggleParamAdjustMode </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00028">28</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   28</span>{ <a class="code hl_variable" href="classSimulation.html#a9f17f20be069558a3629cdb67dfce78b">paramAdjustMode</a> = !<a class="code hl_variable" href="classSimulation.html#a9f17f20be069558a3629cdb67dfce78b">paramAdjustMode</a>; }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -819,6 +609,14 @@ Static Private Attributes</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Updates positions, forces, and interactions between boids. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">mem_base</td><td>Pointer to base memory </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p class="definition">Definition at line <a class="el" href="Simulation_8cpp_source.html#l00124">124</a> of file <a class="el" href="Simulation_8cpp_source.html">Simulation.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  124</span>                                               {</div>
@@ -845,7 +643,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  145</span>                    <span class="keywordflow">if</span> (neighborIdx == i)</div>
 <div class="line"><span class="lineno">  146</span>                        <span class="keywordflow">continue</span>;                            </div>
 <div class="line"><span class="lineno">  147</span>                    <span class="keywordtype">float</span> <a class="code hl_function" href="namespaceVector2Util.html#ad63703239fc51e2327712c6749bd8fc5">distance</a> = <a class="code hl_function" href="namespaceVector2Util.html#ad63703239fc51e2327712c6749bd8fc5">Vector2Util::distance</a>(<a class="code hl_variable" href="classSimulation.html#a46e57bf35959fd2c765b0d4519ee4467">preys</a>[i].getPosition(), <a class="code hl_variable" href="classSimulation.html#a46e57bf35959fd2c765b0d4519ee4467">preys</a>[neighborIdx].getPosition());</div>
-<div class="line"><span class="lineno">  148</span>                    <span class="keywordflow">if</span> (distance &lt; <a class="code hl_variable" href="Globals_8h.html#a94170a5a89ed35df41693faf282867e8">PERCEPTION_RADIUS</a>) {</div>
+<div class="line"><span class="lineno">  148</span>                    <span class="keywordflow">if</span> (distance &lt; <a class="code hl_variable" href="globals_8h.html#a94170a5a89ed35df41693faf282867e8">PERCEPTION_RADIUS</a>) {</div>
 <div class="line"><span class="lineno">  149</span>                        neighbors.push_back(&amp;<a class="code hl_variable" href="classSimulation.html#a46e57bf35959fd2c765b0d4519ee4467">preys</a>[neighborIdx]);</div>
 <div class="line"><span class="lineno">  150</span>                    }</div>
 <div class="line"><span class="lineno">  151</span>                }</div>
@@ -866,7 +664,7 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  166</span>        <span class="keywordtype">bool</span> killed = predator.tryToKill(<a class="code hl_variable" href="classSimulation.html#a46e57bf35959fd2c765b0d4519ee4467">preys</a>);</div>
 <div class="line"><span class="lineno">  167</span>        </div>
 <div class="line"><span class="lineno">  168</span>        <span class="keywordflow">if</span> (killed) {</div>
-<div class="line"><span class="lineno">  169</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="classSimulation.html#a46e57bf35959fd2c765b0d4519ee4467">preys</a>.size() &lt; <a class="code hl_variable" href="Globals_8h.html#a7efaddb2711d86cae6686907c7818830">PREYS_COUNT</a>) {</div>
+<div class="line"><span class="lineno">  169</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="classSimulation.html#a46e57bf35959fd2c765b0d4519ee4467">preys</a>.size() &lt; <a class="code hl_variable" href="globals_8h.html#a7efaddb2711d86cae6686907c7818830">PREYS_COUNT</a>) {</div>
 <div class="line"><span class="lineno">  170</span>                <a class="code hl_variable" href="classSimulation.html#a46e57bf35959fd2c765b0d4519ee4467">preys</a>.emplace_back(posDis_x(<a class="code hl_variable" href="Boid_8cpp.html#ab577cbc7a7051e1bcf60c2c1797a0feb">gen</a>), posDis_y(<a class="code hl_variable" href="Boid_8cpp.html#ab577cbc7a7051e1bcf60c2c1797a0feb">gen</a>));</div>
 <div class="line"><span class="lineno">  171</span>                uint32_t blue_color = 0x0000FF;</div>
 <div class="line"><span class="lineno">  172</span>                *(<span class="keyword">volatile</span> uint32_t*)(mem_base + <a class="code hl_define" href="mzapo__regs_8h.html#a7b24a79dbfff0cab06021c259e967d6e">SPILED_REG_LED_RGB2_o</a>) = blue_color;</div>
@@ -876,38 +674,14 @@ Static Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">  176</span>        }</div>
 <div class="line"><span class="lineno">  177</span>    }</div>
 <div class="line"><span class="lineno">  178</span>}</div>
-<div class="ttc" id="aGlobals_8h_html_a94170a5a89ed35df41693faf282867e8"><div class="ttname"><a href="Globals_8h.html#a94170a5a89ed35df41693faf282867e8">PERCEPTION_RADIUS</a></div><div class="ttdeci">float PERCEPTION_RADIUS</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00014">globals.cpp:14</a></div></div>
-<div class="ttc" id="aclassSimulation_html_a29a14007ebc5727db56567aaf828343b"><div class="ttname"><a href="classSimulation.html#a29a14007ebc5727db56567aaf828343b">Simulation::clearGrid</a></div><div class="ttdeci">void clearGrid()</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00200">Simulation.cpp:200</a></div></div>
-<div class="ttc" id="aclassSimulation_html_a30008b658ae46bec7619b015f38e8d34"><div class="ttname"><a href="classSimulation.html#a30008b658ae46bec7619b015f38e8d34">Simulation::getGridCell</a></div><div class="ttdeci">sf::Vector2i getGridCell(const sf::Vector2f &amp;position)</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00215">Simulation.cpp:215</a></div></div>
-<div class="ttc" id="anamespaceVector2Util_html_ad63703239fc51e2327712c6749bd8fc5"><div class="ttname"><a href="namespaceVector2Util.html#ad63703239fc51e2327712c6749bd8fc5">Vector2Util::distance</a></div><div class="ttdeci">float distance(const sf::Vector2f &amp;v1, const sf::Vector2f &amp;v2)</div><div class="ttdef"><b>Definition</b> <a href="Vector2Util_8hpp_source.html#l00022">Vector2Util.hpp:22</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a29a14007ebc5727db56567aaf828343b"><div class="ttname"><a href="classSimulation.html#a29a14007ebc5727db56567aaf828343b">Simulation::clearGrid</a></div><div class="ttdeci">void clearGrid()</div><div class="ttdoc">Clears the spatial grid used for spatial partitioning.</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00200">Simulation.cpp:200</a></div></div>
+<div class="ttc" id="aclassSimulation_html_a30008b658ae46bec7619b015f38e8d34"><div class="ttname"><a href="classSimulation.html#a30008b658ae46bec7619b015f38e8d34">Simulation::getGridCell</a></div><div class="ttdeci">sf::Vector2i getGridCell(const sf::Vector2f &amp;position)</div><div class="ttdoc">Returns the grid cell index for a given position.</div><div class="ttdef"><b>Definition</b> <a href="Simulation_8cpp_source.html#l00215">Simulation.cpp:215</a></div></div>
+<div class="ttc" id="aglobals_8h_html_a94170a5a89ed35df41693faf282867e8"><div class="ttname"><a href="globals_8h.html#a94170a5a89ed35df41693faf282867e8">PERCEPTION_RADIUS</a></div><div class="ttdeci">float PERCEPTION_RADIUS</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00014">globals.cpp:14</a></div></div>
+<div class="ttc" id="anamespaceVector2Util_html_ad63703239fc51e2327712c6749bd8fc5"><div class="ttname"><a href="namespaceVector2Util.html#ad63703239fc51e2327712c6749bd8fc5">Vector2Util::distance</a></div><div class="ttdeci">float distance(const sf::Vector2f &amp;v1, const sf::Vector2f &amp;v2)</div><div class="ttdoc">Calculates the distance between two vectors.</div><div class="ttdef"><b>Definition</b> <a href="Vector2Util_8hpp_source.html#l00052">Vector2Util.hpp:52</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aa12302e6c854463d761bde09f8987819" name="aa12302e6c854463d761bde09f8987819"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa12302e6c854463d761bde09f8987819">&#9670;&#160;</a></span>adjustableParams</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt;<a class="el" href="structSimulation_1_1AdjustableParam.html">AdjustableParam</a>&gt; Simulation::adjustableParams</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00055">55</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
-
-</div>
-</div>
 <a id="a89c7553eba359213ff6c527174240b14" name="a89c7553eba359213ff6c527174240b14"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a89c7553eba359213ff6c527174240b14">&#9670;&#160;</a></span>background_color</h2>
 
@@ -928,31 +702,9 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00063">63</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
+<p>Color used to clear the screen before rendering each frame. </p>
 
-</div>
-</div>
-<a id="a5da110b8f03598854529376953ada2b7" name="a5da110b8f03598854529376953ada2b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5da110b8f03598854529376953ada2b7">&#9670;&#160;</a></span>currentParamIndex</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int Simulation::currentParamIndex = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00042">42</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00110">110</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
 
 </div>
 </div>
@@ -976,7 +728,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00039">39</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00090">90</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
 
 </div>
 </div>
@@ -1000,7 +752,10 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00060">60</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
+<p>Spatial resolution constants. </p>
+<p>GRID_CELL_SIZE defines how large each grid cell is in pixels GRID_WIDTH and GRID_HEIGHT are derived from the screen dimensions </p>
+
+<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00103">103</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
 
 </div>
 </div>
@@ -1024,7 +779,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00062">62</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00105">105</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
 
 </div>
 </div>
@@ -1048,12 +803,12 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00061">61</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00104">104</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
 
 </div>
 </div>
-<a id="af69f611f6df1e37831f1fe78a93839e5" name="af69f611f6df1e37831f1fe78a93839e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af69f611f6df1e37831f1fe78a93839e5">&#9670;&#160;</a></span>lastBlueKnob</h2>
+<a id="a19db5e0c3f7a9a2e7dced7c7dbd6e0b5" name="a19db5e0c3f7a9a2e7dced7c7dbd6e0b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a19db5e0c3f7a9a2e7dced7c7dbd6e0b5">&#9670;&#160;</a></span>paramManager</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1062,7 +817,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int8_t Simulation::lastBlueKnob = 0</td>
+          <td class="memname"><a class="el" href="classParameterManager.html">ParameterManager</a> Simulation::paramManager</td>
         </tr>
       </table>
   </td>
@@ -1072,79 +827,9 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00043">43</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
+<p>Handles user-adjustable parameters like weights and distances. </p>
 
-</div>
-</div>
-<a id="a9e76af2db4c5bd84397540f9dc755c0e" name="a9e76af2db4c5bd84397540f9dc755c0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e76af2db4c5bd84397540f9dc755c0e">&#9670;&#160;</a></span>PARAM_DISPLAY_TIME</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const uint64_t Simulation::PARAM_DISPLAY_TIME = 2000000</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00046">46</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
-
-</div>
-</div>
-<a id="a9f17f20be069558a3629cdb67dfce78b" name="a9f17f20be069558a3629cdb67dfce78b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f17f20be069558a3629cdb67dfce78b">&#9670;&#160;</a></span>paramAdjustMode</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Simulation::paramAdjustMode = false</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00041">41</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
-
-</div>
-</div>
-<a id="abf9507b716d37d90af8ecd6cc486d5d3" name="abf9507b716d37d90af8ecd6cc486d5d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf9507b716d37d90af8ecd6cc486d5d3">&#9670;&#160;</a></span>paramSelectionTime</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">uint64_t Simulation::paramSelectionTime = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00045">45</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00095">95</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
 
 </div>
 </div>
@@ -1168,7 +853,7 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00038">38</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00089">89</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
 
 </div>
 </div>
@@ -1192,31 +877,14 @@ Static Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00037">37</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
+<p><a class="el" href="classBoid.html" title="Represents a single Boid in a flocking simulation.">Boid</a> population and spatial management. </p>
+<ul>
+<li>preys: List of all prey boids</li>
+<li>predators: List of predator boids</li>
+<li>grid: 3D spatial grid for partitioning the simulation space to improve neighbor search efficiency </li>
+</ul>
 
-</div>
-</div>
-<a id="aca0ec9cfcdf3a0d3d1cae8c8408a9f87" name="aca0ec9cfcdf3a0d3d1cae8c8408a9f87"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aca0ec9cfcdf3a0d3d1cae8c8408a9f87">&#9670;&#160;</a></span>showingSelectedParam</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool Simulation::showingSelectedParam = false</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00044">44</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Simulation_8hpp_source.html#l00088">88</a> of file <a class="el" href="Simulation_8hpp_source.html">Simulation.hpp</a>.</p>
 
 </div>
 </div>

@@ -5,5 +5,5 @@ digraph "Graphical Class Hierarchy"
   edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
   node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
   rankdir="LR";
-  Node0 [id="Node000000",label="Window",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classWindow.html",tooltip="UI window that holds buttons and handles drawing and button selection."];
+  Node0 [id="Node000000",label="Simulation",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$classSimulation.html",tooltip="Runs and manages the main boids simulation including updating, drawing and handling interactions betw..."];
 }

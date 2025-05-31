@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Boids Simulation: include/simulation/serialize_lock.h Source File</title>
+<title>Boids Simulation: include/platform/serialize_lock.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,7 +69,7 @@ $(document).ready(function() { init_codefold(0); });
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('simulation_2serialize__lock_8h_source.html',''); initResizable(); });
+$(document).ready(function(){initNavTree('platform_2serialize__lock_8h_source.html',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -98,7 +98,7 @@ $(document).ready(function(){initNavTree('simulation_2serialize__lock_8h_source.
   <div class="headertitle"><div class="title">serialize_lock.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="simulation_2serialize__lock_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef SERIALIZE_LOCK_H</span></div>
+<a href="platform_2serialize__lock_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef SERIALIZE_LOCK_H</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define SERIALIZE_LOCK_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
@@ -107,23 +107,23 @@ $(document).ready(function(){initNavTree('simulation_2serialize__lock_8h_source.
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="simulation_2serialize__lock_8h.html#ae6ea03b9798717001e8a15fc3735eb84">   10</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="simulation_2serialize__lock_8h.html#ae6ea03b9798717001e8a15fc3735eb84">serialize_lock</a>(<span class="keywordtype">int</span> no_wait);</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="platform_2serialize__lock_8h.html#ae6ea03b9798717001e8a15fc3735eb84">   10</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="platform_2serialize__lock_8h.html#ae6ea03b9798717001e8a15fc3735eb84">serialize_lock</a>(<span class="keywordtype">int</span> no_wait);</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="simulation_2serialize__lock_8h.html#a916ef18f4a12bc1b318105ec3020f3b4">   12</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="simulation_2serialize__lock_8h.html#a916ef18f4a12bc1b318105ec3020f3b4">serialize_unlock</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="platform_2serialize__lock_8h.html#a916ef18f4a12bc1b318105ec3020f3b4">   12</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="platform_2serialize__lock_8h.html#a916ef18f4a12bc1b318105ec3020f3b4">serialize_unlock</a>(<span class="keywordtype">void</span>);</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#ifdef __cplusplus</span></div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>} <span class="comment">/* extern &quot;C&quot;*/</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
 <div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif  </span><span class="comment">/*SERIALIZE_LOCK_H*/</span><span class="preprocessor"></span></div>
-<div class="ttc" id="asimulation_2serialize__lock_8h_html_a916ef18f4a12bc1b318105ec3020f3b4"><div class="ttname"><a href="simulation_2serialize__lock_8h.html#a916ef18f4a12bc1b318105ec3020f3b4">serialize_unlock</a></div><div class="ttdeci">void serialize_unlock(void)</div></div>
-<div class="ttc" id="asimulation_2serialize__lock_8h_html_ae6ea03b9798717001e8a15fc3735eb84"><div class="ttname"><a href="simulation_2serialize__lock_8h.html#ae6ea03b9798717001e8a15fc3735eb84">serialize_lock</a></div><div class="ttdeci">int serialize_lock(int no_wait)</div></div>
+<div class="ttc" id="aplatform_2serialize__lock_8h_html_a916ef18f4a12bc1b318105ec3020f3b4"><div class="ttname"><a href="platform_2serialize__lock_8h.html#a916ef18f4a12bc1b318105ec3020f3b4">serialize_unlock</a></div><div class="ttdeci">void serialize_unlock(void)</div></div>
+<div class="ttc" id="aplatform_2serialize__lock_8h_html_ae6ea03b9798717001e8a15fc3735eb84"><div class="ttname"><a href="platform_2serialize__lock_8h.html#ae6ea03b9798717001e8a15fc3735eb84">serialize_lock</a></div><div class="ttdeci">int serialize_lock(int no_wait)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_5b4f22f4782ab9e132490b62f43f6146.html">simulation</a></li><li class="navelem"><a class="el" href="simulation_2serialize__lock_8h.html">serialize_lock.h</a></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_ac186d3e8926949364e5821f25491cc3.html">platform</a></li><li class="navelem"><a class="el" href="platform_2serialize__lock_8h.html">serialize_lock.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.8 </li>
   </ul>
 </div>

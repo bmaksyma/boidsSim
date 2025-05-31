@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['lastblueknob_0',['lastBlueKnob',['../classSimulation.html#af69f611f6df1e37831f1fe78a93839e5',1,'Simulation']]]
+  ['lastblueknob_0',['lastBlueKnob',['../classParameterManager.html#a81699f9ff51aa62f323ac156a0b47936',1,'ParameterManager']]]
 ];

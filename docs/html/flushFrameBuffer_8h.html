@@ -95,7 +95,13 @@ $(document).ready(function(){initNavTree('flushFrameBuffer_8h.html',''); initRes
   <div class="headertitle"><div class="title">flushFrameBuffer.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><div class="dynheader">
+<div class="textblock"><code>#include &lt;cstdint&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for flushFrameBuffer.h:</div>
+<div class="dyncontent">
+<div class="center"><img src="flushFrameBuffer_8h__incl.png" border="0" usemap="#ainclude_2utils_2flushFrameBuffer_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="flushFrameBuffer_8h__dep__incl.png" border="0" usemap="#ainclude_2utils_2flushFrameBuffer_8hdep" alt=""/></div>
@@ -105,7 +111,8 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a0f0696ba5115be4bfa7b52530f4c2442" id="r_a0f0696ba5115be4bfa7b52530f4c2442"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="flushFrameBuffer_8h.html#a0f0696ba5115be4bfa7b52530f4c2442">flushFramebuffer</a> (unsigned char *parlcd_mem_base, unsigned short *<a class="el" href="Globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>)</td></tr>
+<tr class="memitem:a0f0696ba5115be4bfa7b52530f4c2442" id="r_a0f0696ba5115be4bfa7b52530f4c2442"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="flushFrameBuffer_8h.html#a0f0696ba5115be4bfa7b52530f4c2442">flushFramebuffer</a> (unsigned char *parlcd_mem_base, unsigned short *<a class="el" href="globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>)</td></tr>
+<tr class="memdesc:a0f0696ba5115be4bfa7b52530f4c2442"><td class="mdescLeft">&#160;</td><td class="mdescRight">Flush the local framebuffer content to the LCD screen.  <br /></td></tr>
 <tr class="separator:a0f0696ba5115be4bfa7b52530f4c2442"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
@@ -135,16 +142,26 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Flush the local framebuffer content to the LCD screen. </p>
+<p>Sends pixel data from the local framebuffer to the display</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">parlcd_mem_base</td><td>Pointer to memory-mapped parlcd registers </td></tr>
+    <tr><td class="paramname">fb</td><td>Pointer to the framebuffer </td></tr>
+  </table>
+  </dd>
+</dl>
+
 <p class="definition">Definition at line <a class="el" href="flushFrameBuffer_8cpp_source.html#l00012">12</a> of file <a class="el" href="flushFrameBuffer_8cpp_source.html">flushFrameBuffer.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   12</span>                                                                          {</div>
 <div class="line"><span class="lineno">   13</span>    <a class="code hl_function" href="mzapo__parlcd_8h.html#ab30b1b616caf5991cd8e1a6a52ba23e7">parlcd_write_cmd</a>(parlcd_mem_base, 0x2C);</div>
 <div class="line"><span class="lineno">   14</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_define" href="flushFrameBuffer_8cpp.html#a241aeeb764887ae5e3de58b98f04b16d">WIDTH</a> * <a class="code hl_define" href="flushFrameBuffer_8cpp.html#aed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a>; ++i) {</div>
-<div class="line"><span class="lineno">   15</span>        <a class="code hl_function" href="mzapo__parlcd_8h.html#ab9125a7610ba0302c004802fb908590d">parlcd_write_data</a>(parlcd_mem_base, <a class="code hl_variable" href="Globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>[i]);</div>
+<div class="line"><span class="lineno">   15</span>        <a class="code hl_function" href="mzapo__parlcd_8h.html#ab9125a7610ba0302c004802fb908590d">parlcd_write_data</a>(parlcd_mem_base, <a class="code hl_variable" href="globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>[i]);</div>
 <div class="line"><span class="lineno">   16</span>    }</div>
 <div class="line"><span class="lineno">   17</span>}</div>
-<div class="ttc" id="aGlobals_8h_html_a29cf45bbde1c12a928fc01f19b547075"><div class="ttname"><a href="Globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a></div><div class="ttdeci">unsigned short * fb</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00055">globals.cpp:55</a></div></div>
 <div class="ttc" id="aflushFrameBuffer_8cpp_html_a241aeeb764887ae5e3de58b98f04b16d"><div class="ttname"><a href="flushFrameBuffer_8cpp.html#a241aeeb764887ae5e3de58b98f04b16d">WIDTH</a></div><div class="ttdeci">#define WIDTH</div><div class="ttdef"><b>Definition</b> <a href="flushFrameBuffer_8cpp_source.html#l00009">flushFrameBuffer.cpp:9</a></div></div>
 <div class="ttc" id="aflushFrameBuffer_8cpp_html_aed89bd71aee8be823e8a20ec4e093c1e"><div class="ttname"><a href="flushFrameBuffer_8cpp.html#aed89bd71aee8be823e8a20ec4e093c1e">HEIGHT</a></div><div class="ttdeci">#define HEIGHT</div><div class="ttdef"><b>Definition</b> <a href="flushFrameBuffer_8cpp_source.html#l00008">flushFrameBuffer.cpp:8</a></div></div>
+<div class="ttc" id="aglobals_8h_html_a29cf45bbde1c12a928fc01f19b547075"><div class="ttname"><a href="globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a></div><div class="ttdeci">unsigned short * fb</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00055">globals.cpp:55</a></div></div>
 <div class="ttc" id="amzapo__parlcd_8h_html_ab30b1b616caf5991cd8e1a6a52ba23e7"><div class="ttname"><a href="mzapo__parlcd_8h.html#ab30b1b616caf5991cd8e1a6a52ba23e7">parlcd_write_cmd</a></div><div class="ttdeci">void parlcd_write_cmd(unsigned char *parlcd_mem_base, uint16_t cmd)</div></div>
 <div class="ttc" id="amzapo__parlcd_8h_html_ab9125a7610ba0302c004802fb908590d"><div class="ttname"><a href="mzapo__parlcd_8h.html#ab9125a7610ba0302c004802fb908590d">parlcd_write_data</a></div><div class="ttdeci">void parlcd_write_data(unsigned char *parlcd_mem_base, uint16_t data)</div></div>
 </div><!-- fragment -->

@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['handleblueknob_0',['handleBlueKnob',['../classSimulation.html#a6e554dd42de251ef022f10bef90ff515',1,'Simulation']]],
+  ['handleblueknob_0',['handleBlueKnob',['../classParameterManager.html#a802147599d240ed41468bc36021ed5ef',1,'ParameterManager']]],
   ['handlefontchoice_1',['handlefontchoice',['../font__color__logic_8h.html#a7b2229a16aef681e38aa5ad490b1cb66',1,'handleFontChoice(int8_t delta, int &amp;selectedFontID, std::vector&lt; font_descriptor_t * &gt; &amp;availableFonts, Window *activeWindow, Window *mainWindow, Window *settingsWindow):&#160;font_color_logic.cpp'],['../font__color__logic_8cpp.html#a7b2229a16aef681e38aa5ad490b1cb66',1,'handleFontChoice(int8_t delta, int &amp;selectedFontID, std::vector&lt; font_descriptor_t * &gt; &amp;availableFonts, Window *activeWindow, Window *mainWindow, Window *settingsWindow):&#160;font_color_logic.cpp']]],
   ['handlethemechoice_2',['handlethemechoice',['../font__color__logic_8h.html#afc4a0fe3268f43ceffaacee02429a85b',1,'handleThemeChoice(int8_t delta, int &amp;selectedThemeID, std::vector&lt; uint16_t &gt; &amp;buttonColors, Window *activeWindow, Window *mainWindow, Window *settingsWindow):&#160;font_color_logic.cpp'],['../font__color__logic_8cpp.html#afc4a0fe3268f43ceffaacee02429a85b',1,'handleThemeChoice(int8_t delta, int &amp;selectedThemeID, std::vector&lt; uint16_t &gt; &amp;buttonColors, Window *activeWindow, Window *mainWindow, Window *settingsWindow):&#160;font_color_logic.cpp']]],
   ['hunt_3',['hunt',['../classPredator.html#a91c97722abc51b29512479ec6f6086a0',1,'Predator']]]
