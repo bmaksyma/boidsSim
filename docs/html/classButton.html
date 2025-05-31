@@ -151,6 +151,9 @@ Public Attributes</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">Button::Button </td>
@@ -200,6 +203,11 @@ Public Attributes</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Constructor for a new <a class="el" href="classButton.html" title="Represents a UI button element that can be drawn on the screen and activated.">Button</a>. </p>
@@ -216,6 +224,17 @@ Public Attributes</h2></td></tr>
   </dd>
 </dl>
 
+<p class="definition">Definition at line <a class="el" href="Button_8h_source.html#l00048">48</a> of file <a class="el" href="Button_8h_source.html">Button.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   49</span>        : <a class="code hl_variable" href="classButton.html#a2ec3bc40025b64b44319e7464164d61f">x</a>(<a class="code hl_variable" href="classButton.html#a2ec3bc40025b64b44319e7464164d61f">x</a>), <a class="code hl_variable" href="classButton.html#afff35ce0c47f662c3b096e5b644648a5">y</a>(<a class="code hl_variable" href="classButton.html#afff35ce0c47f662c3b096e5b644648a5">y</a>), <a class="code hl_variable" href="classButton.html#a94051f6f79d4436d8a268a81b828863a">width</a>(<a class="code hl_variable" href="classButton.html#a2ec3bc40025b64b44319e7464164d61f">w</a>), <a class="code hl_variable" href="classButton.html#a1c43732d529541e53c6b83607bdc5673">height</a>(<a class="code hl_variable" href="classButton.html#a2ec3bc40025b64b44319e7464164d61f">h</a>), <a class="code hl_variable" href="classButton.html#a85e6a1d9d30a3be7564b0a9259d2dbe8">color</a>(<a class="code hl_variable" href="classButton.html#a85e6a1d9d30a3be7564b0a9259d2dbe8">color</a>), <a class="code hl_variable" href="classButton.html#a55abbb4ec3e457ff8f1ed43831ea986c">text</a>(<a class="code hl_variable" href="classButton.html#a55abbb4ec3e457ff8f1ed43831ea986c">text</a>), <a class="code hl_variable" href="classButton.html#a7e9bac3e0c56cff44c2ca289d6f4beb0">selected</a>(<span class="keyword">false</span>), <a class="code hl_variable" href="classButton.html#a6450dc2078d5517dee22a71f8bf62a77">action</a>(<a class="code hl_variable" href="classButton.html#a6450dc2078d5517dee22a71f8bf62a77">action</a>) {}</div>
+<div class="ttc" id="aclassButton_html_a1c43732d529541e53c6b83607bdc5673"><div class="ttname"><a href="classButton.html#a1c43732d529541e53c6b83607bdc5673">Button::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00027">Button.h:27</a></div></div>
+<div class="ttc" id="aclassButton_html_a2ec3bc40025b64b44319e7464164d61f"><div class="ttname"><a href="classButton.html#a2ec3bc40025b64b44319e7464164d61f">Button::x</a></div><div class="ttdeci">int x</div><div class="ttdoc">Default constructor for Button, initializes with default values @variable x, y, width,...</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00024">Button.h:24</a></div></div>
+<div class="ttc" id="aclassButton_html_a55abbb4ec3e457ff8f1ed43831ea986c"><div class="ttname"><a href="classButton.html#a55abbb4ec3e457ff8f1ed43831ea986c">Button::text</a></div><div class="ttdeci">std::string text</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00029">Button.h:29</a></div></div>
+<div class="ttc" id="aclassButton_html_a6450dc2078d5517dee22a71f8bf62a77"><div class="ttname"><a href="classButton.html#a6450dc2078d5517dee22a71f8bf62a77">Button::action</a></div><div class="ttdeci">std::function&lt; void()&gt; action</div><div class="ttdoc">Callback function to execute when the button is activated.</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00035">Button.h:35</a></div></div>
+<div class="ttc" id="aclassButton_html_a7e9bac3e0c56cff44c2ca289d6f4beb0"><div class="ttname"><a href="classButton.html#a7e9bac3e0c56cff44c2ca289d6f4beb0">Button::selected</a></div><div class="ttdeci">bool selected</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00030">Button.h:30</a></div></div>
+<div class="ttc" id="aclassButton_html_a85e6a1d9d30a3be7564b0a9259d2dbe8"><div class="ttname"><a href="classButton.html#a85e6a1d9d30a3be7564b0a9259d2dbe8">Button::color</a></div><div class="ttdeci">uint16_t color</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00028">Button.h:28</a></div></div>
+<div class="ttc" id="aclassButton_html_a94051f6f79d4436d8a268a81b828863a"><div class="ttname"><a href="classButton.html#a94051f6f79d4436d8a268a81b828863a">Button::width</a></div><div class="ttdeci">int width</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00026">Button.h:26</a></div></div>
+<div class="ttc" id="aclassButton_html_afff35ce0c47f662c3b096e5b644648a5"><div class="ttname"><a href="classButton.html#afff35ce0c47f662c3b096e5b644648a5">Button::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00025">Button.h:25</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
@@ -242,7 +261,6 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   17</span>        <a class="code hl_variable" href="classButton.html#a6450dc2078d5517dee22a71f8bf62a77">action</a>();</div>
 <div class="line"><span class="lineno">   18</span>    }</div>
 <div class="line"><span class="lineno">   19</span>}</div>
-<div class="ttc" id="aclassButton_html_a6450dc2078d5517dee22a71f8bf62a77"><div class="ttname"><a href="classButton.html#a6450dc2078d5517dee22a71f8bf62a77">Button::action</a></div><div class="ttdeci">std::function&lt; void()&gt; action</div><div class="ttdoc">Callback function to execute when the button is activated.</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00035">Button.h:35</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -312,13 +330,6 @@ Public Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   48</span>    </div>
 <div class="line"><span class="lineno">   49</span>    <a class="code hl_function" href="text__draw_8h.html#a5d7321f6bcb46c40c63c23d00beaa3e2">draw_text</a>(<a class="code hl_variable" href="globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a>, <a class="code hl_variable" href="classButton.html#a2ec3bc40025b64b44319e7464164d61f">text_x</a>, <a class="code hl_variable" href="classButton.html#a2ec3bc40025b64b44319e7464164d61f">text_y</a>, <a class="code hl_variable" href="classButton.html#a2ec3bc40025b64b44319e7464164d61f">font</a>, <a class="code hl_variable" href="classButton.html#a55abbb4ec3e457ff8f1ed43831ea986c">text</a>.c_str(), <a class="code hl_variable" href="classButton.html#a2ec3bc40025b64b44319e7464164d61f">text_color</a>, <a class="code hl_variable" href="classButton.html#a2ec3bc40025b64b44319e7464164d61f">scale</a>);</div>
 <div class="line"><span class="lineno">   50</span>}</div>
-<div class="ttc" id="aclassButton_html_a1c43732d529541e53c6b83607bdc5673"><div class="ttname"><a href="classButton.html#a1c43732d529541e53c6b83607bdc5673">Button::height</a></div><div class="ttdeci">int height</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00027">Button.h:27</a></div></div>
-<div class="ttc" id="aclassButton_html_a2ec3bc40025b64b44319e7464164d61f"><div class="ttname"><a href="classButton.html#a2ec3bc40025b64b44319e7464164d61f">Button::x</a></div><div class="ttdeci">int x</div><div class="ttdoc">Default constructor for Button, initializes with default values @variable x, y, width,...</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00024">Button.h:24</a></div></div>
-<div class="ttc" id="aclassButton_html_a55abbb4ec3e457ff8f1ed43831ea986c"><div class="ttname"><a href="classButton.html#a55abbb4ec3e457ff8f1ed43831ea986c">Button::text</a></div><div class="ttdeci">std::string text</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00029">Button.h:29</a></div></div>
-<div class="ttc" id="aclassButton_html_a7e9bac3e0c56cff44c2ca289d6f4beb0"><div class="ttname"><a href="classButton.html#a7e9bac3e0c56cff44c2ca289d6f4beb0">Button::selected</a></div><div class="ttdeci">bool selected</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00030">Button.h:30</a></div></div>
-<div class="ttc" id="aclassButton_html_a85e6a1d9d30a3be7564b0a9259d2dbe8"><div class="ttname"><a href="classButton.html#a85e6a1d9d30a3be7564b0a9259d2dbe8">Button::color</a></div><div class="ttdeci">uint16_t color</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00028">Button.h:28</a></div></div>
-<div class="ttc" id="aclassButton_html_a94051f6f79d4436d8a268a81b828863a"><div class="ttname"><a href="classButton.html#a94051f6f79d4436d8a268a81b828863a">Button::width</a></div><div class="ttdeci">int width</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00026">Button.h:26</a></div></div>
-<div class="ttc" id="aclassButton_html_afff35ce0c47f662c3b096e5b644648a5"><div class="ttname"><a href="classButton.html#afff35ce0c47f662c3b096e5b644648a5">Button::y</a></div><div class="ttdeci">int y</div><div class="ttdef"><b>Definition</b> <a href="Button_8h_source.html#l00025">Button.h:25</a></div></div>
 <div class="ttc" id="adraw__utils_8h_html_a968c32e4ca784b2a580372c591b1c75c"><div class="ttname"><a href="draw__utils_8h.html#a968c32e4ca784b2a580372c591b1c75c">draw_rounded_rect</a></div><div class="ttdeci">void draw_rounded_rect(unsigned short *fb, int x, int y, int w, int h, int radius, unsigned short int color)</div><div class="ttdoc">Draw a filled rectangle with rounded corners.</div><div class="ttdef"><b>Definition</b> <a href="draw__utils_8cpp_source.html#l00022">draw_utils.cpp:22</a></div></div>
 <div class="ttc" id="aglobals_8h_html_a29cf45bbde1c12a928fc01f19b547075"><div class="ttname"><a href="globals_8h.html#a29cf45bbde1c12a928fc01f19b547075">fb</a></div><div class="ttdeci">unsigned short * fb</div><div class="ttdef"><b>Definition</b> <a href="globals_8cpp_source.html#l00055">globals.cpp:55</a></div></div>
 <div class="ttc" id="atext__draw_8h_html_a5d7321f6bcb46c40c63c23d00beaa3e2"><div class="ttname"><a href="text__draw_8h.html#a5d7321f6bcb46c40c63c23d00beaa3e2">draw_text</a></div><div class="ttdeci">void draw_text(unsigned short *fb, int x, int y, font_descriptor_t *fdes, const char *text, unsigned short color, int scale)</div><div class="ttdoc">Draws a text string starting at a position.</div><div class="ttdef"><b>Definition</b> <a href="text__draw_8cpp_source.html#l00038">text_draw.cpp:38</a></div></div>
